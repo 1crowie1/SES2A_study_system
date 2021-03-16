@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Form, Button} from "react-bootstrap";
+import {Form, Button, Card} from "react-bootstrap";
 import "./LoginForm.scss";
 
 const LoginForm = () => {
@@ -14,6 +14,10 @@ const LoginForm = () => {
   return (
     <React.Fragment>
     <div className="LoginBox">
+    <div class="shadow p-3 mb-5 bg-white rounded">
+    <Card style={{width: '25rem', height: '25rem', border: 'none' }}>
+      <Card.Body>
+       <Card.Title className="card-title">Sign in</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>
@@ -36,7 +40,13 @@ const LoginForm = () => {
             Login
           </Button>
         </Form>
-      </div>
+
+        <Card.Text><a href="#">Forgot your password?</a> </Card.Text>
+
+      </Card.Body>
+    </Card>
+    </div>
+    </div>
     </React.Fragment>
   )
 };
