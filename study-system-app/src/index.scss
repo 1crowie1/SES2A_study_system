@@ -1,4 +1,6 @@
+//Importing Font Family
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+//Importing sass library
 @import "~bootstrap/scss/bootstrap";
 
 body {
@@ -10,5 +12,5 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }

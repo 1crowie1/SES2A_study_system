@@ -1,0 +1,33 @@
+.navbar {
+  height: 48px;
+  margin: 4px;
+
+
+  .navbar-brand{
+    position: relative;
+    background-size: contain;
+  }
+  .navbar-text{
+    a {
+      margin-right: 20px;
+      color: #30373F;
+      font-size: 1rem;
+    }
+  }
+  .btn{
+    background-color: #FFFFFF;
+    color: #30373F;
+    border-color: #30373F;
+    font-size: 1rem;
+    width: 96px;
+  }
+}
+
+@media (min-width: 475px){
+  .navbar-brand{
+    margin-left: 5%;
+  }
+  .btn{
+    margin-right: 5%;
+  }
+}
