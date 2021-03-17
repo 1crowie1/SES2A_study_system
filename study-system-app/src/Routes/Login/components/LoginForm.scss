@@ -31,8 +31,14 @@ $mainColour: #4267B2;
   .card-title{
     font-size: 30px;
   }
+  hr{
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  }
   .card-text{
-    float: right;
+    text-align: center;
     font-size: 15px;
   }
 }

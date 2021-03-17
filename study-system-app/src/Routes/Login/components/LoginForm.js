@@ -41,6 +41,8 @@ const LoginForm = () => {
           </Button>
         </Form>
 
+        <hr></hr>
+
         <Card.Text><a href="#">Forgot your password?</a> </Card.Text>
 
       </Card.Body>
