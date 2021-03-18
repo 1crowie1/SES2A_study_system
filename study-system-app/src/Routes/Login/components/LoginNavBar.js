@@ -23,9 +23,12 @@ const LoginNavBar = (props) => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
-              <a href="#">  Sign in </a>
+              <a href="/">  Sign in </a>
         </Navbar.Text>
-        <Button block size="lg" type="submit" variant="outline-secondary">
+        <Button block size="lg" type="submit"
+        variant="outline-secondary"
+        onClick={() => props.history.push("/Registration")}
+        >
           Sign up
         </Button>
         </Navbar.Collapse>

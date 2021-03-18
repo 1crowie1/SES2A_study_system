@@ -7,15 +7,11 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function validateForm() {
-   return email.length > 0 && password.length > 0;
- }
-
   return (
     <React.Fragment>
     <div className="LoginBox">
     <div class="shadow p-3 mb-5 bg-white rounded">
-    <Card style={{width: '25rem', height: '25rem', border: 'none' }}>
+    <Card style={{width: '25rem', height: '24rem', border: 'none' }}>
       <Card.Body>
        <Card.Title className="card-title">Sign in</Card.Title>
         <Form>
@@ -36,8 +32,8 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button block size="lg" type="submit" disabled={!validateForm()}>
-            Login
+          <Button block size="lg" type="submit">
+            Sign in
           </Button>
         </Form>
 

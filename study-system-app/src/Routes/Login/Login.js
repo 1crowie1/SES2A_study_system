@@ -10,7 +10,7 @@ function Login() {
   return (
       <div className="Login">
         <Helmet>
-          <title>Login to your account</title>
+          <title>Sign in to continue - GroupMe</title>
         </Helmet>
         <LoginNavBar/>
         <LoginForm/>
