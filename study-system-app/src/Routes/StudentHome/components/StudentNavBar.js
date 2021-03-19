@@ -1,18 +1,20 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import {Navbar, Button} from "react-bootstrap";
+import {Navbar, NavLink} from "react-bootstrap";
 import Logo from "../../../Assets/Logo.png";
 
-import "./LoginNavBar.scss";
+import "./StudentNavBar.scss";
 
 // Using history in props for routing to different components
-const LoginNavBar = (props) => {
+const StudentNavBar = (props) => {
 
   return (
     <React.Fragment>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
       <Navbar>
-        <Navbar.Brand>
+      {/*Clicking logo will redirect to student home page*/}
+        <Navbar.Brand alt="StudentHome"
+        href="/StudentHome">
         <img
           alt=""
           src={Logo}
@@ -22,16 +24,22 @@ const LoginNavBar = (props) => {
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-        <Navbar.Text>
-              <a href="/">  Sign in </a>
-        </Navbar.Text>
-        {/* Onclick it will redirect the user to the registration page */}
-        <Button block size="lg" type="submit"
-        variant="outline-secondary"
-        onClick={() => props.history.push("/Registration")}
-        >
-          Sign up
-        </Button>
+
+        {/*Links to different pages for the student*/}
+
+        <NavLink className="link-one" href="#" color="inherit" >
+        Groups
+        </NavLink>
+
+        <NavLink className="link-two" href="#" color="inherit" >
+        Groups
+        </NavLink>
+
+        <NavLink className="link-three" href="#" color="inherit" >
+        Groups
+        </NavLink>
+
+
         </Navbar.Collapse>
       </Navbar>
     </div>
@@ -41,4 +49,4 @@ const LoginNavBar = (props) => {
 
 // Wrapping Navbar in a withRouter function in order to give it access to
 // this.props.history to redirect the user to the different components
-export default withRouter(LoginNavBar);
+export default withRouter(StudentNavBar);

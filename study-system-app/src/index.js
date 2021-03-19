@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   Login,
-  Registration
+  Registration,
+  StudentHome
 } from "./Routes/Routes";
 import "./index.scss";
 
@@ -13,6 +14,7 @@ ReactDOM.render(
    <Switch>
      <Route exact path="/" component={Login} />
      <Route path="/Registration" component={Registration} />
+     <Route path="/StudentHome" component={StudentHome} />
    </Switch>
  </Router>,
   document.getElementById('root')

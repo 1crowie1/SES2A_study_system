@@ -4,12 +4,16 @@ import "./LoginForm.scss";
 
 const LoginForm = () => {
 
+  // Needs backend to implement login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
     <React.Fragment>
     <div className="LoginBox">
+    {/* react-boostrap class to make the card have a shadow around it.
+        To allow for shadows had to set shadows to true in SASS bootsrap folder
+      */}
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card style={{width: '25rem', height: '24rem', border: 'none' }}>
       <Card.Body>
@@ -37,8 +41,11 @@ const LoginForm = () => {
           </Button>
         </Form>
 
+        {/* Line */}
         <hr></hr>
 
+        {/* This will need to be changed to a NavLink and redirect to the
+          forgot password page */}
         <Card.Text><a href="#">Forgot your password?</a> </Card.Text>
 
       </Card.Body>

@@ -1,0 +1,31 @@
+//Colour variables
+$mainColour: #4267B2;
+
+.navbar {
+  height: 50px;
+
+  .navbar-brand{
+    margin-left: 100px;
+    position: relative;
+    background-size: contain;
+  }
+  .link-one{
+      margin-right: 10px;
+      color: #30373F;
+      font-size: 1rem;
+  }
+  .link-two{
+      margin-right: 10px;
+      color: #30373F;
+      font-size: 1rem;
+  }
+  .link-three{
+      margin-right: 100px;
+      color: #30373F;
+      font-size: 1rem;
+  }
+  .nav-link:hover{
+    color: $mainColour;
+  }
+
+}

@@ -5,7 +5,7 @@ import "./RegForm.scss";
 
 // Using history in props for routing to different components
 const RegForm = (props) => {
-
+  // Needs backend
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -49,7 +49,7 @@ const RegForm = (props) => {
         </Form>
 
         <hr></hr>
-
+        {/* Redirects user to login page */}
         <NavLink href="#" onClick={() => props.history.push("/")} color="inherit">
         Already have a Groupme account? Sign in
         </NavLink>
