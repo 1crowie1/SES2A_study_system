@@ -12,7 +12,8 @@ const LoginNavBar = (props) => {
     <React.Fragment>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
       <Navbar>
-        <Navbar.Brand>
+        <Navbar.Brand alt="LandingPage"
+        href="/">
         <img
           alt=""
           src={Logo}
@@ -23,7 +24,7 @@ const LoginNavBar = (props) => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
-              <a href="/">  Sign in </a>
+              <a href="/Login">  Sign in </a>
         </Navbar.Text>
         {/* Onclick it will redirect the user to the registration page */}
         <Button block size="lg" type="submit"
