@@ -25,7 +25,7 @@ function LandingPage() {
   return (
       <div className="Registration" style={sectionStyle}>
         <Helmet>
-          <title>Groupme</title>
+          <title>Groupme | The study group arrangement solution</title>
         </Helmet>
         <LoginNavBar/>
         <LandText/>

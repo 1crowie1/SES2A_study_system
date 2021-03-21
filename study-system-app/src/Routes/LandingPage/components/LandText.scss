@@ -10,12 +10,16 @@
     font-weight: bold;
     font-size: 1.5rem;
   }
-  .btn{
+  .btn-custom{
     background-color: #DE9A01;
     color: #FFFFFF;
     border: none;
     font-size: 1.3rem;
     width: 16%;
     margin-right: 100px;
+  }
+  .btn-custom:hover, .btn-custom:focus, .btn-custom:active {
+    color: #FFFFFF!important;
+    background-color: #de8801;
   }
 }

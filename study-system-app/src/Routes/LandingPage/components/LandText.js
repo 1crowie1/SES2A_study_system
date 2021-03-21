@@ -1,8 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import {Button} from "react-bootstrap";
-import CountUp from "react-countup";
-import VisibilitySensor from 'react-visibility-sensor';
 import "./LandText.scss";
 
 
@@ -20,18 +18,10 @@ const LandText= (props) => {
       industry’s standard dummy text.
       </p>
 
-      <Button block size="lg" type="submit"
-      variant="outline-secondary"
+      <Button variant="custom" block size="lg" type="submit"
       onClick={() => props.history.push("/Registration")}
       >
-        Sign up for $
-        <CountUp start={100} end={0} duration={8} redraw={true}>
-            {({ countUpRef, start }) => (
-                <VisibilitySensor onChange={start} delayedCall>
-                    <span ref={countUpRef} />
-                </VisibilitySensor>
-            )}
-        </CountUp>
+        Sign up for free
       </Button>
 
     </div>

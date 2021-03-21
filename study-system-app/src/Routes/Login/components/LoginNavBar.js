@@ -27,8 +27,7 @@ const LoginNavBar = (props) => {
               <a href="/Login">  Sign in </a>
         </Navbar.Text>
         {/* Onclick it will redirect the user to the registration page */}
-        <Button block size="lg" type="submit"
-        variant="outline-secondary"
+        <Button variant="custom" block size="lg" type="submit"
         onClick={() => props.history.push("/Registration")}
         >
           Sign up
