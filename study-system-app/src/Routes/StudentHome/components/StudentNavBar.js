@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import {Navbar, NavLink} from "react-bootstrap";
-import Logo from "../../../Assets/Logo.png";
+import Logo from "../../../Assets/logo4.png";
 
 import "./StudentNavBar.scss";
 
@@ -18,7 +18,7 @@ const StudentNavBar = (props) => {
         <img
           alt=""
           src={Logo}
-          width="200px"
+          width="160px"
           height="auto"
           className="d-inline-block align-top"/>{' '}
         </Navbar.Brand>

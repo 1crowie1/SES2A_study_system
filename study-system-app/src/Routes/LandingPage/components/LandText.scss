@@ -1,25 +1,29 @@
+$btnColour-1: #FF6584;
+$btnColour-2: #ff325b;
+
+
 .LandText {
   margin-left: 140px;
   .Intro{
-    color: white;
+    color: #30373F;
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   .Paragraph{
-    color: white;
+    color: #30373F;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .btn-custom{
-    background-color: #DE9A01;
+    background-color: $btnColour-1;
     color: #FFFFFF;
     border: none;
-    font-size: 1.3rem;
-    width: 16%;
+    font-size: 1.2rem;
+    width: 15%;
     margin-right: 100px;
   }
   .btn-custom:hover, .btn-custom:focus, .btn-custom:active {
     color: #FFFFFF!important;
-    background-color: #de8801;
+    background-color: $btnColour-2;
   }
 }
