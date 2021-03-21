@@ -15,11 +15,25 @@ $mainColour: #4267B2;
     .form-group {
       width: 380px;
     }
-    .btn {
+    .btn-custom-one {
       background-color: $mainColour;
+      color: white;
       outline: none;
       border: none;
+      font-size: 17px;
       margin-bottom: 20px;
+    }
+    .btn-custom-two {
+      color: "white";
+      border: 1px solid rgba(218, 223, 225, 1);
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 20px;
+      img{
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
+      }
     }
   }
 }

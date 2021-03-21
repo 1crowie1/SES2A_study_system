@@ -7,7 +7,9 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
     "bootstrap": "^4.6.0",
+    "file-loader": "^6.1.1",
     "node-sass": "^4.14.1",
+    "path": "^0.12.7",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
     "react-countup": "^4.3.3",
@@ -18,6 +20,7 @@
     "react-spring": "^8.0.27",
     "react-visibility-sensor": "^5.1.1",
     "rfs": "^9.0.3",
+    "url-loader": "^4.1.1",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
