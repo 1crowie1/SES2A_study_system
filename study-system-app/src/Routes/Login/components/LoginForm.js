@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import {Form, Button, Card} from "react-bootstrap";
+import {Form, Button, Card, Image} from "react-bootstrap";
+import GoogleIcon from "../../../Assets/google-icon.png";
 import "./LoginForm.scss";
 
 const LoginForm = () => {
@@ -15,7 +16,7 @@ const LoginForm = () => {
         To allow for shadows had to set shadows to true in SASS bootsrap folder
       */}
     <div class="shadow p-3 mb-5 bg-white rounded">
-    <Card style={{width: '25rem', height: '24rem', border: 'none' }}>
+    <Card style={{width: '25rem', height: '30rem', border: 'none' }}>
       <Card.Body>
        <Card.Title className="card-title">Sign in</Card.Title>
         <Form>
@@ -36,8 +37,14 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button block size="lg" type="submit">
+          <Button variant="custom-one" block size="lg" type="submit">
             Sign in
+          </Button>
+          <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
+
+          <Button variant="custom-two" block size="lg" type="submit">
+          <Image src={GoogleIcon}/>
+            Sign in with Google
           </Button>
         </Form>
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import {Form, Button, Card, NavLink} from "react-bootstrap";
+import {Form, Button, Card, NavLink, Image} from "react-bootstrap";
+import GoogleIcon from "../../../Assets/google-icon.png";
 import "./RegForm.scss";
 
 // Using history in props for routing to different components
@@ -13,7 +14,7 @@ const RegForm = (props) => {
     <React.Fragment>
     <div className="RegBox">
     <div class="shadow p-3 mb-5 bg-white rounded">
-    <Card style={{width: '25rem', height: '30rem', border: 'none' }}>
+    <Card style={{width: '25rem', height: '36rem', border: 'none' }}>
       <Card.Body>
        <Card.Title className="card-title">Sign up for your account</Card.Title>
         <Form>
@@ -43,8 +44,14 @@ const RegForm = (props) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button block size="lg" type="submit">
+          <Button variant="custom-one" block size="lg" type="submit">
             Create account
+          </Button>
+          <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
+
+          <Button variant="custom-two" block size="lg" type="submit">
+          <Image src={GoogleIcon}/>
+            Continue with Google
           </Button>
         </Form>
 

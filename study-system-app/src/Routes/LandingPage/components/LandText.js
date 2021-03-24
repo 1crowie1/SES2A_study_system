@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import {Button} from "react-bootstrap";
 import "./LandText.scss";
 
+
 const LandText= (props) => {
 
   return (
@@ -17,8 +18,7 @@ const LandText= (props) => {
       industry’s standard dummy text.
       </p>
 
-      <Button block size="lg" type="submit"
-      variant="outline-secondary"
+      <Button variant="custom" block size="lg" type="submit"
       onClick={() => props.history.push("/Registration")}
       >
         Sign up for free
