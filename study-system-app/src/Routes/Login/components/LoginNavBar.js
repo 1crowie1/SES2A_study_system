@@ -1,7 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import {Navbar, Button} from "react-bootstrap";
+import {Navbar, Button, DropdownButton, Dropdown} from "react-bootstrap";
 import Logo from "../../../Assets/logo4.png";
+import MenuIcon from "../../../Assets/menu-icon.png";
+import Media from 'react-media';
 
 import "./LoginNavBar.scss";
 
@@ -10,30 +12,81 @@ const LoginNavBar = (props) => {
 
   return (
     <React.Fragment>
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-      <Navbar>
-        <Navbar.Brand alt="LandingPage"
-        href="/">
-        <img
-          alt=""
-          src={Logo}
-          width="160px"
-          height="auto"
-          className="d-inline-block align-top"/>{' '}
-        </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-        <Navbar.Text>
-              <a href="/Login">  Sign in </a>
-        </Navbar.Text>
-        {/* Onclick it will redirect the user to the registration page */}
-        <Button variant="custom" block size="lg" type="submit"
-        onClick={() => props.history.push("/Registration")}
-        >
-          Sign up
-        </Button>
-        </Navbar.Collapse>
-      </Navbar>
+    <div id="parent">
+      <Media query="(max-width: 599px)">
+        {matches =>
+          matches ? (
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+              <Navbar>
+                <Navbar.Brand alt="LandingPage"
+                href="/">
+                <img
+                  alt=""
+                  src={Logo}
+                  width="130px"
+                  height="auto"
+                  className="d-inline-block align-top"/>{' '}
+                </Navbar.Brand>
+                <Navbar.Toggle />
+                <Navbar.Collapse className="justify-content-end">
+                <DropdownButton
+                    menuAlign="right"
+                    id="dropdown-menu-align-right"
+                    title={
+                        <div class="Dropdown right">
+                            <img className="menu-dropdown"
+                                src={MenuIcon}
+                                alt="dropdown"
+                                width="30px"
+                            />
+                        </div>
+                    }
+                    >
+                    <Dropdown.Item>
+                    <i> <a href={'#'} className="sign-in"
+                    onClick={() => props.history.push("/Login")}>
+                    Sign in
+                    </a></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                    <i> <a href={'#'} className="sign-up"
+                    onClick={() => props.history.push("/Registration")}>
+                    Sign up
+                    </a></i>
+                    </Dropdown.Item>
+                </DropdownButton>
+                </Navbar.Collapse>
+              </Navbar>
+            </div>
+          ) : (
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+              <Navbar>
+                <Navbar.Brand alt="LandingPage"
+                href="/">
+                <img
+                  alt=""
+                  src={Logo}
+                  width="160px"
+                  height="auto"
+                  className="d-inline-block align-top"/>{' '}
+                </Navbar.Brand>
+                <Navbar.Toggle />
+                <Navbar.Collapse className="justify-content-end">
+                <Navbar.Text>
+                      <a href="/Login">  Sign in </a>
+                </Navbar.Text>
+                {/* Onclick it will redirect the user to the registration page */}
+                <Button variant="custom" block size="lg" type="submit"
+                onClick={() => props.history.push("/Registration")}
+                >
+                  Sign up
+                </Button>
+                </Navbar.Collapse>
+              </Navbar>
+            </div>
+          )
+        }
+      </Media>
     </div>
     </React.Fragment>
   );

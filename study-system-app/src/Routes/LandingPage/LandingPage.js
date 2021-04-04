@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 //Import LoginForm component
 import LoginNavBar from "../Login/components/LoginNavBar";
 import LandText from "./components/LandText";
+import Media from 'react-media';
 
 import LandingImage from '../../Assets/undraw-teamwork.svg';
 
@@ -23,12 +24,28 @@ var sectionStyle = {
 function LandingPage() {
 
   return (
-      <div className="Registration" style={sectionStyle}>
-        <Helmet>
-          <title>Groupme | The study group arrangement solution</title>
-        </Helmet>
-        <LoginNavBar/>
-        <LandText/>
+      <div id="parent">
+        <Media query="(max-width: 599px)">
+          {matches =>
+            matches ? (
+              <div className="Registration">
+                <Helmet>
+                  <title>Groupme | The study group arrangement solution</title>
+                </Helmet>
+                <LoginNavBar/>
+                <LandText/>
+              </div>
+            ) : (
+              <div className="Registration" style={sectionStyle}>
+                <Helmet>
+                  <title>Groupme | The study group arrangement solution</title>
+                </Helmet>
+                <LoginNavBar/>
+                <LandText/>
+              </div>
+            )
+          }
+        </Media>
       </div>
   );
 }
