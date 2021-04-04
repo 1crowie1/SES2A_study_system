@@ -14,7 +14,7 @@ const RegForm = (props) => {
     <React.Fragment>
     <div className="RegBox">
     <div class="shadow p-3 mb-5 bg-white rounded">
-    <Card style={{width: '25rem', height: '36rem', border: 'none' }}>
+    <Card className="reg-card">
       <Card.Body>
        <Card.Title className="card-title">Sign up for your account</Card.Title>
         <Form>

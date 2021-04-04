@@ -16,7 +16,7 @@ const LoginForm = () => {
         To allow for shadows had to set shadows to true in SASS bootsrap folder
       */}
     <div class="shadow p-3 mb-5 bg-white rounded">
-    <Card style={{width: '25rem', height: '30rem', border: 'none' }}>
+    <Card className="login-card">
       <Card.Body>
        <Card.Title className="card-title">Sign in</Card.Title>
         <Form>
