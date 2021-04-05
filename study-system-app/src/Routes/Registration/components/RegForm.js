@@ -57,7 +57,7 @@ const RegForm = (props) => {
 
         <hr></hr>
         {/* Redirects user to login page */}
-        <NavLink href="#" onClick={() => props.history.push("/Login")} color="inherit">
+        <NavLink href="#" onClick={() => props.history.push("/StudentLogin")} color="inherit">
         Already have a Groupme account? Sign in
         </NavLink>
 

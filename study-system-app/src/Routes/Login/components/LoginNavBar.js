@@ -44,7 +44,7 @@ const LoginNavBar = (props) => {
                     >
                     <Dropdown.Item>
                     <i> <a href={'/#'} className="sign-in"
-                    onClick={() => props.history.push("/Login")}>
+                    onClick={() => props.history.push("/StudentLogin")}>
                     Sign in
                     </a></i>
                     </Dropdown.Item>

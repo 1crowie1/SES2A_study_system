@@ -5,12 +5,12 @@ import { Helmet } from "react-helmet";
 import LoginForm from "./components/LoginForm";
 import LoginNavBar from "./components/LoginNavBar";
 
-function Login() {
+function StudentLogin() {
 
   return (
       <div className="Login">
         <Helmet>
-          <title>Sign in to continue - Groupme</title>
+          <title>Student Login | GroupMe</title>
         </Helmet>
         <LoginNavBar/>
         <LoginForm/>
@@ -19,4 +19,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default StudentLogin;
