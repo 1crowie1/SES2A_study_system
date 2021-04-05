@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import {Navbar, Button, DropdownButton, Dropdown} from "react-bootstrap";
 import Logo from "../../../Assets/logo4.png";
-import MenuIcon from "../../../Assets/menu-icon.png";
 import Media from 'react-media';
+import Hamburger from 'hamburger-react';
 
 import "./LoginNavBar.scss";
 
 // Using history in props for routing to different components
 const LoginNavBar = (props) => {
+
+  // setting the initial state to false so when the user clicks on the icon
+  // it changes to a cross
+  const [isOpen, setOpen] = useState(false)
 
   return (
     <React.Fragment>
@@ -34,22 +38,18 @@ const LoginNavBar = (props) => {
                     id="dropdown-menu-align-right"
                     title={
                         <div class="Dropdown right">
-                            <img className="menu-dropdown"
-                                src={MenuIcon}
-                                alt="dropdown"
-                                width="30px"
-                            />
+                          <Hamburger toggled={isOpen} toggle={setOpen} />
                         </div>
                     }
                     >
                     <Dropdown.Item>
-                    <i> <a href={'#'} className="sign-in"
+                    <i> <a href={'/#'} className="sign-in"
                     onClick={() => props.history.push("/Login")}>
                     Sign in
                     </a></i>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                    <i> <a href={'#'} className="sign-up"
+                    <i> <a href={'/#'} className="sign-up"
                     onClick={() => props.history.push("/Registration")}>
                     Sign up
                     </a></i>
