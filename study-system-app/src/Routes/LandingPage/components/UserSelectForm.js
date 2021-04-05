@@ -21,7 +21,7 @@ const UserSelectForm = (props) => {
                     height="auto"
                     className="logo"/>{' '}
                 <div class="shadow p-3 mb-5 bg-white rounded">
-                    <Card style={{width: '20rem', height: '25rem', border: 'none' }}>
+                    <Card>
                         <Card.Body>
                             <Card.Title className="card-title">Login as...</Card.Title>
                             <div className="button-container">
