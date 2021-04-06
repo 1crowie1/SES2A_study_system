@@ -26,11 +26,17 @@ $mainColour: #4267B2;
   }
   .nav-avatar{
     margin-right: 105px;
-    cursor: pointer;
     .nav-avatar-text{
       font-size: 1rem;
-      margin-right: 15px;
+      margin-right: 20px;
       cursor: default;
+    }
+    #dropdown-menu-align-right{
+      all: unset;
+      cursor: pointer;
+    }
+    #dropdown-menu-align-right::after{
+      display: none;
     }
   }
 

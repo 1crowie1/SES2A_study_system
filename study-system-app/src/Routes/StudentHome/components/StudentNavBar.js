@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import {Navbar, NavLink, Nav} from "react-bootstrap";
+import {Navbar, NavLink, Nav, DropdownButton, Dropdown} from "react-bootstrap";
 import Avatar from 'react-avatar';
 import Logo from "../../../Assets/logo4.png";
 
@@ -8,6 +8,17 @@ import "./StudentNavBar.scss";
 
 // Using history in props for routing to different components
 const StudentNavBar = (props) => {
+
+  // On hover the dropdown menu will show
+  const [show, setShow] = useState(false);
+
+  const showDropdown = (e)=>{
+      setShow(!show);
+  }
+
+  const hideDropdown = e => {
+      setShow(false);
+  }
 
   return (
     <React.Fragment>
@@ -40,7 +51,21 @@ const StudentNavBar = (props) => {
 
         <Nav className="nav-avatar">
         <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
-          <Avatar name="John Doe" size="40" round={true} />
+          <DropdownButton
+            menuAlign="right"
+            id="dropdown-menu-align-right"
+            show={show}
+            onMouseEnter={showDropdown}
+            onMouseLeave={hideDropdown}
+            title={
+                <div class="Dropdown right">
+                  <Avatar name="John Doe" size="40" round={true}/>
+                </div>
+            }>
+              <Dropdown.Item
+              onClick={() => props.history.push("/StudentProfile")}>
+              Profile</Dropdown.Item>
+          </DropdownButton>
         </Nav>
 
         </Navbar.Collapse>
