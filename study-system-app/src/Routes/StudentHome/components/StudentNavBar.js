@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import {Navbar, NavLink} from "react-bootstrap";
+import {Navbar, NavLink, Nav} from "react-bootstrap";
+import Avatar from 'react-avatar';
 import Logo from "../../../Assets/logo4.png";
 
 import "./StudentNavBar.scss";
@@ -26,19 +27,21 @@ const StudentNavBar = (props) => {
         <Navbar.Collapse className="justify-content-end">
 
         {/*Links to different pages for the student*/}
-
+        <Nav className="page-links">
         <NavLink className="link-one" href="#" color="inherit" >
         Groups
         </NavLink>
 
         <NavLink className="link-two" href="#" color="inherit" >
-        Groups
+        Contact
         </NavLink>
 
-        <NavLink className="link-three" href="#" color="inherit" >
-        Groups
-        </NavLink>
+        </Nav>
 
+        <Nav className="nav-avatar">
+        <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
+          <Avatar name="John Doe" size="40" round={true} />
+        </Nav>
 
         </Navbar.Collapse>
       </Navbar>

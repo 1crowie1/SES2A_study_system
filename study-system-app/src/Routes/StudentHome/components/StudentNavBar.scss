@@ -9,23 +9,29 @@ $mainColour: #4267B2;
     position: relative;
     background-size: contain;
   }
+  .page-links{
+    margin-right: 650px;
+  }
   .link-one{
-      margin-right: 10px;
-      color: #30373F;
+      margin-right: 40px;
+      color: black !important;
       font-size: 1rem;
   }
   .link-two{
-      margin-right: 10px;
-      color: #30373F;
-      font-size: 1rem;
-  }
-  .link-three{
-      margin-right: 100px;
-      color: #30373F;
+      color: black !important;
       font-size: 1rem;
   }
   .nav-link:hover{
     color: $mainColour;
+  }
+  .nav-avatar{
+    margin-right: 105px;
+    cursor: pointer;
+    .nav-avatar-text{
+      font-size: 1rem;
+      margin-right: 15px;
+      cursor: default;
+    }
   }
 
 }
