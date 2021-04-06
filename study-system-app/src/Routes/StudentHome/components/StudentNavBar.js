@@ -39,11 +39,17 @@ const StudentNavBar = (props) => {
 
         {/*Links to different pages for the student*/}
         <Nav className="page-links">
-        <NavLink className="link-one" href="#" color="inherit" >
-        Groups
+        <NavLink className="link-one"
+        onClick={() => props.history.push("/StudentHome")}
+        color="inherit" >
+        Dashboard
         </NavLink>
 
         <NavLink className="link-two" href="#" color="inherit" >
+        Groups
+        </NavLink>
+
+        <NavLink className="link-three" href="#" color="inherit" >
         Contact
         </NavLink>
 

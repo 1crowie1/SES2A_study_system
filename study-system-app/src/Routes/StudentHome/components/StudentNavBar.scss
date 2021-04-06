@@ -1,5 +1,6 @@
 //Colour variables
 $mainColour: #4267B2;
+$secondColour: #1c5ad8;
 
 .navbar {
   height: 50px;
@@ -10,25 +11,30 @@ $mainColour: #4267B2;
     background-size: contain;
   }
   .page-links{
-    margin-right: 650px;
+    margin-right: 530px;
   }
   .link-one{
+    margin-right: 40px;
+    color: black !important;
+    font-size: 1rem;
+  }
+  .link-two{
       margin-right: 40px;
       color: black !important;
       font-size: 1rem;
   }
-  .link-two{
+  .link-three{
       color: black !important;
       font-size: 1rem;
   }
-  .nav-link:hover{
-    color: $mainColour;
+  .link-one:hover, .link-two:hover, .link-three:hover{
+    color: $secondColour !important;
   }
   .nav-avatar{
     margin-right: 105px;
     .nav-avatar-text{
       font-size: 1rem;
-      margin-right: 20px;
+      margin-right: 15px;
       cursor: default;
     }
     #dropdown-menu-align-right{

@@ -1,6 +1,6 @@
 $mainColour: #4267B2;
 
-.edit-profile {
+.show-profile {
   margin-left: 140px;
   margin-right: 140px;
   h1{
@@ -16,5 +16,10 @@ $mainColour: #4267B2;
     outline: none;
     border: none;
     font-size: 15px;
+  }
+  form {
+    .form-row {
+      width: 100%;
+    }
   }
 }
