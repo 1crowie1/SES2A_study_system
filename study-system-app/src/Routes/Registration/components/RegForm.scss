@@ -1,5 +1,6 @@
 //Colour variables
-$mainColour: #4267B2;
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
 
 // Setting up mixins for different screen sizes
 @mixin for-phone-only {
@@ -50,7 +51,7 @@ $mainColour: #4267B2;
       margin-bottom: 20px;
     }
     .btn-custom-one:hover, .btn-custom-one:focus, .btn-custom-one:active {
-        background-color: #1c5ad8;
+        background-color: $mainColour-dark;
         border: none;
     }
     .btn-custom-two {

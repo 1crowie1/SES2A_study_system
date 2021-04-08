@@ -13,7 +13,7 @@ const StudentLoginForm = () => {
     <React.Fragment>
     <div className="StudentLoginBox">
     {/* react-boostrap class to make the card have a shadow around it.
-        To allow for shadows had to set shadows to true in SASS bootsrap folder
+        To allow for shadows had to set shadows to true in SASS bootstrap folder
       */}
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
@@ -53,7 +53,8 @@ const StudentLoginForm = () => {
 
         {/* This will need to be changed to a NavLink and redirect to the
           forgot password page */}
-        <Card.Text><a href="#">Forgot your password?</a> </Card.Text>
+        <Card.Text><a href="/Registration">Need a GroupMe account? Sign up here</a></Card.Text>
+        <Card.Text><a href="#">Forgot your password?</a></Card.Text>
 
       </Card.Body>
     </Card>
