@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {Form, Button, Card, Image} from "react-bootstrap";
-import GoogleIcon from "../../../Assets/google-icon.png";
+import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./AdminLoginForm.scss";
 
 const AdminLoginForm = () => {
@@ -13,12 +13,13 @@ const AdminLoginForm = () => {
     <React.Fragment>
     <div className="AdminLoginBox">
     {/* react-boostrap class to make the card have a shadow around it.
-        To allow for shadows had to set shadows to true in SASS bootsrap folder
+        To allow for shadows had to set shadows to true in SASS bootstrap folder
       */}
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
       <Card.Body>
-       <Card.Title className="card-title">Admin Login</Card.Title>
+        <Button variant="backBtn" type="button" onClick={() => window.history.back()}><Image src={BackButton}/></Button>
+        <Card.Title className="card-title">Admin Login</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>

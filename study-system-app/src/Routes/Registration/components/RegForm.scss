@@ -25,7 +25,7 @@ $mainColour-dark: #F84574;
   }
   .reg-card{
     width: 25rem;
-    height: 36rem;
+    height: auto;
     border: none;
     @include for-phone-only {
       width: 20rem;

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import {Form, Button, Card, Image} from "react-bootstrap";
+import {Form, Button, Card, Image, NavLink} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
+import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./StudentLoginForm.scss";
+import {withRouter} from "react-router-dom";
 
-const StudentLoginForm = () => {
+
+const StudentLoginForm = (props) => {
 
   // Needs backend to implement login
   const [email, setEmail] = useState("");
@@ -18,7 +21,8 @@ const StudentLoginForm = () => {
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
       <Card.Body>
-       <Card.Title className="card-title">Student Login</Card.Title>
+        <Button variant="backBtn" type="button" onClick={() => window.history.back()}><Image src={BackButton}/></Button>
+        <Card.Title className="card-title">Student Login</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>
@@ -53,7 +57,9 @@ const StudentLoginForm = () => {
 
         {/* This will need to be changed to a NavLink and redirect to the
           forgot password page */}
-        <Card.Text><a href="/Registration">Need a GroupMe account? Sign up here</a></Card.Text>
+        <NavLink href="#" onClick={() => props.history.push("/Registration")} color="inherit">
+          Need a GroupMe account? Sign up here
+        </NavLink>
         <Card.Text><a href="#">Forgot your password?</a></Card.Text>
 
       </Card.Body>
@@ -64,4 +70,4 @@ const StudentLoginForm = () => {
   )
 };
 
-export default StudentLoginForm;
+export default withRouter(StudentLoginForm);
