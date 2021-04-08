@@ -1,5 +1,6 @@
 //Colour variables
-$mainColour: #4267B2;
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
 
 // Setting up mixins for different screen sizes
 @mixin for-phone-only {
@@ -12,7 +13,7 @@ $mainColour: #4267B2;
   @media (min-width: 1800px) { @content; }
 }
 
-.LoginBox {
+.StudentLoginBox {
   padding: 60px 0;
   display: flex;
   align-items: center;
@@ -24,7 +25,7 @@ $mainColour: #4267B2;
   }
   .login-card{
     width: 25rem;
-    height: 30rem;
+    height: auto;
     border: none;
     @include for-phone-only {
       width: 20rem;
@@ -50,7 +51,7 @@ $mainColour: #4267B2;
       margin-bottom: 20px;
     }
     .btn-custom-one:hover, .btn-custom-one:focus, .btn-custom-one:active {
-        background-color: #1c5ad8;
+        background-color: $mainColour-dark;
         border: none;
     }
     .btn-custom-two {

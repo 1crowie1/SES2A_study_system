@@ -1,8 +1,8 @@
 import React from 'react';
 //Helmet is used to set the title tag of the web page
 import { Helmet } from "react-helmet";
-//Import LoginForm component
-import LoginNavBar from "../Login/components/LoginNavBar";
+//Import AdminLoginForm component
+import LoginNavBar from "../StudentLogin/components/LoginNavBar";
 import LandText from "./components/LandText";
 import Media from 'react-media';
 

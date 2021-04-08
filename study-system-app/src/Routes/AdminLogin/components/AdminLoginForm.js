@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import {Form, Button, Card, Image} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
-import "./LoginForm.scss";
+import "./AdminLoginForm.scss";
 
-const LoginForm = () => {
+const AdminLoginForm = () => {
 
   // Needs backend to implement login
   const [email, setEmail] = useState("");
@@ -11,14 +11,14 @@ const LoginForm = () => {
 
   return (
     <React.Fragment>
-    <div className="LoginBox">
+    <div className="AdminLoginBox">
     {/* react-boostrap class to make the card have a shadow around it.
         To allow for shadows had to set shadows to true in SASS bootsrap folder
       */}
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
       <Card.Body>
-       <Card.Title className="card-title">Sign in</Card.Title>
+       <Card.Title className="card-title">Admin Login</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>
@@ -40,12 +40,6 @@ const LoginForm = () => {
           <Button variant="custom-one" block size="lg" type="submit">
             Sign in
           </Button>
-          <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
-
-          <Button variant="custom-two" block size="lg" type="submit">
-          <Image src={GoogleIcon}/>
-            Sign in with Google
-          </Button>
         </Form>
 
         {/* Line */}
@@ -63,4 +57,4 @@ const LoginForm = () => {
   )
 };
 
-export default LoginForm;
+export default AdminLoginForm;

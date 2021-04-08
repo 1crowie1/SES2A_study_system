@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Link, Route, Switch, withRouter} from "react-ro
 import {StudentLogin, AdminLogin} from "../../Routes";
 
 import "./UserSelectFormStyling.scss";
-import Logo from "../../../Assets/Logo.png";
+import Logo from "../../../Assets/logo4.png";
 
 
 const UserSelectForm = (props) => {

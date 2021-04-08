@@ -1,6 +1,7 @@
 //Colour variables
 //@use './src/Assets/abstracts';
-$mainColour: #4267B2;
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
 
 .SelectBox {
   padding: 0 0;
@@ -52,8 +53,9 @@ $mainColour: #4267B2;
         align-self: center;
         text-align: center;
       }
-      .linkBtn:hover{
-        text-decoration: none;
+      .linkBtn:hover, :focus, :active{
+          background-color: $mainColour-dark;
+          text-decoration: none;
       }
     }
   }

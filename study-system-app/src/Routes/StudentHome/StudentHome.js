@@ -1,7 +1,7 @@
 import React from 'react';
 //Helmet is used to set the title tag of the web page
 import { Helmet } from "react-helmet";
-//Import LoginForm component
+//Import AdminLoginForm component
 import StudentNavBar from "./components/StudentNavBar";
 
 function StudentHome() {

@@ -73,7 +73,7 @@ const LoginNavBar = (props) => {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                 <Navbar.Text>
-                      <a href="/Login">  Sign in </a>
+                      <a href="/StudentLogin">  Sign in </a>
                 </Navbar.Text>
                 {/* Onclick it will redirect the user to the registration page */}
                 <Button variant="custom" block size="lg" type="submit"
