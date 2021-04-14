@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {Form, Button, Card, NavLink, Image} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
+import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./RegForm.scss";
 
 // Using history in props for routing to different components
 const RegForm = (props) => {
   // Needs backend
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   return (
     <React.Fragment>
     <div className="RegBox">
     <div class="shadow p-3 mb-5 bg-white rounded">
-    <Card style={{width: '25rem', height: '36rem', border: 'none' }}>
+    <Card className="reg-card">
       <Card.Body>
-       <Card.Title className="card-title">Sign up for your account</Card.Title>
+        <Button variant="backBtn" type="button" onClick={() => window.history.back()}><Image src={BackButton}/></Button>
+        <Card.Title className="card-title">Create your account</Card.Title>
         <Form>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
@@ -27,13 +30,12 @@ const RegForm = (props) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-          <Form.Group size="lg" controlId="email">
+          <Form.Group size="lg" controlId="name">
             <Form.Label>Full name</Form.Label>
             <Form.Control
-              autoFocus
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </Form.Group>
           <Form.Group size="lg" controlId="password">
@@ -57,8 +59,8 @@ const RegForm = (props) => {
 
         <hr></hr>
         {/* Redirects user to login page */}
-        <NavLink href="#" onClick={() => props.history.push("/Login")} color="inherit">
-        Already have a Groupme account? Sign in
+        <NavLink href="#" onClick={() => props.history.push("/StudentLogin")} color="inherit">
+        Already have a GroupMe account? Sign in
         </NavLink>
 
       </Card.Body>
