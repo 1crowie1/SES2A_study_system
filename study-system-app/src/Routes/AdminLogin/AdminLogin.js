@@ -2,19 +2,19 @@ import React from 'react';
 //Helmet is used to set the title tag of the web page
 import { Helmet } from "react-helmet";
 //Import AdminLoginForm component
-import StudentNavBar from "./components/StudentNavBar";
+import AdminLoginForm from "./components/AdminLoginForm";
 
-function StudentHome() {
+function AdminLogin() {
 
   return (
-      <div className="Registration">
+      <div className="Login">
         <Helmet>
-          <title>Groupme</title>
+          <title>Admin Login | GroupMe</title>
         </Helmet>
-        <StudentNavBar/>
+        <AdminLoginForm/>
 
       </div>
   );
 }
 
-export default StudentHome;
+export default AdminLogin;

@@ -1,0 +1,66 @@
+$btnColour-1: #FF6584;
+$btnColour-2: #ff325b;
+
+// Setting up mixins for different screen sizes
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+.navbar {
+  height: 48px;
+
+  .navbar-brand{
+    margin-left: 5%;
+    position: relative;
+    background-size: contain;
+    img{
+      @include for-phone-only {
+        //margin-left: -100px;
+      }
+    }
+  }
+  .navbar-text{
+    a {
+      margin-right: 20px;
+      color: #30373F;
+      font-size: 1rem;
+      @include for-phone-only {
+        margin-right: 10px;
+      }
+    }
+  }
+  #dropdown-menu-align-right{
+    all: unset;
+    cursor: pointer;
+    margin-right: -16px;
+  }
+  #dropdown-menu-align-right::after{
+    display: none;
+  }
+  .sign-in, .sign-up {
+    color: black;
+    font-style: normal;
+    font-size: 1.2rem;
+  }
+  .btn-custom{
+    background-color: $btnColour-1;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    width: 96px;
+    margin-right: 5%;
+    @include for-phone-only {
+      margin-right: 0;
+    }
+  }
+  .btn-custom:hover, .btn-custom:focus, .btn-custom:active {
+    color: #FFFFFF!important;
+    background-color: $btnColour-2;
+  }
+}

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import {Link, withRouter} from "react-router-dom";
-import {Form, Button, Card, NavLink, Image} from "react-bootstrap";
+import {Form, Button, Card, Image, NavLink} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
 import BackButton from "../../../Assets/go-back-left-arrow.svg";
-import "./RegForm.scss";
+import "./StudentLoginForm.scss";
+import {withRouter} from "react-router-dom";
 import firebase from "firebase";
 
-// Using history in props for routing to different components
-const RegForm = (props) => {
-  // Needs backend
+
+const StudentLoginForm = (props) => {
+
+  // Needs backend to implement login
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const config =
@@ -41,28 +41,23 @@ const RegForm = (props) => {
 
   return (
     <React.Fragment>
-    <div className="RegBox">
+    <div className="StudentLoginBox">
+    {/* react-boostrap class to make the card have a shadow around it.
+        To allow for shadows had to set shadows to true in SASS bootstrap folder
+      */}
     <div class="shadow p-3 mb-5 bg-white rounded">
-    <Card className="reg-card">
+    <Card className="login-card">
       <Card.Body>
         <Button variant="backBtn" type="button" onClick={() => window.history.back()}><Image src={BackButton}/></Button>
-        <Card.Title className="card-title">Create your account</Card.Title>
+        <Card.Title className="card-title">Student Login</Card.Title>
         <Form>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-          <Form.Group size="lg" controlId="name">
-            <Form.Label>Full name</Form.Label>
+          <Form.Group size="lg" controlId="email">
+            <Form.Label>Email</Form.Label>
             <Form.Control
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              autoFocus
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
           <Form.Group size="lg" controlId="password">
@@ -74,21 +69,25 @@ const RegForm = (props) => {
             />
           </Form.Group>
           <Button variant="custom-one" block size="lg" type="submit">
-            Create account
+            Sign in
           </Button>
           <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
 
           <Button variant="custom-two" block size="lg" type="button" onClick={() => googleLogin()}>
           <Image src={GoogleIcon}/>
-            Continue with Google
+            Sign in with Google
           </Button>
         </Form>
 
+        {/* Line */}
         <hr></hr>
-        {/* Redirects user to login page */}
-        <NavLink href="#" onClick={() => props.history.push("/StudentLogin")} color="inherit">
-        Already have a GroupMe account? Sign in
+
+        {/* This will need to be changed to a NavLink and redirect to the
+          forgot password page */}
+        <NavLink href="#" onClick={() => props.history.push("/Registration")} color="inherit">
+          Need a GroupMe account? Sign up here
         </NavLink>
+        <Card.Text><a href="#">Forgot your password?</a></Card.Text>
 
       </Card.Body>
     </Card>
@@ -98,6 +97,4 @@ const RegForm = (props) => {
   )
 };
 
-// Wrapping Navbar in a withRouter function in order to give it access to
-// this.props.history to redirect the user to the different components
-export default withRouter(RegForm);
+export default withRouter(StudentLoginForm);

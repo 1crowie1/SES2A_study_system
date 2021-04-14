@@ -11,7 +11,7 @@ const LandText= (props) => {
     <div className="LandText">
       <p className="Intro">
       Lorem Ipsum has been the <br/>
-      industry’s standard dummy text.
+      industry’s standard dummy text
       </p>
       <p className="Paragraph">
       Lorem Ipsum has been the <br/>
