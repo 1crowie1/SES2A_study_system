@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import {Form, Button, Card, Image} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
-import "./LoginForm.scss";
+import "./AdminLoginForm.scss";
 
-const LoginForm = () => {
+const AdminLoginForm = () => {
 
   // Needs backend to implement login
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ const LoginForm = () => {
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
       <Card.Body>
-       <Card.Title className="card-title">Sign in</Card.Title>
+       <Card.Title className="card-title">Admin Sign in</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>
@@ -63,4 +63,4 @@ const LoginForm = () => {
   )
 };
 
-export default LoginForm;
+export default AdminLoginForm;

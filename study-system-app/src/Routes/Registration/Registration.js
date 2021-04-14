@@ -3,7 +3,6 @@ import React from 'react';
 import { Helmet } from "react-helmet";
 //Import LoginForm component
 import RegForm from "./components/RegForm";
-import LoginNavBar from "../Login/components/LoginNavBar";
 
 function Registration() {
 
@@ -12,7 +11,6 @@ function Registration() {
         <Helmet>
           <title>Create account - Groupme</title>
         </Helmet>
-        <LoginNavBar/>
         <RegForm/>
 
       </div>

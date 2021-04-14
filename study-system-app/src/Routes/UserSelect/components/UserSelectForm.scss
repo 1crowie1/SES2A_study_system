@@ -1,0 +1,82 @@
+//Colour variables
+//@use './src/Assets/abstracts';
+$mainColour: #FF6584;
+$secondColour: #4267B2;
+
+.SelectBox {
+  margin-top: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  width: 100%;
+  height: 100%;
+  .logo{
+    display: inline-block;
+    margin-left: -15px;
+  }
+  .card {
+    border: none;
+    align-items: center;
+    justify-content: center;
+    .card-title{
+      font-size: 2rem;
+      text-align: center;
+    }
+    .button-container{
+      font-size: 1rem;
+      height: 2em;
+      width: 100%;
+      border: none;
+      align-self: center;
+      display: inline-block;
+      justify-content: center;
+      .linkBtn1 {
+        min-width: 100px;
+        color: #FFFFFF;
+        background-color: $mainColour;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        margin: 25px 16px;
+        padding: 16px;
+        display: inline-block;
+        align-self: center;
+        text-align: center;
+      }
+      .linkBtn2 {
+        min-width: 100px;
+        color: #FFFFFF;
+        background-color: $secondColour;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        margin: 25px 16px;
+        padding: 16px;
+        display: inline-block;
+        align-self: center;
+        text-align: center;
+      }
+      .linkBtn:hover{
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 799px){
+  .SelectBox{
+    max-width: inherit;
+  }
+  .logo{
+    margin: 0px 48px;
+  }
+}
+
+@media (max-width: 599px){
+  .SelectBox{
+    max-width: inherit;
+    margin-top: 2%;
+  }
+}

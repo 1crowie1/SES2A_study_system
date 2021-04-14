@@ -2,21 +2,19 @@ import React from 'react';
 //Helmet is used to set the title tag of the web page
 import { Helmet } from "react-helmet";
 //Import LoginForm component
-import LoginForm from "./components/LoginForm";
-import LoginNavBar from "./components/LoginNavBar";
+import AdminLoginForm from "./components/AdminLoginForm";
 
-function Login() {
+function AdminLogin() {
 
   return (
-      <div className="Login">
+      <div className="AdminLogin">
         <Helmet>
           <title>Sign in to continue - Groupme</title>
         </Helmet>
-        <LoginNavBar/>
-        <LoginForm/>
+        <AdminLoginForm/>
 
       </div>
   );
 }
 
-export default Login;
+export default AdminLogin;
