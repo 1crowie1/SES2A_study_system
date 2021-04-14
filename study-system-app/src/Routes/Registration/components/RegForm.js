@@ -4,6 +4,7 @@ import {Form, Button, Card, NavLink, Image} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
 import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./RegForm.scss";
+import firebase from "firebase";
 
 // Using history in props for routing to different components
 const RegForm = (props) => {
@@ -11,6 +12,32 @@ const RegForm = (props) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
+  const config =
+      {
+        apiKey: "AIzaSyAf02jIhvwfN5LutBBEgFjBIvHPWLEnk0Q",
+        authDomain: "groupformationsystem.firebaseapp.com",
+        databaseURL: "https://groupformationsystem-default-rtdb.firebaseio.com",
+        projectId: "groupformationsystem",
+        storageBucket: "groupformationsystem.appspot.com",
+        messagingSenderId: "912375308149",
+        appId: "1:912375308149:web:6932a8593b14559538bd3c",
+        measurementId: "G-13XJR1BL4W"
+      };
+  if(firebase.apps.length === 0) {
+    const app = firebase.initializeApp(config);
+  }
+
+
+  function googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    console.log("LOGIN WITH GOOGLE");
+    firebase.auth().signInWithPopup(provider).then((res) => {
+      console.log(res.user)
+    }).catch((error) => {
+      console.log(error.message)
+    });
+  }
 
   return (
     <React.Fragment>
@@ -51,7 +78,7 @@ const RegForm = (props) => {
           </Button>
           <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
 
-          <Button variant="custom-two" block size="lg" type="submit">
+          <Button variant="custom-two" block size="lg" type="button" onClick={() => googleLogin()}>
           <Image src={GoogleIcon}/>
             Continue with Google
           </Button>
