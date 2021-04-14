@@ -67,12 +67,6 @@ const AdminLoginForm = () => {
           <Button variant="custom-one" block size="lg" type="submit">
             Sign in
           </Button>
-          <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
-
-          <Button variant="custom-two" block size="lg" type="submit" onClick={googleLogin()}>
-          <Image src={GoogleIcon}/>
-            Sign in with Google
-          </Button>
 
         </Form>
         {/* Line */}
