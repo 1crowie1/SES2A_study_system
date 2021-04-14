@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import {Form, Button, Card, Image} from "react-bootstrap";
-<<<<<<< HEAD:study-system-app/src/Routes/Login/components/LoginForm.js
 import GoogleIcon from "../../../Assets/google-icon.png";
-import "./LoginForm.scss";
 import firebase from 'firebase';
-
-=======
 import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./AdminLoginForm.scss";
->>>>>>> login:study-system-app/src/Routes/AdminLogin/components/AdminLoginForm.js
 
 const AdminLoginForm = () => {
 
@@ -72,17 +67,12 @@ const AdminLoginForm = () => {
           <Button variant="custom-one" block size="lg" type="submit">
             Sign in
           </Button>
-<<<<<<< HEAD:study-system-app/src/Routes/Login/components/LoginForm.js
           <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
 
           <Button variant="custom-two" block size="lg" type="submit" onClick={googleLogin()}>
           <Image src={GoogleIcon}/>
             Sign in with Google
           </Button>
-=======
-        </Form>
->>>>>>> login:study-system-app/src/Routes/AdminLogin/components/AdminLoginForm.js
-
         </Form>
         {/* Line */}
         <hr></hr>
