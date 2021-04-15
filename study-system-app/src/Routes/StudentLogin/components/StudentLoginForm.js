@@ -48,7 +48,7 @@ const StudentLoginForm = (props) => {
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
       <Card.Body>
-        <Button variant="backBtn" type="button" onClick={() => window.history.back()}><Image src={BackButton}/></Button>
+        <Button variant="backBtn" type="button" onClick={() => props.history.push("/")}><Image src={BackButton}/></Button>
         <Card.Title className="card-title">Student Login</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">

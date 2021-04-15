@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import {withRouter} from "react-router-dom";
 import {Form, Button, Card, Image} from "react-bootstrap";
 import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./AdminLoginForm.scss";
 
-const AdminLoginForm = () => {
+const AdminLoginForm = (props) => {
 
   // Needs backend to implement login
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ const AdminLoginForm = () => {
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
       <Card.Body>
-        <Button variant="backBtn" type="button" onClick={() => window.history.back()}><Image src={BackButton}/></Button>
+        <Button variant="backBtn" type="button" onClick={() => props.history.push("/")}><Image src={BackButton}/></Button>
         <Card.Title className="card-title">Admin Login</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">
@@ -58,4 +59,4 @@ const AdminLoginForm = () => {
   )
 };
 
-export default AdminLoginForm;
+export default withRouter(AdminLoginForm);
