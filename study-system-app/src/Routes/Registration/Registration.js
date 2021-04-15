@@ -9,7 +9,7 @@ function Registration() {
   return (
       <div className="Registration">
         <Helmet>
-          <title>Create account - Groupme</title>
+          <title>Create account | Groupme</title>
         </Helmet>
         <RegForm/>
 

@@ -9,7 +9,7 @@ function AdminLogin() {
   return (
       <div className="AdminLogin">
         <Helmet>
-          <title>Sign in to continue - Groupme</title>
+          <title>Sign in to continue | Groupme</title>
         </Helmet>
         <AdminLoginForm/>
 

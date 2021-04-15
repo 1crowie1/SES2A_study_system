@@ -9,7 +9,7 @@ function StudentLogin() {
   return (
       <div className="StudentLogin">
         <Helmet>
-          <title>Sign in to continue - Groupme</title>
+          <title>Sign in to continue | Groupme</title>
         </Helmet>
         <StudentLoginForm/>
 
