@@ -1,7 +1,7 @@
 //Colour variables
 $mainColour: #4267B2;
+$secondColour: #1c5ad8;
 
-/*
 .navbar {
   height: 50px;
 
@@ -10,24 +10,40 @@ $mainColour: #4267B2;
     position: relative;
     background-size: contain;
   }
+  .page-links{
+    margin-right: 530px;
+  }
   .link-one{
-      margin-right: 10px;
-      color: #30373F;
-      font-size: 1rem;
+    margin-right: 40px;
+    color: black !important;
+    font-size: 1rem;
   }
   .link-two{
-      margin-right: 10px;
-      color: #30373F;
+      margin-right: 40px;
+      color: black !important;
       font-size: 1rem;
   }
   .link-three{
-      margin-right: 100px;
-      color: #30373F;
+      color: black !important;
       font-size: 1rem;
   }
-  .nav-link:hover{
-    color: $mainColour;
+  .link-one:hover, .link-two:hover, .link-three:hover{
+    color: $secondColour !important;
+  }
+  .nav-avatar{
+    margin-right: 105px;
+    .nav-avatar-text{
+      font-size: 1rem;
+      margin-right: 15px;
+      cursor: default;
+    }
+    #dropdown-menu-align-right{
+      all: unset;
+      cursor: pointer;
+    }
+    #dropdown-menu-align-right::after{
+      display: none;
+    }
   }
 
 }
-*/
