@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import {Form, Button, Card, NavLink, Image} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
 import "./RegForm.scss";
+import Logo from "../../../Assets/logo4.png";
 
 // Using history in props for routing to different components
 const RegForm = (props) => {
@@ -12,11 +13,32 @@ const RegForm = (props) => {
 
   return (
     <React.Fragment>
+    <div className="parent">
+    <div className="Logo">
+      <img
+        alt=""
+        src={Logo}
+        width="300px"
+        height="auto"
+        className="logo"
+        onClick={() => props.history.push("/")}/>{' '}
+      <p> Select user to sign in</p>
+      <div className="Buttons">
+      <Button variant="custom-three" block size="lg" type="submit"
+      onClick={() => props.history.push("/StudentLogin")}>
+        Student
+      </Button>
+      <Button variant="custom-admin" block size="lg" type="submit"
+      onClick={() => props.history.push("/AdminLogin")}>
+        Admin
+      </Button>
+      </div>
+    </div>
     <div className="RegBox">
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="reg-card">
       <Card.Body>
-       <Card.Title className="card-title">Sign up for your account</Card.Title>
+       <Card.Title className="card-title">Create your student account</Card.Title>
         <Form>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
@@ -55,14 +77,9 @@ const RegForm = (props) => {
           </Button>
         </Form>
 
-        <hr></hr>
-        {/* Redirects user to login page */}
-        <NavLink href="#" onClick={() => props.history.push("/StudentLogin")} color="inherit">
-        Already have a Groupme account? Sign in
-        </NavLink>
-
       </Card.Body>
     </Card>
+    </div>
     </div>
     </div>
     </React.Fragment>

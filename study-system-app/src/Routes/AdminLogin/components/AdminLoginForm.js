@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import {Form, Button, Card, Image} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
 import "./AdminLoginForm.scss";
+import Logo from "../../../Assets/logo4.png";
 
-const AdminLoginForm = () => {
+const AdminLoginForm = (props) => {
 
   // Needs backend to implement login
   const [email, setEmail] = useState("");
@@ -11,6 +13,27 @@ const AdminLoginForm = () => {
 
   return (
     <React.Fragment>
+    <div className="parent">
+    <div className="Logo">
+      <img
+             alt=""
+             src={Logo}
+             width="300px"
+             height="auto"
+             className="logo"
+             onClick={() => props.history.push("/")}/>{' '}
+      <p> Select user to sign in</p>
+      <div className="Buttons">
+      <Button variant="custom-three" block size="lg" type="submit"
+      onClick={() => props.history.push("/StudentLogin")}>
+        Student
+      </Button>
+      <Button variant="custom-admin" block size="lg" type="submit"
+      onClick={() => props.history.push("/AdminLogin")}>
+        Admin
+      </Button>
+      </div>
+    </div>
     <div className="LoginBox">
     {/* react-boostrap class to make the card have a shadow around it.
         To allow for shadows had to set shadows to true in SASS bootsrap folder
@@ -59,8 +82,9 @@ const AdminLoginForm = () => {
     </Card>
     </div>
     </div>
+    </div>
     </React.Fragment>
   )
 };
 
-export default AdminLoginForm;
+export default withRouter(AdminLoginForm);

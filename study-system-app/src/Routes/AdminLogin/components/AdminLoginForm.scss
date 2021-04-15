@@ -12,6 +12,47 @@ $mainColour: #4267B2;
   @media (min-width: 1800px) { @content; }
 }
 
+.parent{
+  display: flex;
+}
+.Logo{
+  float: left;
+  margin-left: 200px;
+  img{
+    cursor: pointer;
+  }
+  p{
+    font-size: 1.4rem;
+    margin-left: 42px;
+  }
+  .Buttons{
+    display: block;
+    .btn-custom-three {
+      color: black;
+      border: 1px solid rgba(218, 223, 225, 1);
+      text-align: center;
+      font-size: 16px;
+      margin-right: 20px;
+    }
+    .btn-custom-three:hover {
+      color: white;
+      border: none;
+      background: #FF6584;
+    }
+    .btn-custom-admin {
+      color: black;
+      border: 1px solid rgba(218, 223, 225, 1);
+      text-align: center;
+      font-size: 16px;
+    }
+      .btn-custom-admin:hover {
+        color: white;
+        border: none;
+        background: #4267B2;
+      }
+  }
+}
+
 .LoginBox {
   padding: 60px 0;
   display: flex;

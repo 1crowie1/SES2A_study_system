@@ -1,82 +1,34 @@
-//Colour variables
-//@use './src/Assets/abstracts';
-$mainColour: #FF6584;
-$secondColour: #4267B2;
-
-.SelectBox {
-  margin-top: 15%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  max-width: 800px;
-  width: 100%;
-  height: 100%;
-  .logo{
-    display: inline-block;
-    margin-left: -15px;
-  }
-  .card {
-    border: none;
-    align-items: center;
-    justify-content: center;
-    .card-title{
-      font-size: 2rem;
-      text-align: center;
-    }
-    .button-container{
-      font-size: 1rem;
-      height: 2em;
-      width: 100%;
-      border: none;
-      align-self: center;
-      display: inline-block;
-      justify-content: center;
-      .linkBtn1 {
-        min-width: 100px;
-        color: #FFFFFF;
-        background-color: $mainColour;
-        outline: none;
-        border: none;
-        border-radius: 8px;
-        margin: 25px 16px;
-        padding: 16px;
-        display: inline-block;
-        align-self: center;
-        text-align: center;
-      }
-      .linkBtn2 {
-        min-width: 100px;
-        color: #FFFFFF;
-        background-color: $secondColour;
-        outline: none;
-        border: none;
-        border-radius: 8px;
-        margin: 25px 16px;
-        padding: 16px;
-        display: inline-block;
-        align-self: center;
-        text-align: center;
-      }
-      .linkBtn:hover{
-        text-decoration: none;
-      }
-    }
-  }
+* {
+  box-sizing: border-box;
 }
 
-@media (min-width: 799px){
-  .SelectBox{
-    max-width: inherit;
-  }
-  .logo{
-    margin: 0px 48px;
-  }
+.page-banner {
+  background: linear-gradient(110deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%,
+  rgba(250,254,255,1) 28%, rgba(219,244,255,1) 47%, rgba(145,212,226,1) 100%);
+  position:fixed;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;     /* just give enough height to fit text at smallest screen width size */
 }
 
-@media (max-width: 599px){
-  .SelectBox{
-    max-width: inherit;
-    margin-top: 2%;
-  }
+.circle {
+  background-color: white;   /* use rgba for transparent effect */
+  color: white;
+  transform: translate(-50%, -50%);            /* move the circle left 50% of it's own width and up 50% of it's own height */
+  border-radius: 50%;
+  padding-top: 100%;                           /* this gives us a responsive square */
+  top:50%;                                     /* this vertically centers the circle */
+  left:0;
+  width:100%;
+
+}
+
+.page-banner-text {
+  position: absolute;
+  left: 60%;
+  top: 65%;
+  transform: translateY(-50%);
+  padding:2em;
+  width:40%;
 }

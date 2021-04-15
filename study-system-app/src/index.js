@@ -15,10 +15,10 @@ import "./index.scss";
 ReactDOM.render(
   <Router>
    <Switch>
-     <Route exact path="/" component={UserSelect} />
+     <Route exact path="/" component={Registration} />
      <Route path="/StudentLogin" component={StudentLogin} />
      <Route path="/AdminLogin" component={AdminLogin} />
-     <Route path="/Registration" component={Registration} />
+     <Route path="/UserSelect" component={UserSelect} />
      <Route path="/StudentHome" component={StudentHome} />
      <Route path="/StudentProfile" component={StudentProfile} />
    </Switch>
