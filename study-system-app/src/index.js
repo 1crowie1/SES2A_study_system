@@ -10,6 +10,7 @@ import {
     StudentProfile
 } from "./Routes/Routes";
 import "./index.scss";
+import AdminHome from "./Routes/AdminHome/AdminHome";
 
 ReactDOM.render(
   <Router>
@@ -18,8 +19,9 @@ ReactDOM.render(
      <Route path="/StudentLogin" component={StudentLogin} />
      <Route path="/AdminLogin" component={AdminLogin} />
      <Route path="/Registration" component={Registration} />
+     <Route path="/AdminHome" component={AdminHome} />
      <Route path="/StudentHome" component={StudentHome} />
-      <Route path="/StudentProfile" component={StudentProfile} />
+     <Route path="/StudentProfile" component={StudentProfile} />
    </Switch>
  </Router>,
   document.getElementById('root')
