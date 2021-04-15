@@ -45,7 +45,9 @@ const StudentNavBar = (props) => {
         Dashboard
         </NavLink>
 
-        <NavLink className="link-two" href="#" color="inherit" >
+        <NavLink className="link-two"
+        onClick={() => props.history.push("/Groups")}
+        color="inherit" >
         Groups
         </NavLink>
 
@@ -71,6 +73,8 @@ const StudentNavBar = (props) => {
               <Dropdown.Item
               onClick={() => props.history.push("/StudentProfile")}>
               Profile</Dropdown.Item>
+              <Dropdown.Item>
+              Logout</Dropdown.Item>
           </DropdownButton>
         </Nav>
 

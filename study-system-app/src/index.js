@@ -7,7 +7,9 @@ import {
     LandingPage,
     Registration,
     StudentHome, StudentLogin, UserSelect,
-    StudentProfile
+    StudentProfile,
+    GroupHome,
+    Groups
 } from "./Routes/Routes";
 import "./index.scss";
 
@@ -19,7 +21,9 @@ ReactDOM.render(
      <Route path="/AdminLogin" component={AdminLogin} />
      <Route path="/Registration" component={Registration} />
      <Route path="/StudentHome" component={StudentHome} />
-      <Route path="/StudentProfile" component={StudentProfile} />
+     <Route path="/StudentProfile" component={StudentProfile} />
+     <Route path="/GroupHome" component={GroupHome} />
+     <Route path="/Groups" component={Groups} />
    </Switch>
  </Router>,
   document.getElementById('root')
