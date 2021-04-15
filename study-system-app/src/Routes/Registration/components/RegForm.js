@@ -5,6 +5,7 @@ import GoogleIcon from "../../../Assets/google-icon.png";
 import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./RegForm.scss";
 import firebase from "firebase";
+import {resolve} from "@protobufjs/path";
 
 // Using history in props for routing to different components
 const RegForm = (props) => {
@@ -28,15 +29,31 @@ const RegForm = (props) => {
     const app = firebase.initializeApp(config);
   }
 
-
   function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    console.log("LOGIN WITH GOOGLE");
+    console.log("CONTINUE WITH GOOGLE");
     firebase.auth().signInWithPopup(provider).then((res) => {
       console.log(res.user)
     }).catch((error) => {
       console.log(error.message)
     });
+  }
+
+  function createUser(){
+    const provider = new firebase.auth.GoogleAuthProvider();
+    console.log("CREATE USER");
+    firebase.auth().createUserWithEmailAndPassword(email, password).then((userData) => {
+      console.log(userData.user)
+      userData.user.updateProfile({
+        displayName: name,
+        photoURL: ''
+      }).then(() => {
+            firebase.auth().updateCurrentUser(userData.user).then(r => console.log("Update success"));
+          });
+    }).catch((error) => {
+      console.log(error.message)
+    });
+    props.history.push("/StudentLogin");
   }
 
   return (
@@ -73,7 +90,7 @@ const RegForm = (props) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button variant="custom-one" block size="lg" type="submit">
+          <Button variant="custom-one" block size="lg" type="button" onClick={() => createUser()}>
             Create account
           </Button>
           <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>

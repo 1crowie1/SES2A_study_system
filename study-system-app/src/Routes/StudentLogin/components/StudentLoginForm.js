@@ -28,7 +28,6 @@ const StudentLoginForm = (props) => {
     const app = firebase.initializeApp(config);
   }
 
-
   function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     console.log("LOGIN WITH GOOGLE");
@@ -37,6 +36,16 @@ const StudentLoginForm = (props) => {
     }).catch((error) => {
       console.log(error.message)
     });
+  }
+
+  function emailLogin(){
+    console.log("LOGIN WITH EMAIL");
+    firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
+      console.log(res.user)
+    }).catch((error) => {
+      console.log(error.message)
+    });
+    props.history.push("/StudentHome");
   }
 
   return (
@@ -68,7 +77,7 @@ const StudentLoginForm = (props) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button variant="custom-one" block size="lg" type="submit">
+          <Button variant="custom-one" block size="lg" type="button" onClick={() => emailLogin()}>
             Sign in
           </Button>
           <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
