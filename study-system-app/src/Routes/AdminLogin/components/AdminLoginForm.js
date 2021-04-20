@@ -66,7 +66,7 @@ const AdminLoginForm = (props) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button variant="custom-one" block size="lg" type="submit">
+          <Button variant="custom-one" block size="lg" type="button" onClick={() => emailLogin()}>
             Sign in
           </Button>
         </Form>
