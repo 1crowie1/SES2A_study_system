@@ -23,7 +23,7 @@ const StudentNavBar = (props) => {
   return (
     <React.Fragment>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-      <Navbar>
+      <Navbar className="student-nav">
       {/*Clicking logo will redirect to student home page*/}
         <Navbar.Brand alt="StudentHome"
         href="/StudentHome">

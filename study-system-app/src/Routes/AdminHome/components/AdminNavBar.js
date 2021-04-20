@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import {Navbar, Button, DropdownButton, Dropdown, Nav} from "react-bootstrap";
+import {Navbar, Button, DropdownButton, Dropdown, Nav, NavLink} from "react-bootstrap";
 import Logo from "../../../Assets/logo4.png";
 import Avatar from 'react-avatar';
 import Media from 'react-media';
@@ -28,11 +28,13 @@ const AdminNavBar = (props) => {
   return (
     <React.Fragment>
     <div id="parent">
-      <Media query="(max-width: 599px)">
+      <Media query="(max-width: 699px)">
         {matches =>
           matches ? (
             <div class="shadow-lg p-3 mb-5 bg-white rounded">
-              <Navbar>
+              {/* Mobile Display */}
+              <Navbar className="admin-nav">
+                {/* Hyperlinked Logo */}
                 <Navbar.Brand alt="AdminHome"
                 href="/AdminHome">
                 <img
@@ -42,6 +44,8 @@ const AdminNavBar = (props) => {
                   height="auto"
                   className="d-inline-block align-top"/>{' '}
                 </Navbar.Brand>
+
+                {/* User's Hamburger Menu */}
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                   <DropdownButton
@@ -54,29 +58,41 @@ const AdminNavBar = (props) => {
                           </div>
                       }
                       >
-                      <DropdownItem disabled={true}>
-                        <Nav className="nav-mini">
-                          <Avatar name="Jane Smith" size="40" round={true} />
-                          <Navbar.Text className="nav-avatar-text"> Jane Smith </Navbar.Text>
-                        </Nav>
-                      </DropdownItem>
-                      <Dropdown.Item>
-                        <i> <a href={'/#'} className="dropdown-item">
-                          Profile
-                        </a></i>
-                      </Dropdown.Item>
-                      <Dropdown.Item>
-                        <i> <a href={'/#'} className="dropdown-item">
-                          Logout
-                        </a></i>
-                      </Dropdown.Item>
+                    <DropdownItem disabled={true}>
+                      <Nav className="nav-mini">
+                        <Avatar name="Jane Smith" size="40" round={true} />
+                        <Navbar.Text className="nav-avatar-text"> Jane Smith </Navbar.Text>
+                      </Nav>
+                    </DropdownItem>
+                    <Dropdown.Item>
+                      <i> <a href={'/#'} className="dropdown-item">
+                        Profile
+                      </a></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <i> <a href={'/#'} className="dropdown-item">
+                        Dashboard
+                      </a></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <i> <a href={'/#'} className="dropdown-item">
+                        Groups
+                      </a></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <i> <a href={'/#'} className="dropdown-item">
+                        Logout
+                      </a></i>
+                    </Dropdown.Item>
                   </DropdownButton>
                 </Navbar.Collapse>
               </Navbar>
             </div>
           ) : (
             <div class="shadow-lg p-3 mb-5 bg-white rounded">
-              <Navbar>
+              {/* Desktop Display */}
+              <Navbar className="admin-nav">
+                {/* Hyperlinked Logo */}
                 <Navbar.Brand alt="AdminHome"
                 href="/AdminHome">
                 <img
@@ -86,6 +102,22 @@ const AdminNavBar = (props) => {
                   height="auto"
                   className="d-inline-block align-top"/>{' '}
                 </Navbar.Brand>
+
+                {/* Page Links */}
+                <Nav className="page-links">
+                  <NavLink className="page-btn"
+                           onClick={() => props.history.push("/AdminHome")}
+                           color="inherit" >
+                    Dashboard
+                  </NavLink>
+
+                  <NavLink className="page-btn" href="#" color="inherit" >
+                    Groups
+                  </NavLink>
+
+                </Nav>
+
+                {/* Avatar w/ Dropdown */}
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                   <Nav className="nav-avatar">

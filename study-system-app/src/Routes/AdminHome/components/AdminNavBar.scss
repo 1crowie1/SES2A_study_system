@@ -12,7 +12,7 @@ $btnColour-2: #ff325b;
   @media (min-width: 1800px) { @content; }
 }
 
-.navbar {
+.admin-nav {
   height: 48px;
 
   .navbar-brand{
@@ -25,6 +25,15 @@ $btnColour-2: #ff325b;
       }
     }
   }
+  .page-links{
+    margin-left: 40px;
+    gap: 40px;
+    .page-btn{
+      color: black !important;
+      font-size: 1rem;
+    }
+  }
+
   #dropdown-menu-align-right{
     all: unset;
     cursor: pointer;
@@ -39,7 +48,7 @@ $btnColour-2: #ff325b;
   }
 
   .nav-avatar{
-    margin-right: 105px;
+    margin-right: 5%;
     .nav-avatar-text{
       font-size: 1rem;
       margin-right: 15px;
@@ -57,6 +66,7 @@ $btnColour-2: #ff325b;
     flex-wrap: wrap;
     justify-content: center;
     .nav-avatar-text{
+      padding: 10px;
       font-size: 1rem;
       cursor: default;
     }
