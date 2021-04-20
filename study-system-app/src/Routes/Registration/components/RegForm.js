@@ -34,6 +34,7 @@ const RegForm = (props) => {
     console.log("CONTINUE WITH GOOGLE");
     firebase.auth().signInWithPopup(provider).then((res) => {
       console.log(res.user)
+      props.history.push("/StudentLogin");
     }).catch((error) => {
       console.log(error.message)
     });
@@ -50,10 +51,10 @@ const RegForm = (props) => {
       }).then(() => {
             firebase.auth().updateCurrentUser(userData.user).then(r => console.log("Update success"));
           });
+      props.history.push("/StudentLogin");
     }).catch((error) => {
       console.log(error.message)
     });
-    props.history.push("/StudentLogin");
   }
 
   return (

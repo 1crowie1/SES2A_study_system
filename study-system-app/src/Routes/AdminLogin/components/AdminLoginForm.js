@@ -11,6 +11,7 @@ const AdminLoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   const config =
       {
         apiKey: "AIzaSyAf02jIhvwfN5LutBBEgFjBIvHPWLEnk0Q",
@@ -30,10 +31,10 @@ const AdminLoginForm = (props) => {
     console.log("ADMIN LOGIN WITH EMAIL");
     firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
       console.log(res.user)
+      props.history.push("/AdminHome");
     }).catch((error) => {
       console.log(error.message)
     });
-    props.history.push("/AdminHome");
   }
 
   return (
@@ -65,7 +66,7 @@ const AdminLoginForm = (props) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button variant="custom-one" block size="lg" type="button" onClick={() => emailLogin()}>
+          <Button variant="custom-one" block size="lg" type="submit">
             Sign in
           </Button>
         </Form>
