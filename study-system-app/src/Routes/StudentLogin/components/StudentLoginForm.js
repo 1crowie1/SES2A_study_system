@@ -33,6 +33,7 @@ const StudentLoginForm = (props) => {
     console.log("LOGIN WITH GOOGLE");
     firebase.auth().signInWithPopup(provider).then((res) => {
       console.log(res.user)
+      props.history.push("/StudentHome");
     }).catch((error) => {
       console.log(error.message)
     });
@@ -42,10 +43,10 @@ const StudentLoginForm = (props) => {
     console.log("LOGIN WITH EMAIL");
     firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
       console.log(res.user)
+      props.history.push("/StudentHome");
     }).catch((error) => {
       console.log(error.message)
     });
-    props.history.push("/StudentHome");
   }
 
   return (
