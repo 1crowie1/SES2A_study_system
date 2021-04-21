@@ -1,42 +1,15 @@
 import React, { useState } from "react";
 import {withRouter} from "react-router-dom";
 import {Form, Button, Card, Image} from "react-bootstrap";
-import GoogleIcon from "../../../Assets/google-icon.png";
 import firebase from 'firebase';
 import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./AdminLoginForm.scss";
-import firebase from "firebase";
 
 const AdminLoginForm = (props) => {
 
   // Needs backend to implement login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-<<<<<<< HEAD
-  var config = 
-  {
-    apiKey: "AIzaSyAf02jIhvwfN5LutBBEgFjBIvHPWLEnk0Q",
-    authDomain: "groupformationsystem.firebaseapp.com",
-    databaseURL: "https://groupformationsystem-default-rtdb.firebaseio.com",
-    projectId: "groupformationsystem",
-    storageBucket: "groupformationsystem.appspot.com",
-    messagingSenderId: "912375308149",
-    appId: "1:912375308149:web:6932a8593b14559538bd3c",
-    measurementId: "G-13XJR1BL4W"
-  };
-  const fire = firebase.initializeApp(config);
-
-  document.addEventListener("DOMContentLoaded", event => {
-    const app = firebase.app();
-
-  });
-
-  function googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    console.log("LOGIN WITH GOOGLE");
-    firebase.auth().signInWithPopup(provider);
-=======
 
   const config =
       {
@@ -59,9 +32,9 @@ const AdminLoginForm = (props) => {
       console.log(res.user)
       props.history.push("/AdminHome");
     }).catch((error) => {
+      alert(error.message)
       console.log(error.message)
     });
->>>>>>> main
   }
 
   return (
@@ -79,6 +52,7 @@ const AdminLoginForm = (props) => {
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>
             <Form.Control
+              required
               autoFocus
               type="email"
               value={email}
@@ -88,6 +62,7 @@ const AdminLoginForm = (props) => {
           <Form.Group size="lg" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control
+              required
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -96,19 +71,13 @@ const AdminLoginForm = (props) => {
           <Button variant="custom-one" block size="lg" type="button" onClick={() => emailLogin()}>
             Sign in
           </Button>
-          <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>
-
-          <Button variant="custom-two" block size="lg" type="submit" onClick={googleLogin()}>
-          <Image src={GoogleIcon}/>
-            Sign in with Google
-          </Button>
         </Form>
         {/* Line */}
         <hr></hr>
 
         {/* This will need to be changed to a NavLink and redirect to the
-          forgot password page */}
-        <Card.Text><a href="#">Forgot your password?</a> </Card.Text>
+        //   forgot password page */}
+        {/* // <Card.Text><a href="#">Forgot your password?</a> </Card.Text> */}
 
       </Card.Body>
     </Card>
