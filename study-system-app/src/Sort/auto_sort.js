@@ -13,7 +13,7 @@ NOTE #1:
 
 */
 
-var studentCLass = [
+var studentClass = [
     ["Harrison Crowe-Maxwell", 
         false, [1, 2], [2, 13, 15], 
         [false, true, false, true, false, true, false]],
@@ -45,3 +45,10 @@ var studentCLass = [
         false, [1, 4], [2, 13, 15], 
         [false, false, false, true, false, true, false]]
 ];
+
+function AutoSort(groupClass) {
+    var groupIDs = [];
+    return groupIDs;
+}
+
+AutoSort(studentClass);
