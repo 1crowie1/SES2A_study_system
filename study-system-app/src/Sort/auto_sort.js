@@ -46,9 +46,19 @@ var studentClass = [
         [false, false, false, true, false, true, false]]
 ];
 
-function AutoSort(groupClass) {
-    var groupIDs = [];
-    return groupIDs;
+function AutoSort(groupClass, groupSize) {
+    var groups = new Array(); // return variable
+
+    // Create Student Graph - i*n array relationship between students
+    var studentGraph = new Array();
+    for (i = 0; i<groupClass.length; i++) {
+        studentGraph[i] = new Array();
+        for (n = 0; n<groupClass.length; i++) {
+            studentGraph[i][n] = new Array();
+        }
+    }
+
+    return groups;
 }
 
-AutoSort(studentClass);
+AutoSort(studentClass, 5);
