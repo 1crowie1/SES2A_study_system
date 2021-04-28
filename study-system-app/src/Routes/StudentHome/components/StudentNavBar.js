@@ -34,7 +34,7 @@ const StudentNavBar = (props) => {
     <React.Fragment>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
       <Navbar className="student-nav">
-      {/*Clicking logo will redirect to student home page*/}
+      /*Clicking logo will redirect to student home page*/
         <Navbar.Brand alt="StudentHome"
         href="/StudentHome">
         <img
@@ -47,23 +47,48 @@ const StudentNavBar = (props) => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
 
-          {/*Links to different pages for the student*/}
-          <Nav className="page-links">
-            <NavLink className="link-one"
-            onClick={() => props.history.push("/StudentHome")}
-            color="inherit" >
-            Dashboard
-            </NavLink>
+        {/*Links to different pages for the student*/}
+        <Nav className="page-links">
+        <NavLink className="link-one"
+        onClick={() => props.history.push("/StudentHome")}
+        color="inherit" >
+        Dashboard
+        </NavLink>
 
-            <NavLink className="link-two" href="#" color="inherit" >
-            Groups
-            </NavLink>
+        <NavLink className="link-two"
+        onClick={() => props.history.push("/Groups")}
+        color="inherit" >
+        Groups
+        </NavLink>
 
-            <NavLink className="link-three" href="#" color="inherit" >
-            Contact
-            </NavLink>
+        <NavLink className="link-two" href="#" color="inherit" >
+        Groups
+        </NavLink>
 
-          </Nav>
+        <NavLink className="link-three" href="#" color="inherit" >
+        Contact
+        </NavLink>
+
+        <Nav className="nav-avatar">
+        <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
+          <DropdownButton
+            menuAlign="right"
+            id="dropdown-menu-align-right"
+            show={show}
+            onMouseEnter={showDropdown}
+            onMouseLeave={hideDropdown}
+            title={
+                <div class="Dropdown right">
+                  <Avatar name="John Doe" size="40" round={true}/>
+                </div>
+            }>
+              <Dropdown.Item
+              onClick={() => props.history.push("/StudentProfile")}>
+              Profile</Dropdown.Item>
+              <Dropdown.Item>
+              Logout</Dropdown.Item>
+          </DropdownButton>
+        </Nav>
 
           <Nav className="nav-avatar">
             <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
@@ -86,6 +111,7 @@ const StudentNavBar = (props) => {
                 </Dropdown.Item>
             </DropdownButton>
           </Nav>
+        </Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>

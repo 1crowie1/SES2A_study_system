@@ -1,13 +1,12 @@
-.student-dashboard {
+.groups-dashboard {
   margin-left: 140px;
   margin-right: 140px;
   h1{
     font-size: 1.5rem;
   }
-  .subject{
+  .group-1{
     cursor: pointer;
-  }
-  .class-card-img{
-    object-fit: cover;
+    color:blue;
+    text-decoration:underline;
   }
 }
