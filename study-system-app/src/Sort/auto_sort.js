@@ -41,7 +41,7 @@ var studentClass = [
         [false, true, false, true, false, true, false]],
     ["Nick Hoop", 
         false, [4, 30], [2, 13, 15], 
-        [false, false, false, false, false, false, true]],
+        [false, false, false, true, false, false, true]],
     ["Alex Jameson", 
         false, [1, 4], [2, 13, 15], 
         [false, false, false, true, false, true, false]]
@@ -128,6 +128,16 @@ function AutoSort(studentClass, groupSize) {
                     console.log(outputStatement);
                     outputStatement = "";
                 }
+            }
+        }
+        console.log("\n");
+    }
+
+    for (i = 0; i<studentClass.length; i++) {
+        console.log(studentClass[i][0], " can be grouped with: ");
+        for (n = 0; n<studentClass.length; n++) {
+            if (studentGraph[i][n][4] == 1) {
+                console.log(studentClass[n][0],  "with rating ",  studentGraph[i][n][3]);
             }
         }
         console.log("\n");
