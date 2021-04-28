@@ -26,7 +26,7 @@ var studentClass = [
         [true, true, false, true, true, true, false]],
     ["Tom Peeves", 
         false, [4, 1], [5, 3, 2], 
-        [false, true, false, true, false, true, false]],
+        [false, true, false, false, false, false, false]],
     ["Maxwell Harries", 
         false, [1, 26], [2, 43, 15], 
         [false, true, false, true, false, false, false]],
@@ -35,26 +35,28 @@ var studentClass = [
         [true, true, false, true, false, false, true]],
     ["Rachael Ozich", 
         false, [27, 0], [75, 43, 51], 
-        [true, true, true, true, true, false, true]],
+        [true, true, true, true, true, false, false]],
     ["Sam Holmes", 
         false, [31, 0], [43, 13, 15], 
         [false, true, false, true, false, true, false]],
     ["Nick Hoop", 
         false, [4, 30], [2, 13, 15], 
-        [false, true, true, true, false, true, true]],
+        [false, false, false, false, false, false, true]],
     ["Alex Jameson", 
         false, [1, 4], [2, 13, 15], 
         [false, false, false, true, false, true, false]]
 ];
 
-function AutoSort(studentClass, groupSize) {
-    var groups = new Array(); // return variable
+finalGroup = AutoSort(studentClass, 5);
 
+
+function AutoSort(studentClass, groupSize) {
+    //var groups = new Array(studentClass.length/groupSize).fill(new Array); // return variable
     // Create Student Graph - i*n array relationship between students
-    var studentGraph = new Array(studentClass.length);
+    studentGraph = new Array(studentClass.length);
     for (i = 0; i<studentClass.length; i++) {
-        studentGraph[i] = new Array(studentClass);
-        for (n = 0; n<studentClass.length; i++) {
+        studentGraph[i] = new Array(studentClass.length);
+        for (n = 0; n<studentClass.length; n++) {
             studentGraph[i][n] = new Array(5).fill(0);
         }
     }
@@ -64,37 +66,73 @@ function AutoSort(studentClass, groupSize) {
             if (i != n) {
                 // Day availability [i][n][0]
                 for (p = 0; p<7; p++) {
-                    if (studentClass[i][3][p] && studentClass[n][3][p]) {
+                    if (studentClass[i][4][p] && studentClass[n][4][p]) {
                         studentGraph[i][n][0] = 1;
                     }
                 }
                 // Degree similarity [i][n][1]
-                if (studentClass[i][1][0] == studentClass[n][1][0]) {
+                if (studentClass[i][2][0] == studentClass[n][2][0]) {
                     studentGraph[i][n][1] = 1;
-                    if (studentClass[i][1][1] == studentClass[n][1][1]) {
+                    if (studentClass[i][2][1] == studentClass[n][2][1]) {
                         studentGraph[i][n][1] = 2;
                     }
                 }
                 // Topic match [i][n][2]
                 for (p = 0; p<3; p++) {
-                    if (studentClass[i][2][p] == studentClass[n][2][p]) {
-                        studentGraph[i][n][1]++;
+                    if (studentClass[i][3][p] == studentClass[n][3][p]) {
+                        studentGraph[i][n][2]++;
                     }
                 }
                 // Cumulative score [i][n][3]
-                for (p = 0; p<3; p++) {
-                    studentClass[i][n][3]+=studentClass[i][n][p];
-                }
+                studentGraph[i][n][3] = studentGraph[i][n][1] + studentGraph[i][n][2];
                 // Can group [i][n][4]
-                if (studentClass[i][n][0] && studentClass[i][n][3]>0) {
-                    studentClass[i][n][4] = 1;
+                if (studentGraph[i][n][0] && studentGraph[i][n][3]>0) {
+                    studentGraph[i][n][4] = 1;
+                }
+
+                console.log(studentGraph[i][n]);
+                if (n == 9) {
+                    console.log("\n");
                 }
             }
         }
     }
 
+    //print out graph layers
+    for (p = 0; p<5; p++) {
+        switch (p) {
+            case 0:
+                console.log("Day availability dimension\n");
+                break;
+            case 1:
+                console.log("Degree similarity dimension\n");
+                break;
+            case 2:
+                console.log("Topic match dimension\n");
+                break;
+            case 3:
+                console.log("Cumulative score dimension\n");
+                break;
+            case 4:
+                console.log("Can group dimension\n");
+                break;
+            default:
+                console.log("ERROR: 404\n");
+                break;
+        };
+        outputStatement = "";
+        for (i = 0; i<studentClass.length; i++) {
+            for (n = 0; n<studentClass.length; n++) {
+                outputStatement += studentGraph[i][n][p] + " ";
+                if (n == studentClass.length-1) {
+                    console.log(outputStatement);
+                    outputStatement = "";
+                }
+            }
+        }
+        console.log("\n");
+    }
 
-    return groups;
+
+    return 0;
 }
-
-AutoSort(studentClass, 5);
