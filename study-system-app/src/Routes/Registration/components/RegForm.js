@@ -37,6 +37,7 @@ const RegForm = (props) => {
       props.history.push("/StudentLogin");
     }).catch((error) => {
       console.log(error.message)
+      alert(error.message)
     });
   }
 
@@ -51,11 +52,15 @@ const RegForm = (props) => {
       }).then(() => {
             firebase.auth().updateCurrentUser(userData.user).then(r => console.log("Update success"));
           });
-      props.history.push("/StudentLogin");
+      // props.history.push("/StudentLogin");
+      props.history.push('/StudentHome')
     }).catch((error) => {
       console.log(error.message)
+      alert(error.message);
     });
   }
+
+  
 
   return (
     <React.Fragment>

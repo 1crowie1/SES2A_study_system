@@ -30,11 +30,32 @@ const StudentNavBar = (props) => {
     });
   }
 
+  var user = firebase.auth().currentUser;
+
+  // if (user != null) {
+  //   user.providerData.forEach(function (profile) {
+  //     console.log("Sign-in provider: " + profile.providerId);
+  //     console.log("  Provider-specific UID: " + profile.uid);
+  //     console.log("  Name: " + profile.displayName);
+  //     console.log("  Email: " + profile.email);
+  //     console.log("  Photo URL: " + profile.photoURL);
+  //   });
+  // }
+
+  var name, email, photoUrl, uid, emailVerified;
+  if (user != null) {
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;
+  }
+
   return (
     <React.Fragment>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
       <Navbar className="student-nav">
-      /*Clicking logo will redirect to student home page*/
+      {/*Clicking logo will redirect to student home page*/}
         <Navbar.Brand alt="StudentHome"
         href="/StudentHome">
         <img
@@ -61,15 +82,15 @@ const StudentNavBar = (props) => {
         Groups
         </NavLink>
 
-        <NavLink className="link-two" href="#" color="inherit" >
+        {/* <NavLink className="link-two" href="#" color="inherit" >
         Groups
-        </NavLink>
+        </NavLink> */}
 
         <NavLink className="link-three" href="#" color="inherit" >
         Contact
         </NavLink>
 
-        <Nav className="nav-avatar">
+        {/* <Nav className="nav-avatar">
         <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
           <DropdownButton
             menuAlign="right"
@@ -88,7 +109,7 @@ const StudentNavBar = (props) => {
               <Dropdown.Item>
               Logout</Dropdown.Item>
           </DropdownButton>
-        </Nav>
+        </Nav> */}
 
           <Nav className="nav-avatar">
             <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
@@ -100,7 +121,7 @@ const StudentNavBar = (props) => {
               onMouseLeave={hideDropdown}
               title={
                   <div class="Dropdown right">
-                    <Avatar name="John Doe" size="40" round={true}/>
+                    <Avatar name={name} size="40" round={true}/>
                   </div>
               }>
                 <Dropdown.Item onClick={() => props.history.push("/StudentProfile")}>
