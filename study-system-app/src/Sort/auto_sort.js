@@ -11,6 +11,9 @@ NOTE #1:
         - E.g. (2 -> programming) (15 -> robotics) (43 -> medicine) and the numbers around them are similar topics
         - E.g. (1 -> engineering) (27 -> nursing) (15 -> business) 
 
+NOTE #2:
+    - 
+
 */
 
 var studentClass = [
@@ -46,17 +49,39 @@ var studentClass = [
         [false, false, false, true, false, true, false]]
 ];
 
-function AutoSort(groupClass, groupSize) {
+function AutoSort(studentClass, groupSize) {
     var groups = new Array(); // return variable
 
     // Create Student Graph - i*n array relationship between students
-    var studentGraph = new Array();
-    for (i = 0; i<groupClass.length; i++) {
-        studentGraph[i] = new Array();
-        for (n = 0; n<groupClass.length; i++) {
-            studentGraph[i][n] = new Array();
+    var studentGraph = new Array(studentClass.length);
+    for (i = 0; i<studentClass.length; i++) {
+        studentGraph[i] = new Array(studentClass);
+        for (n = 0; n<studentClass.length; i++) {
+            studentGraph[i][n] = new Array(5).fill(0);
         }
     }
+
+    for (i = 0; i<studentGraph.length; i++) {
+        for (n = 0; n<studentGraph[i].length; n++) {
+            if (i != n) {
+                // Day availability [i][n][0]
+                for (p = 0; p<7; p++) {
+                    if (studentClass[i][p] && studentClass[n][p]) {
+                        studentGraph[i][n][0] = 1;
+                    }
+                }
+                // Degree similarity [i][n][1]
+                if (studentClass)
+
+                // Topic match [i][n][2]
+
+                // Cumulative score [i][n][3]
+
+                // Can group [i][n][4]
+            }
+        }
+    }
+
 
     return groups;
 }
