@@ -8,13 +8,14 @@ const AdminCourseManagement = (props) => {
 
 return (
   <React.Fragment>
+    {/* Displays courses related to user */}
   <div class="course-management">
     <h1>Course Management</h1>
     <hr />
     <div className="card-container">
       <Card className="wide-card" onClick={() => props.history.push("/ClassManagement")}>
         {/* Link Database to this */}
-        {/* Contains classes of the course related to user */}
+        {/* Contains all courses related to user */}
       </Card>
     </div>
   </div>
