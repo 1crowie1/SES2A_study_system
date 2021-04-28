@@ -55,7 +55,6 @@ const StudentNavBar = (props) => {
     <React.Fragment>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
       <Navbar className="student-nav">
-      {/*Clicking logo will redirect to student home page*/}
         <Navbar.Brand alt="StudentHome"
         href="/StudentHome">
         <img
@@ -90,29 +89,8 @@ const StudentNavBar = (props) => {
         Contact
         </NavLink>
 
-        {/* <Nav className="nav-avatar">
-        <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
-          <DropdownButton
-            menuAlign="right"
-            id="dropdown-menu-align-right"
-            show={show}
-            onMouseEnter={showDropdown}
-            onMouseLeave={hideDropdown}
-            title={
-                <div class="Dropdown right">
-                  <Avatar name="John Doe" size="40" round={true}/>
-                </div>
-            }>
-              <Dropdown.Item
-              onClick={() => props.history.push("/StudentProfile")}>
-              Profile</Dropdown.Item>
-              <Dropdown.Item>
-              Logout</Dropdown.Item>
-          </DropdownButton>
-        </Nav> */}
-
           <Nav className="nav-avatar">
-            <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
+            <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
             <DropdownButton
               menuAlign="right"
               id="dropdown-menu-align-right"
@@ -143,3 +121,4 @@ const StudentNavBar = (props) => {
 // Wrapping Navbar in a withRouter function in order to give it access to
 // this.props.history to redirect the user to the different components
 export default withRouter(StudentNavBar);
+
