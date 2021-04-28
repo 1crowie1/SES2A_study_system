@@ -31,7 +31,7 @@ const AdminLoginForm = (props) => {
     console.log("ADMIN LOGIN WITH EMAIL");
     firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
       console.log(res.user)
-      props.history.push("/AdminHome");
+      props.history.push("/AdminCourses");
     }).catch((error) => {
       console.log(error.message)
     });

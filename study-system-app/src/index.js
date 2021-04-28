@@ -7,10 +7,10 @@ import {
     LandingPage,
     Registration,
     StudentHome, StudentLogin, UserSelect,
-    StudentProfile
+    StudentProfile, AdminHome, CourseManagement, ClassManagement
 } from "./Routes/Routes";
 import "./index.scss";
-import AdminHome from "./Routes/AdminHome/AdminHome";
+import AdminCourseManagement from "./Routes/Admin/AdminHome/AdminHome";
 
 ReactDOM.render(
   <Router>
@@ -20,6 +20,8 @@ ReactDOM.render(
      <Route path="/AdminLogin" component={AdminLogin} />
      <Route path="/Registration" component={Registration} />
      <Route path="/AdminHome" component={AdminHome} />
+     <Route path="/CourseManagement" component={CourseManagement} />
+     <Route path="/ClassManagement" component={ClassManagement} />
      <Route path="/StudentHome" component={StudentHome} />
      <Route path="/StudentProfile" component={StudentProfile} />
    </Switch>

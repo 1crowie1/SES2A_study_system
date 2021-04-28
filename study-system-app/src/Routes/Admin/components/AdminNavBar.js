@@ -70,13 +70,13 @@ const AdminNavBar = (props) => {
                       </a></i>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                      <i> <a href={'/#'} className="dropdown-item">
+                      <i> <a onClick={() => props.history.push("/AdminHome")} className="dropdown-item">
                         Dashboard
                       </a></i>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                      <i> <a href={'/#'} className="dropdown-item">
-                        Groups
+                      <i> <a onClick={() => props.history.push("/CourseManagement")} className="dropdown-item">
+                        Courses
                       </a></i>
                     </Dropdown.Item>
                     <Dropdown.Item>
@@ -111,8 +111,10 @@ const AdminNavBar = (props) => {
                     Dashboard
                   </NavLink>
 
-                  <NavLink className="page-btn" href="#" color="inherit" >
-                    Groups
+                  <NavLink className="page-btn"
+                           onClick={() => props.history.push("/CourseManagement")}
+                           color="inherit" >
+                    Courses
                   </NavLink>
 
                 </Nav>

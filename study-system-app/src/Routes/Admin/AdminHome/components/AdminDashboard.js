@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import "./AdminDashboard.scss";
+import Card from "react-bootstrap/Card";
 
 // Using history in props for routing to different components
 const AdminDashboard = (props) => {
@@ -10,6 +11,12 @@ return (
   <div class="student-dashboard">
     <h1>Dashboard</h1>
     <hr />
+    <div className="card-container">
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+      </Card>
+    </div>
   </div>
   </React.Fragment>
 );
