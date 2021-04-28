@@ -1,5 +1,3 @@
-import React from 'react';
-
 /* Using Test Data:
 
 class which consists of a 3D array of students
@@ -66,18 +64,31 @@ function AutoSort(studentClass, groupSize) {
             if (i != n) {
                 // Day availability [i][n][0]
                 for (p = 0; p<7; p++) {
-                    if (studentClass[i][p] && studentClass[n][p]) {
+                    if (studentClass[i][3][p] && studentClass[n][3][p]) {
                         studentGraph[i][n][0] = 1;
                     }
                 }
                 // Degree similarity [i][n][1]
-                if (studentClass)
-
+                if (studentClass[i][1][0] == studentClass[n][1][0]) {
+                    studentGraph[i][n][1] = 1;
+                    if (studentClass[i][1][1] == studentClass[n][1][1]) {
+                        studentGraph[i][n][1] = 2;
+                    }
+                }
                 // Topic match [i][n][2]
-
+                for (p = 0; p<3; p++) {
+                    if (studentClass[i][2][p] == studentClass[n][2][p]) {
+                        studentGraph[i][n][1]++;
+                    }
+                }
                 // Cumulative score [i][n][3]
-
+                for (p = 0; p<3; p++) {
+                    studentClass[i][n][3]+=studentClass[i][n][p];
+                }
                 // Can group [i][n][4]
+                if (studentClass[i][n][0] && studentClass[i][n][3]>0) {
+                    studentClass[i][n][4] = 1;
+                }
             }
         }
     }
