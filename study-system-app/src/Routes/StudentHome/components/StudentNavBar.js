@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import {Navbar, NavLink, Nav, DropdownButton, Dropdown} from "react-bootstrap";
 import Avatar from 'react-avatar';
 import Logo from "../../../Assets/logo4.png";
+import firebase from 'firebase';
 
 import "./StudentNavBar.scss";
 
@@ -18,6 +19,15 @@ const StudentNavBar = (props) => {
 
   const hideDropdown = e => {
       setShow(false);
+  }
+
+  function signOut(){
+    firebase.auth().signOut().then((res) => {
+      // console.log(res.user);
+      props.history.push('/');
+    }).catch((error) => {
+      console.log(error.message)
+    });
   }
 
   return (
@@ -70,6 +80,9 @@ const StudentNavBar = (props) => {
               }>
                 <Dropdown.Item onClick={() => props.history.push("/StudentProfile")}>
                   Profile
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => signOut()}>
+                  Sign Out
                 </Dropdown.Item>
             </DropdownButton>
           </Nav>
