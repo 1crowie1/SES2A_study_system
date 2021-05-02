@@ -51,7 +51,9 @@ const StudentNavBar = (props) => {
         Groups
         </NavLink>
 
-        <NavLink className="link-three" href="#" color="inherit" >
+        <NavLink className="link-three"
+        onClick={() => props.history.push("/Contact")}
+        color="inherit" >
         Contact
         </NavLink>
 
