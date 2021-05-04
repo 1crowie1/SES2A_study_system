@@ -43,8 +43,8 @@ var studentClass = [
         [false, false, false, true, false, true, false]]
 ];
 
-// autoGroup = AutoSort(studentClass, 5);
-randGroup = RandSort(studentClass, 5);
+autoGroup = AutoSort(studentClass, 5);
+// randGroup = RandSort(studentClass, 5);
 
 
 /*
@@ -85,8 +85,6 @@ function RandSort(studentClass, groupSize) {
 }
 
 
-
-
 /*
 Automatic Sorting Function
 
@@ -97,6 +95,7 @@ students. This eliminates remaining students until all students are in a group.
 function AutoSort(studentClass, groupSize) {
     //var groups = new Array(studentClass.length/groupSize).fill(new Array); // return variable
     // Create Student Graph - i*n array relationship between students
+    outputStatement = "";
     studentGraph = new Array(studentClass.length);
     for (i = 0; i<studentClass.length; i++) {
         studentGraph[i] = new Array(studentClass.length);
@@ -133,10 +132,11 @@ function AutoSort(studentClass, groupSize) {
                 if (studentGraph[i][n][0] && studentGraph[i][n][3]>0) {
                     studentGraph[i][n][4] = 1;
                 }
-
-                console.log(studentGraph[i][n]);
+                
+                outputStatement+= studentGraph[i][n] + "   ";
                 if (n == 9) {
-                    console.log("\n");
+                    console.log("%s\n\n\n", outputStatement);
+                    outputStatement = "";
                 }
             }
         }
