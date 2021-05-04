@@ -1,0 +1,13 @@
+.student-dashboard {
+  margin-left: 140px;
+  margin-right: 140px;
+  h1{
+    font-size: 1.5rem;
+  }
+  .subject{
+    cursor: pointer;
+  }
+  .class-card-img{
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,51 @@
+//Colour variables
+$mainColour: #4267B2;
+$secondColour: #1c5ad8;
+
+.student-nav {
+  height: 50px;
+
+  .navbar-brand{
+    margin-left: 100px;
+    position: relative;
+    background-size: contain;
+  }
+  .page-links{
+    margin-right: 530px;
+    padding-top: 25px;
+  }
+  .link-one{
+    margin-right: 40px;
+    color: black !important;
+    font-size: 1rem;
+  }
+  .link-two{
+      margin-right: 40px;
+      color: black !important;
+      font-size: 1rem;
+  }
+  .link-three{
+      color: black !important;
+      font-size: 1rem;
+  }
+  .link-one:hover, .link-two:hover, .link-three:hover{
+    color: $secondColour !important;
+  }
+  .nav-avatar{
+    margin-right: 105px;
+    .nav-avatar-text{
+      font-size: 1rem;
+      margin-right: 15px;
+      margin-left: 450px;
+      cursor: default;
+    }
+    #dropdown-menu-align-right{
+      all: unset;
+      cursor: pointer;
+    }
+    #dropdown-menu-align-right::after{
+      display: none;
+    }
+  }
+
+}

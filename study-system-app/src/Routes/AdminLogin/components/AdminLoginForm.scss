@@ -1,0 +1,77 @@
+//Colour variables
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
+
+// Setting up mixins for different screen sizes
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+.AdminLoginBox {
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  @include for-phone-only {
+    margin-top: -30px;
+  }
+  .login-card{
+    width: 25rem;
+    height: auto;
+    border: none;
+    @include for-phone-only {
+      width: 21rem;
+    }
+  }
+  form {
+    margin: 0 auto;
+    max-width: auto;
+    padding: 30px 0px 0px 0px;
+    .form-group {
+      width: 380px;
+      @include for-phone-only {
+        width: 300px;
+      }
+    }
+    .btn-custom-one {
+      background-color: $mainColour;
+      color: white;
+      outline: none;
+      border: none;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+    .btn-custom-one:hover, .btn-custom-one:focus, .btn-custom-one:active {
+        background-color: $mainColour-dark;
+        border: none;
+    }
+
+  }
+}
+
+.card {
+  border: none;
+  align-items: center;
+  justify-content: center;
+  .card-title{
+    font-size: 30px;
+  }
+  hr{
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  }
+  .card-text{
+    text-align: center;
+    font-size: 15px;
+  }
+}
