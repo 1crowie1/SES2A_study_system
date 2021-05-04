@@ -43,8 +43,8 @@ var studentClass = [
         [false, false, false, true, false, true, false]]
 ];
 
-autoGroup = AutoSort(studentClass, 5);
-// randGroup = RandSort(studentClass, 5);
+autoGroup = AutoSort(studentClass, 2);
+// randGroup = RandSort(studentClass, 2);
 
 
 /*
@@ -100,7 +100,7 @@ function AutoSort(studentClass, groupSize) {
     for (i = 0; i<studentClass.length; i++) {
         studentGraph[i] = new Array(studentClass.length);
         for (n = 0; n<studentClass.length; n++) {
-            studentGraph[i][n] = new Array(5).fill(0);
+            studentGraph[i][n] = new Array(7).fill(0);
         }
     }
 
@@ -141,9 +141,35 @@ function AutoSort(studentClass, groupSize) {
             }
         }
     }
+    
+    // Rank
+    rank = 1;
+    highest = 0;
+    for (i = 0; i<studentGraph.length; i++) {
+        for (p = 0; p<studentGraph.length; p++) {
+            //identify highest
+            for (n = 0; n<studentGraph[i].length; n++) {
+                if (studentGraph[i][n][4] == 0) {
+                    studentGraph[i][n][5] = -1;
+                }
+                if (studentGraph[i][n][5] == 0 && i!=n) {
+                    if (studentGraph[i][n][3] > studentGraph[i][highest][3]) {
+                        highest = n;
+                    }
+                }
+            }
+            console.log("For student %d the %d ranked student is %d", i, rank, highest);
+            studentGraph[i][highest][5] = rank;
+            rank++;
+            highest = 0;
+        }
+        rank = 1;
+        highest = 0;
+    }
+    
 
     //print out graph layers
-    for (p = 0; p<5; p++) {
+    for (p = 0; p<6; p++) {
         switch (p) {
             case 0:
                 console.log("Day availability dimension\n");
@@ -159,6 +185,9 @@ function AutoSort(studentClass, groupSize) {
                 break;
             case 4:
                 console.log("Can group dimension\n");
+                break;
+            case 5:
+                console.log("Rank dimension\n");
                 break;
             default:
                 console.log("ERROR: 404\n");
@@ -186,7 +215,6 @@ function AutoSort(studentClass, groupSize) {
         }
         console.log("\n");
     }
-
 
     return 0;
 }
