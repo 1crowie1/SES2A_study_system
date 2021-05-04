@@ -8,10 +8,6 @@ NOTE #1:
       these numbers can then be setup as to group relevant topics and degrees by value saving processing later
         - E.g. (2 -> programming) (15 -> robotics) (43 -> medicine) and the numbers around them are similar topics
         - E.g. (1 -> engineering) (27 -> nursing) (15 -> business) 
-
-NOTE #2:
-    - 
-
 */
 
 var studentClass = [
@@ -39,7 +35,7 @@ var studentClass = [
     ["Sam Holmes", 
         false, [31, 0], [43, 13, 15], 
         [false, true, false, true, false, true, false]],
-    ["Nick Hoop", 
+    ["Anesu Chakaingesu", 
         false, [4, 30], [2, 13, 15], 
         [false, false, false, true, false, false, true]],
     ["Alex Jameson", 
@@ -47,9 +43,57 @@ var studentClass = [
         [false, false, false, true, false, true, false]]
 ];
 
-finalGroup = AutoSort(studentClass, 5);
+// autoGroup = AutoSort(studentClass, 5);
+randGroup = RandSort(studentClass, 5);
 
 
+/*
+Random Sorting Function
+
+Consist of ~day availablity~ data point.
+This is then used to randomly arrange students into groups of ~groupSize~ 
+*/
+function RandSort(studentClass, groupSize) {
+    // Create Student Graph - i*n array relationship between students
+    studentGraph = new Array(studentClass.length);
+    for (i = 0; i<studentClass.length; i++) {
+        studentGraph[i] = new Array(studentClass.length);
+        for (n = 0; n<studentClass.length; n++) {
+            studentGraph[i][n] = 0;
+        }
+    }
+
+    for (i = 0; i<studentGraph.length; i++) {
+        for (n = 0; n<studentGraph[i].length; n++) {
+            if (i != n) {
+                // Day availability [i][n]
+                for (p = 0; p<7; p++) {
+                    if (studentClass[i][4][p] && studentClass[n][4][p]) {
+                        studentGraph[i][n] = 1;
+                    }
+                }
+
+                console.log(studentGraph[i][n]);
+                if (n == 9) {
+                    console.log("\n");
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+/*
+Automatic Sorting Function
+
+Consists of ~day availability~, ~degree similarity~, ~topic match~, ~cumulative score~ and ~can match~ data points.
+This is then used to arrange students into groups of ~groupSize~ based off the highest rated cumulative scored
+students. This eliminates remaining students until all students are in a group.
+*/
 function AutoSort(studentClass, groupSize) {
     //var groups = new Array(studentClass.length/groupSize).fill(new Array); // return variable
     // Create Student Graph - i*n array relationship between students
