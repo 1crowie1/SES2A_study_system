@@ -32,6 +32,10 @@ const StudentLoginForm = (props) => {
     const provider = new firebase.auth.GoogleAuthProvider();
     console.log("LOGIN WITH GOOGLE");
     firebase.auth().signInWithPopup(provider).then((res) => {
+      firebase.firestore().collection("users").doc(res.user.uid).set({
+        name: res.user.displayName,
+        email: res.user.email
+      });
       console.log(res.user)
       props.history.push("/StudentHome");
     }).catch((error) => {
