@@ -63,6 +63,7 @@ function RandSort(studentClass, groupSize) {
         }
     }
 
+
     for (i = 0; i<studentGraph.length; i++) {
         for (n = 0; n<studentGraph[i].length; n++) {
             if (i != n) {
@@ -79,6 +80,11 @@ function RandSort(studentClass, groupSize) {
                 }
             }
         }
+    }
+
+    studentsRemain = true;
+    while (studentsRemain == true) {
+
     }
 
     return 0;
@@ -144,29 +150,43 @@ function AutoSort(studentClass, groupSize) {
     
     // Rank
     rank = 1;
+    unranked = true;
     highest = 0;
+    found = false;
     for (i = 0; i<studentGraph.length; i++) {
-        for (p = 0; p<studentGraph.length; p++) {
-            //identify highest
-            for (n = 0; n<studentGraph[i].length; n++) {
-                if (studentGraph[i][n][4] == 0) {
-                    studentGraph[i][n][5] = -1;
-                }
-                if (studentGraph[i][n][5] == 0 && i!=n) {
-                    if (studentGraph[i][n][3] > studentGraph[i][highest][3]) {
-                        highest = n;
+        while (unranked == true) {
+            for (n = 0; n<studentGraph.length; n++) {
+                if (studentGraph[i][n][5] == 0) {
+                    if (studentGraph[i][n][4] == 0) {
+                        studentGraph[i][n][5] = -1;
+                        console.log("Student %d gives student %d rank %d", i, n, -1);
+                        console.log(studentGraph[i][n][5]);
+                    } else {
+                        if (studentGraph[i][n][3] >= studentGraph[i][highest][3]) {
+                            highest = n;
+                            found = true;
+                        }
                     }
                 }
             }
-            console.log("For student %d the %d ranked student is %d", i, rank, highest);
-            studentGraph[i][highest][5] = rank;
-            rank++;
+            if (found == true && studentGraph[i][highest][5] == 0) {
+                console.log("Student %d gives student %d rank %d", i, highest, rank);
+                studentGraph[i][highest][5] = rank;
+                console.log(studentGraph[i][highest][5]);
+            }
+            unranked = false;
+            for (n = 0; n<studentGraph.length; n++) {
+                if (studentGraph[i][n][5] == 0 && rank < studentGraph.length) {
+                    unranked = true;
+                } 
+            }
+            rank ++;
             highest = 0;
+            found == false;
         }
+        unranked = true;
         rank = 1;
-        highest = 0;
     }
-    
 
     //print out graph layers
     for (p = 0; p<6; p++) {
