@@ -6,8 +6,6 @@ program will use this 3D array to form the graph and do sorting until backend ha
 NOTE #1:
     - Use a drop down menu to select degree and topics then save these as numbers in the database...
       these numbers can then be setup as to group relevant topics and degrees by value saving processing later
-        - E.g. (2 -> programming) (15 -> robotics) (43 -> medicine) and the numbers around them are similar topics
-        - E.g. (1 -> engineering) (27 -> nursing) (15 -> business) 
 */
 
 var studentClass = [
