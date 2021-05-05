@@ -149,8 +149,6 @@ function AutoSort(studentClass, groupSize) {
             }
         }
     }
-
-    // PROBLEM WITH HIGHEST
     
     // Rank
     rank = 1;
@@ -193,8 +191,15 @@ function AutoSort(studentClass, groupSize) {
         rank = 1;
     }
 
+    // Relational Rank
+    for (i = 0; i<studentGraph.length; i++) {
+        for (n = 0; n<studentGraph[i].length; n++) {
+            studentGraph[i][n][7] = studentGraph[i][n][5] + studentGraph[n][i][5];
+        }
+    }
+
     //print out graph layers
-    for (p = 0; p<7; p++) {
+    for (p = 0; p<8; p++) {
         switch (p) {
             case 0:
                 console.log("Day availability dimension\n");
@@ -216,6 +221,9 @@ function AutoSort(studentClass, groupSize) {
                 break;
             case 6:
                 console.log("Cumulative score dimension\n");
+                break;
+            case 7:
+                console.log("Relative Rank dimension\n");
                 break;
             default:
                 console.log("ERROR: 404\n");
