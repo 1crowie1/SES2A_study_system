@@ -6,6 +6,9 @@ program will use this 3D array to form the graph and do sorting until backend ha
 NOTE #1:
     - Use a drop down menu to select degree and topics then save these as numbers in the database...
       these numbers can then be setup as to group relevant topics and degrees by value saving processing later
+
+NOTE #2:
+    - studentGraph[i][n][6] introduced for elimination rating backup
 */
 
 var studentClass = [
@@ -104,7 +107,7 @@ function AutoSort(studentClass, groupSize) {
     for (i = 0; i<studentClass.length; i++) {
         studentGraph[i] = new Array(studentClass.length);
         for (n = 0; n<studentClass.length; n++) {
-            studentGraph[i][n] = new Array(7).fill(0);
+            studentGraph[i][n] = new Array(8).fill(0);
         }
     }
 
@@ -131,7 +134,8 @@ function AutoSort(studentClass, groupSize) {
                     }
                 }
                 // Cumulative score [i][n][3]
-                studentGraph[i][n][3] = studentGraph[i][n][1] + studentGraph[i][n][2];
+                studentGraph[i][n][3] = studentGraph[i][n][1] + studentGraph[i][n][2]; // to be eliminated
+                studentGraph[i][n][6] = studentGraph[i][n][1] + studentGraph[i][n][2]; // to be stored
                 // Can group [i][n][4]
                 if (studentGraph[i][n][0] && studentGraph[i][n][3]>0) {
                     studentGraph[i][n][4] = 1;
@@ -145,6 +149,8 @@ function AutoSort(studentClass, groupSize) {
             }
         }
     }
+
+    // PROBLEM WITH HIGHEST
     
     // Rank
     rank = 1;
@@ -157,8 +163,8 @@ function AutoSort(studentClass, groupSize) {
                 if (studentGraph[i][n][5] == 0) {
                     if (studentGraph[i][n][4] == 0) {
                         studentGraph[i][n][5] = -1;
-                        console.log("Student %d gives student %d rank %d", i, n, -1);
-                        console.log(studentGraph[i][n][5]);
+                        //console.log("Student %d gives student %d rank %d", i, n, -1);
+                        //console.log(studentGraph[i][n][5]);
                     } else {
                         if (studentGraph[i][n][3] >= studentGraph[i][highest][3]) {
                             highest = n;
@@ -168,9 +174,10 @@ function AutoSort(studentClass, groupSize) {
                 }
             }
             if (found == true && studentGraph[i][highest][5] == 0) {
-                console.log("Student %d gives student %d rank %d", i, highest, rank);
+                //console.log("Student %d gives student %d rank %d", i, highest, rank);
                 studentGraph[i][highest][5] = rank;
-                console.log(studentGraph[i][highest][5]);
+                studentGraph[i][highest][3] = 1;
+                //console.log(studentGraph[i][highest][5]);
             }
             unranked = false;
             for (n = 0; n<studentGraph.length; n++) {
@@ -187,7 +194,7 @@ function AutoSort(studentClass, groupSize) {
     }
 
     //print out graph layers
-    for (p = 0; p<6; p++) {
+    for (p = 0; p<7; p++) {
         switch (p) {
             case 0:
                 console.log("Day availability dimension\n");
@@ -199,13 +206,16 @@ function AutoSort(studentClass, groupSize) {
                 console.log("Topic match dimension\n");
                 break;
             case 3:
-                console.log("Cumulative score dimension\n");
+                console.log("Elimination dimension\n");
                 break;
             case 4:
                 console.log("Can group dimension\n");
                 break;
             case 5:
                 console.log("Rank dimension\n");
+                break;
+            case 6:
+                console.log("Cumulative score dimension\n");
                 break;
             default:
                 console.log("ERROR: 404\n");
@@ -214,9 +224,9 @@ function AutoSort(studentClass, groupSize) {
         outputStatement = "";
         for (i = 0; i<studentClass.length; i++) {
             for (n = 0; n<studentClass.length; n++) {
-                outputStatement += studentGraph[i][n][p] + " ";
+                outputStatement += studentGraph[n][i][p] + "   "; // i n
                 if (n == studentClass.length-1) {
-                    console.log(outputStatement);
+                    console.log("%s\n", outputStatement);
                     outputStatement = "";
                 }
             }
@@ -228,7 +238,7 @@ function AutoSort(studentClass, groupSize) {
         console.log(studentClass[i][0], " can be grouped with: ");
         for (n = 0; n<studentClass.length; n++) {
             if (studentGraph[i][n][4] == 1) {
-                console.log(studentClass[n][0],  "with rating ",  studentGraph[i][n][3]);
+                console.log(studentClass[n][0],  "with rating ",  studentGraph[i][n][6]);
             }
         }
         console.log("\n");
