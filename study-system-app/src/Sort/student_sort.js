@@ -154,6 +154,13 @@ function AutoSort(studentClass, groupSize) {
     rank = 1;
     unranked = true;
     highest = 0;
+    for (i = 0; i<studentGraph.length; i++) {
+        for (n = 0; n<studentGraph.length; n++) {
+            if (studentGraph[i][n][3] < studentGraph[i][highest][3]) {
+                highest = n;
+            }
+        }
+    }
     found = false;
     for (i = 0; i<studentGraph.length; i++) {
         while (unranked == true) {
@@ -184,7 +191,13 @@ function AutoSort(studentClass, groupSize) {
                 } 
             }
             rank ++;
-            highest = 0;
+            for (q = 0; q<studentGraph.length; q++) {
+                for (n = 0; n<studentGraph.length; n++) {
+                    if (studentGraph[q][n][3] < studentGraph[q][highest][3]) {
+                        highest = n;
+                    }
+                }
+            }
             found == false;
         }
         unranked = true;
@@ -198,7 +211,32 @@ function AutoSort(studentClass, groupSize) {
         }
     }
 
+
     // Group Formation
+    lowest = 0;
+    for (i = 0; i<studentGraph.length; i++) {
+        for (n = 0; n<(i+1); n++) {
+            if (studentGraph[i][n][7] > studentGraph[i][lowest][7]) {
+                lowest = n;
+            }
+        }
+    }
+    outputStatement = "";
+    for (i=0; i<studentGraph.length; i++) {
+        for (n=0; n<(i+1); n++) {
+            /*
+            if (studentGraph[i][n][7] > 0) {
+            }
+            */
+            /*
+            outputStatement += studentGraph[i][n][7] + "   ";
+            if (n == i) {
+                console.log("%s\n", outputStatement);
+                outputStatement = "";
+            }
+            */
+        }
+    }
 
 
     //print out graph layers
@@ -232,10 +270,11 @@ function AutoSort(studentClass, groupSize) {
                 console.log("ERROR: 404\n");
                 break;
         };
+
         outputStatement = "";
         for (i = 0; i<studentClass.length; i++) {
             for (n = 0; n<studentClass.length; n++) {
-                outputStatement += studentGraph[n][i][p] + "   "; // i n
+                outputStatement += studentGraph[n][i][p] + "   "; // n i
                 if (n == studentClass.length-1) {
                     console.log("%s\n", outputStatement);
                     outputStatement = "";
