@@ -28,12 +28,22 @@ const StudentLoginForm = (props) => {
     const app = firebase.initializeApp(config);
   }
 
-
   function googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     console.log("LOGIN WITH GOOGLE");
     firebase.auth().signInWithPopup(provider).then((res) => {
       console.log(res.user)
+      props.history.push("/StudentHome");
+    }).catch((error) => {
+      console.log(error.message)
+    });
+  }
+
+  function emailLogin(){
+    console.log("LOGIN WITH EMAIL");
+    firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
+      console.log(res.user)
+      props.history.push("/StudentHome");
     }).catch((error) => {
       console.log(error.message)
     });
@@ -48,7 +58,7 @@ const StudentLoginForm = (props) => {
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
       <Card.Body>
-        <Button variant="backBtn" type="button" onClick={() => window.history.back()}><Image src={BackButton}/></Button>
+        <Button variant="backBtn" type="button" onClick={() => props.history.push("/")}><Image src={BackButton}/></Button>
         <Card.Title className="card-title">Student Login</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">
@@ -68,7 +78,7 @@ const StudentLoginForm = (props) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button variant="custom-one" block size="lg" type="submit">
+          <Button variant="custom-one" block size="lg" type="button" onClick={() => emailLogin()}>
             Sign in
           </Button>
           <Card.Text style={{fontSize: "12px", color: "grey"}}> OR </Card.Text>

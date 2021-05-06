@@ -1,0 +1,25 @@
+$mainColour: #4267B2;
+
+.show-profile {
+  margin-left: 140px;
+  margin-right: 140px;
+  h1{
+    font-size: 1.5rem;
+    display: inline;
+  }
+  .btn{
+    float: right;
+    display: inline;
+    width: 11%;
+    background-color: $mainColour;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 15px;
+  }
+  form {
+    .form-row {
+      width: 100%;
+    }
+  }
+}

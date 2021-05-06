@@ -1,0 +1,75 @@
+$btnColour-1: #FF6584;
+$btnColour-2: #ff325b;
+
+// Setting up mixins for different screen sizes
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+.admin-nav {
+  height: 48px;
+
+  .navbar-brand{
+    margin-left: 5%;
+    position: relative;
+    background-size: contain;
+    img{
+      @include for-phone-only {
+        margin-left: 0%;
+      }
+    }
+  }
+  .page-links{
+    margin-left: 40px;
+    gap: 40px;
+    .page-btn{
+      color: black !important;
+      font-size: 1rem;
+    }
+  }
+
+  #dropdown-menu-align-right{
+    all: unset;
+    cursor: pointer;
+  }
+  #dropdown-menu-align-right::after{
+    display: none;
+  }
+  .dropdown-item {
+    color: black;
+    font-style: normal;
+    font-size: 1.2rem;
+  }
+
+  .nav-avatar{
+    margin-right: 5%;
+    .nav-avatar-text{
+      font-size: 1rem;
+      margin-right: 15px;
+      cursor: default;
+    }
+    #dropdown-menu-align-right{
+      all: unset;
+      cursor: pointer;
+    }
+    #dropdown-menu-align-right::after{
+      display: none;
+    }
+  }
+  .nav-mini{
+    flex-wrap: wrap;
+    justify-content: center;
+    .nav-avatar-text{
+      padding: 10px;
+      font-size: 1rem;
+      cursor: default;
+    }
+  }
+}
+

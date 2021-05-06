@@ -1,38 +1,42 @@
 import React, { useState } from "react";
+import {withRouter} from "react-router-dom";
 import {Form, Button, Card, Image} from "react-bootstrap";
 import GoogleIcon from "../../../Assets/google-icon.png";
 import firebase from 'firebase';
 import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./AdminLoginForm.scss";
+import firebase from "firebase";
 
-const AdminLoginForm = () => {
+const AdminLoginForm = (props) => {
 
   // Needs backend to implement login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  var config = 
-  {
-    apiKey: "AIzaSyAf02jIhvwfN5LutBBEgFjBIvHPWLEnk0Q",
-    authDomain: "groupformationsystem.firebaseapp.com",
-    databaseURL: "https://groupformationsystem-default-rtdb.firebaseio.com",
-    projectId: "groupformationsystem",
-    storageBucket: "groupformationsystem.appspot.com",
-    messagingSenderId: "912375308149",
-    appId: "1:912375308149:web:6932a8593b14559538bd3c",
-    measurementId: "G-13XJR1BL4W"
-  };
-  const fire = firebase.initializeApp(config);
 
-  document.addEventListener("DOMContentLoaded", event => {
-    const app = firebase.app();
+  const config =
+      {
+        apiKey: "AIzaSyAf02jIhvwfN5LutBBEgFjBIvHPWLEnk0Q",
+        authDomain: "groupformationsystem.firebaseapp.com",
+        databaseURL: "https://groupformationsystem-default-rtdb.firebaseio.com",
+        projectId: "groupformationsystem",
+        storageBucket: "groupformationsystem.appspot.com",
+        messagingSenderId: "912375308149",
+        appId: "1:912375308149:web:6932a8593b14559538bd3c",
+        measurementId: "G-13XJR1BL4W"
+      };
+  if(firebase.apps.length === 0) {
+    const app = firebase.initializeApp(config);
+  }
 
-  });
-
-  function googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    console.log("LOGIN WITH GOOGLE");
-    firebase.auth().signInWithPopup(provider);
+  function emailLogin(){
+    console.log("ADMIN LOGIN WITH EMAIL");
+    firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
+      console.log(res.user)
+      props.history.push("/AdminCourses");
+    }).catch((error) => {
+      console.log(error.message)
+    });
   }
 
   return (
@@ -44,7 +48,7 @@ const AdminLoginForm = () => {
     <div class="shadow p-3 mb-5 bg-white rounded">
     <Card className="login-card">
       <Card.Body>
-        <Button variant="backBtn" type="button" onClick={() => window.history.back()}><Image src={BackButton}/></Button>
+        <Button variant="backBtn" type="button" onClick={() => props.history.push("/")}><Image src={BackButton}/></Button>
         <Card.Title className="card-title">Admin Login</Card.Title>
         <Form>
           <Form.Group size="lg" controlId="email">
@@ -64,7 +68,7 @@ const AdminLoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-          <Button variant="custom-one" block size="lg" type="submit">
+          <Button variant="custom-one" block size="lg" type="button" onClick={() => emailLogin()}>
             Sign in
           </Button>
 
@@ -84,4 +88,4 @@ const AdminLoginForm = () => {
   )
 };
 
-export default AdminLoginForm;
+export default withRouter(AdminLoginForm);
