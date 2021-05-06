@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import {Card, Button} from "react-bootstrap";
+import CardBackground from "../../../Assets/class-background.jpg";
 import "./StudentDashboard.scss";
 
 // Using history in props for routing to different components
@@ -10,6 +12,22 @@ return (
   <div class="student-dashboard">
     <h1>Dashboard</h1>
     <hr />
+    <Card style={{ width: '18rem' }}
+          className="subject"
+          onClick={() => props.history.push("/GroupHome")}
+          >
+      <Card.Img
+      className="class-card-img"
+        variant="top"
+        alt=""
+        height="180px"
+        src={CardBackground} />
+        <Card.Body>
+            <Card.Text>
+              48023 Programming Fundamentals
+          </Card.Text>
+      </Card.Body>
+    </Card>
   </div>
   </React.Fragment>
 );

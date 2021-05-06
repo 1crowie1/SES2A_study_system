@@ -45,15 +45,40 @@ const StudentNavBar = (props) => {
             Dashboard
             </NavLink>
 
-            <NavLink className="link-two" href="#" color="inherit" >
-            Groups
-            </NavLink>
+        <NavLink className="link-two"
+        onClick={() => props.history.push("/Groups")}
+        color="inherit" >
+        Groups
+        </NavLink>
 
-            <NavLink className="link-three" href="#" color="inherit" >
-            Contact
-            </NavLink>
+        <NavLink className="link-three"
+        onClick={() => props.history.push("/Contact")}
+        color="inherit" >
+        Contact
+        </NavLink>
 
-          </Nav>
+        </Nav>
+
+        <Nav className="nav-avatar">
+        <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
+          <DropdownButton
+            menuAlign="right"
+            id="dropdown-menu-align-right"
+            show={show}
+            onMouseEnter={showDropdown}
+            onMouseLeave={hideDropdown}
+            title={
+                <div class="Dropdown right">
+                  <Avatar name="John Doe" size="40" round={true}/>
+                </div>
+            }>
+              <Dropdown.Item
+              onClick={() => props.history.push("/StudentProfile")}>
+              Profile</Dropdown.Item>
+              <Dropdown.Item>
+              Logout</Dropdown.Item>
+          </DropdownButton>
+        </Nav>
 
           <Nav className="nav-avatar">
             <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>

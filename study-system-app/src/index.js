@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
     AdminLogin,
-    LandingPage,
     Registration,
     StudentHome, StudentLogin, UserSelect,
-    StudentProfile, AdminHome, CourseManagement, ClassManagement
+    StudentProfile,
+    GroupHome,
+    Groups,
+    Contact
 } from "./Routes/Routes";
 import "./index.scss";
 import AdminCourseManagement from "./Routes/Admin/AdminHome/AdminHome";
@@ -24,6 +26,9 @@ ReactDOM.render(
      <Route path="/ClassManagement" component={ClassManagement} />
      <Route path="/StudentHome" component={StudentHome} />
      <Route path="/StudentProfile" component={StudentProfile} />
+     <Route path="/GroupHome" component={GroupHome} />
+     <Route path="/Groups" component={Groups} />
+     <Route path="/Contact" component={Contact} />
    </Switch>
  </Router>,
   document.getElementById('root')

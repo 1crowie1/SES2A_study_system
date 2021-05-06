@@ -1,0 +1,32 @@
+//Colour variables
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
+
+.request-subject{
+  width: 15%;
+}
+.request-text{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .text-input{
+    resize: none;
+    overflow: scroll;
+  }
+}
+
+.contact-button{
+    min-width: 100px;
+    color: #FFFFFF;
+    background-color: $mainColour;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+  }
+.contact-button:hover{
+      background-color: $mainColour-dark;
+      border: none;
+}

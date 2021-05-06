@@ -1,21 +1,30 @@
-$mainColour: #4267B2;
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
 
 .show-profile {
   margin-left: 140px;
   margin-right: 140px;
+  padding-bottom: 20px;
   h1{
     font-size: 1.5rem;
     display: inline;
   }
-  .btn{
-    float: right;
-    display: inline;
-    width: 11%;
-    background-color: $mainColour;
-    color: white;
-    outline: none;
-    border: none;
-    font-size: 15px;
+  .edit-button{
+      min-width:  130px;
+      float: right;
+      color: #FFFFFF;
+      background-color: $mainColour;
+      outline: none;
+      border: none;
+      border-radius: 8px;
+      padding: 5px;
+      display: inline-block;
+      align-self: center;
+      text-align: center;
+    }
+  .edit-button:hover{
+        background-color: $mainColour-dark;
+        border: none;
   }
   form {
     .form-row {
