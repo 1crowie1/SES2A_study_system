@@ -44,7 +44,7 @@ var studentClass = [
         [false, false, false, true, false, true, false]]
 ];
 
-autoGroup = AutoSort(studentClass, 2);
+autoGroup = AutoSort(studentClass, 3);
 // randGroup = RandSort(studentClass, 2);
 
 
@@ -140,12 +140,6 @@ function AutoSort(studentClass, groupSize) {
                 if (studentGraph[i][n][0] && studentGraph[i][n][3]>0) {
                     studentGraph[i][n][4] = 1;
                 }
-                
-                outputStatement+= studentGraph[i][n] + "   ";
-                if (n == 9) {
-                    console.log("%s\n\n\n", outputStatement);
-                    outputStatement = "";
-                }
             }
         }
     }
@@ -213,28 +207,103 @@ function AutoSort(studentClass, groupSize) {
 
 
     // Group Formation
-    lowest = 0;
+    groups = new Array(Math.trunc((studentClass.length+groupSize)/groupSize));
+    for (i = 0; i<groups.length; i++) {
+        groups[i] = new Array(groupSize).fill(0);
+    }
+    lowestn = 0;
+    lowesti = 0;
     for (i = 0; i<studentGraph.length; i++) {
         for (n = 0; n<(i+1); n++) {
-            if (studentGraph[i][n][7] > studentGraph[i][lowest][7]) {
-                lowest = n;
+            if (studentGraph[i][n][7] > studentGraph[lowesti][lowestn][7]) {
+                lowestn = n;
+                lowesti = i;
             }
         }
     }
-    outputStatement = "";
-    for (i=0; i<studentGraph.length; i++) {
-        for (n=0; n<(i+1); n++) {
-            /*
-            if (studentGraph[i][n][7] > 0) {
+    ungrouped = true;
+    while (ungrouped == true) {
+        for (i=0; i<studentGraph.length; i++) {
+            for (n=0; n<(i+1); n++) {
+                if (studentGraph[i][n][7] > 0 && studentGraph[i][n][7] <= studentGraph[lowesti][lowestn][7]) {
+                    lowestn = n;
+                    lowesti = i;
+                }
             }
-            */
-            /*
-            outputStatement += studentGraph[i][n][7] + "   ";
-            if (n == i) {
-                console.log("%s\n", outputStatement);
-                outputStatement = "";
+        }
+        for (i=0; i<groups.length; i++) {
+            if (groups[i].includes(lowesti)) { // add n to group that contains i
+                for (n=0; n<groupSize; n++) {
+                    if (groups[i][n] == 0) {
+                        groups[i][n] = lowestn;
+                        break;
+                    }
+                }
+                if (!groups[i].includes(0)) { 
+                    for (o = 0; o<studentGraph.length; o++) {
+                        for (p = 0; p<(o+1); p++) {
+                            for (q=0; q<groupSize; q++) {
+                                if (groups[i][q] == o || groups[i][q] == p) {
+                                    studentGraph[o][p][7] = -2;
+                                }
+                            }
+                        }
+                    }
+                }
+            } else if (groups[i].includes(lowestn)) { // add i to group that contains n
+                for (n=0; n<groupSize; n++) {
+                    if (groups[i][n] == 0) {
+                        groups[i][n] = lowesti;
+                        break;
+                    }
+                }
+                if (!groups[i].includes(0)) { 
+                    for (o = 0; o<studentGraph.length; o++) {
+                        for (p = 0; p<(o+1); p++) {
+                            for (q=0; q<groupSize; q++) {
+                                if (groups[i][q] == o || groups[i][q] == p) {
+                                    studentGraph[o][p][7] = -2;
+                                }
+                            }
+                        }
+                    }
+                }
+            } else { // add both to next free group
+                for (n=0; n<groups.length; n++) {
+                    if (groups[i].every(0)) {
+                        groups[i][0] = lowesti;
+                        groups[i][1] = lowesti;
+                        break;
+                    }
+                }
+                if (!groups[i].includes(0)) { 
+                    for (o = 0; o<studentGraph.length; o++) {
+                        for (p = 0; p<(o+1); p++) {
+                            for (q=0; q<groupSize; q++) {
+                                if (groups[i][q] == o || groups[i][q] == p) {
+                                    studentGraph[o][p][7] = -2;
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            */
+        }
+        for (i = 0; i<studentGraph.length; i++) { // reset lowest to highest point
+            for (n = 0; n<(i+1); n++) {
+                if (studentGraph[i][n][7] > studentGraph[lowesti][lowestn][7]) {
+                    lowestn = n;
+                    lowesti = i;
+                }
+            }
+        }
+        ungrouped = false; // do more students need to be put in a group
+        for (i=0; i<studentGraph.length; i++) {
+            for (n=0; n<(i+1); n++) {
+                if (studentGraph[i][n][7] > 0) {
+                    ungrouped = true;
+                }
+            }
         }
     }
 
