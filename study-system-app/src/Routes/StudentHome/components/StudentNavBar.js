@@ -67,13 +67,13 @@ const StudentNavBar = (props) => {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
 
-        {/*Links to different pages for the student*/}
-        <Nav className="page-links">
-        <NavLink className="link-one"
-        onClick={() => props.history.push("/StudentHome")}
-        color="inherit" >
-        Dashboard
-        </NavLink>
+          {/*Links to different pages for the student*/}
+          <Nav className="page-links">
+            <NavLink className="link-one"
+            onClick={() => props.history.push("/StudentHome")}
+            color="inherit" >
+            Dashboard
+            </NavLink>
 
         <NavLink className="link-two"
         onClick={() => props.history.push("/Groups")}
@@ -81,13 +81,34 @@ const StudentNavBar = (props) => {
         Groups
         </NavLink>
 
-        {/* <NavLink className="link-two" href="#" color="inherit" >
-        Groups
-        </NavLink> */}
-
-        <NavLink className="link-three" href="#" color="inherit" >
+        <NavLink className="link-three"
+        onClick={() => props.history.push("/Contact")}
+        color="inherit" >
         Contact
         </NavLink>
+
+        </Nav>
+
+        <Nav className="nav-avatar">
+        <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
+          <DropdownButton
+            menuAlign="right"
+            id="dropdown-menu-align-right"
+            show={show}
+            onMouseEnter={showDropdown}
+            onMouseLeave={hideDropdown}
+            title={
+                <div class="Dropdown right">
+                  <Avatar name="John Doe" size="40" round={true}/>
+                </div>
+            }>
+              <Dropdown.Item
+              onClick={() => props.history.push("/StudentProfile")}>
+              Profile</Dropdown.Item>
+              <Dropdown.Item>
+              Logout</Dropdown.Item>
+          </DropdownButton>
+        </Nav>
 
           <Nav className="nav-avatar">
             <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>

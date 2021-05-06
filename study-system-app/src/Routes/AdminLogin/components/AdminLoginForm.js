@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {withRouter} from "react-router-dom";
 import {Form, Button, Card, Image} from "react-bootstrap";
+import GoogleIcon from "../../../Assets/google-icon.png";
 import firebase from 'firebase';
 import BackButton from "../../../Assets/go-back-left-arrow.svg";
 import "./AdminLoginForm.scss";
@@ -30,7 +31,7 @@ const AdminLoginForm = (props) => {
     console.log("ADMIN LOGIN WITH EMAIL");
     firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
       console.log(res.user)
-      props.history.push("/AdminHome");
+      props.history.push("/AdminCourses");
     }).catch((error) => {
       alert(error.message)
       console.log(error.message)
