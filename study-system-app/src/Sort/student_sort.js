@@ -221,6 +221,7 @@ function AutoSort(studentClass, groupSize) {
         }
     }
     ungrouped = true;
+    ingroup = false;
     while (ungrouped == true) {
         for (i=0; i<studentGraph.length; i++) {
             for (n=0; n<(i+1); n++) {
@@ -239,9 +240,17 @@ function AutoSort(studentClass, groupSize) {
                 for (n=0; n<groupSize; n++) {
                     if (groups[i][n] == -1 && !groups[i].includes(lowestn)) {
                         if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
-                            console.log("Saving student %d to group %d as it is lowest %d", lowestn, i, studentGraph[lowesti][lowestn][7]);
-                            groups[i][n] = lowestn;
-                            studentGraph[lowesti][lowestn][7] = -2;
+                            for (k=0; k<groups.length; k++) {
+                                if (groups[k].includes(lowestn)) {
+                                    ingroup = true;
+                                }
+                            }
+                            if (ingroup == false) {
+                                console.log("Saving student %d to group %d as it is lowest %d", lowestn, i, studentGraph[lowesti][lowestn][7]);
+                                groups[i][n] = lowestn;
+                                studentGraph[lowesti][lowestn][7] = -2;
+                            }
+                            ingroup = false
                             break;
                         }
                     }
@@ -264,9 +273,17 @@ function AutoSort(studentClass, groupSize) {
                 for (n=0; n<groupSize; n++) {
                     if (groups[i][n] == -1 && !groups[i].includes(lowesti)) {
                         if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
-                            console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
-                            groups[i][n] = lowesti;
-                            studentGraph[lowesti][lowestn][7] = -2;
+                            for (k=0; k<groups.length; k++) {
+                                if (groups[k].includes(lowesti)) {
+                                    ingroup = true;
+                                }
+                            }
+                            if (ingroup == false) {
+                                console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
+                                groups[i][n] = lowesti;
+                                studentGraph[lowesti][lowestn][7] = -2;
+                            }
+                            ingroup = false;
                             break;
                         }
                     }
@@ -289,15 +306,19 @@ function AutoSort(studentClass, groupSize) {
                 for (n=0; n<groups.length; n++) {
                     if (groups[n].every(elem => elem == -1)) {
                         if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
-                            if (studentGraph[lowesti][lowestn][7]) {
+                            for (k=0; k<groups.length; k++) {
+                                if (groups[k].includes(lowestn) || groups[k].includes(lowesti)) {
+                                    ingroup = true;
+                                }
+                            }
+                            if (ingroup == false) {
                                 groups[n][0] = lowesti;
                                 console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
-                            }
-                            if (studentGraph[lowesti][lowestn][7]) {
                                 groups[n][1] = lowestn;
                                 console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
+                                studentGraph[lowesti][lowestn][7] = -2;
                             }
-                            studentGraph[lowesti][lowestn][7] = -2;
+                            ingroup = false
                             break;
                         }
                     }
