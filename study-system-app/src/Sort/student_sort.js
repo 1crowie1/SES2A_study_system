@@ -74,7 +74,6 @@ function RandSort(studentClass, groupSize) {
                         studentGraph[i][n] = 1;
                     }
                 }
-
                 console.log(studentGraph[i][n]);
                 if (n == 9) {
                     console.log("\n");
@@ -231,12 +230,10 @@ function AutoSort(studentClass, groupSize) {
                 }
             }
         }
-        console.log("Lowest is %d at studentGraph[%d][%d][7]", studentGraph[lowesti][lowestn][7], lowesti, lowestn);
+        //console.log("Lowest is %d at studentGraph[%d][%d][7]", studentGraph[lowesti][lowestn][7], lowesti, lowestn);
 
         for (i=0; i<groups.length; i++) {
             if (groups[i].includes(lowesti)) { // add n to group that contains i
-                //console.log("Group %d includes %d", i, lowesti);
-                console.log("ADD %d to group that contains %d", lowestn, lowesti);
                 for (n=0; n<groupSize; n++) {
                     if (groups[i][n] == -1 && !groups[i].includes(lowestn)) {
                         if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
@@ -246,7 +243,6 @@ function AutoSort(studentClass, groupSize) {
                                 }
                             }
                             if (ingroup == false) {
-                                console.log("Saving student %d to group %d as it is lowest %d", lowestn, i, studentGraph[lowesti][lowestn][7]);
                                 groups[i][n] = lowestn;
                                 studentGraph[lowesti][lowestn][7] = -2;
                             }
@@ -268,8 +264,6 @@ function AutoSort(studentClass, groupSize) {
                     }
                 }
             } else if (groups[i].includes(lowestn)) { // add i to group that contains n
-                //console.log("Group %d includes %d", i, lowestn);
-                console.log("ADD %d to group that contains %d", lowesti, lowestn);
                 for (n=0; n<groupSize; n++) {
                     if (groups[i][n] == -1 && !groups[i].includes(lowesti)) {
                         if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
@@ -279,7 +273,6 @@ function AutoSort(studentClass, groupSize) {
                                 }
                             }
                             if (ingroup == false) {
-                                console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
                                 groups[i][n] = lowesti;
                                 studentGraph[lowesti][lowestn][7] = -2;
                             }
@@ -300,9 +293,6 @@ function AutoSort(studentClass, groupSize) {
                     }
                 }
             } else { // add both to next free group
-                //console.log("No group contains %d or %d", lowesti, lowestn);
-                //console.log(groups);
-                console.log("NOT IN GROUP");
                 for (n=0; n<groups.length; n++) {
                     if (groups[n].every(elem => elem == -1)) {
                         if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
@@ -313,9 +303,7 @@ function AutoSort(studentClass, groupSize) {
                             }
                             if (ingroup == false) {
                                 groups[n][0] = lowesti;
-                                console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
                                 groups[n][1] = lowestn;
-                                console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
                                 studentGraph[lowesti][lowestn][7] = -2;
                             }
                             ingroup = false
