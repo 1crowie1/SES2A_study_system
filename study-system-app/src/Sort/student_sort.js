@@ -205,11 +205,10 @@ function AutoSort(studentClass, groupSize) {
         }
     }
 
-
     // Group Formation
     groups = new Array(Math.trunc((studentClass.length+groupSize)/groupSize));
     for (i = 0; i<groups.length; i++) {
-        groups[i] = new Array(groupSize).fill(0);
+        groups[i] = new Array(groupSize).fill(-1);
     }
     lowestn = 0;
     lowesti = 0;
@@ -225,39 +224,54 @@ function AutoSort(studentClass, groupSize) {
     while (ungrouped == true) {
         for (i=0; i<studentGraph.length; i++) {
             for (n=0; n<(i+1); n++) {
-                if (studentGraph[i][n][7] > 0 && studentGraph[i][n][7] <= studentGraph[lowesti][lowestn][7]) {
+                if (studentGraph[i][n][7] >= 0 && studentGraph[i][n][7] <= studentGraph[lowesti][lowestn][7]) {
                     lowestn = n;
                     lowesti = i;
                 }
             }
         }
+        console.log("Lowest is %d at studentGraph[%d][%d][7]", studentGraph[lowesti][lowestn][7], lowesti, lowestn);
+
         for (i=0; i<groups.length; i++) {
             if (groups[i].includes(lowesti)) { // add n to group that contains i
+                //console.log("Group %d includes %d", i, lowesti);
+                console.log("ADD %d to group that contains %d", lowestn, lowesti);
                 for (n=0; n<groupSize; n++) {
-                    if (groups[i][n] == 0) {
-                        groups[i][n] = lowestn;
-                        break;
+                    if (groups[i][n] == -1 && !groups[i].includes(lowestn)) {
+                        if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
+                            console.log("Saving student %d to group %d as it is lowest %d", lowestn, i, studentGraph[lowesti][lowestn][7]);
+                            groups[i][n] = lowestn;
+                            studentGraph[lowesti][lowestn][7] = -2;
+                            break;
+                        }
                     }
                 }
-                if (!groups[i].includes(0)) { 
+                if (!groups[i].includes(-1)) { 
                     for (o = 0; o<studentGraph.length; o++) {
                         for (p = 0; p<(o+1); p++) {
                             for (q=0; q<groupSize; q++) {
                                 if (groups[i][q] == o || groups[i][q] == p) {
                                     studentGraph[o][p][7] = -2;
+                                    break;
                                 }
                             }
                         }
                     }
                 }
             } else if (groups[i].includes(lowestn)) { // add i to group that contains n
+                //console.log("Group %d includes %d", i, lowestn);
+                console.log("ADD %d to group that contains %d", lowesti, lowestn);
                 for (n=0; n<groupSize; n++) {
-                    if (groups[i][n] == 0) {
-                        groups[i][n] = lowesti;
-                        break;
+                    if (groups[i][n] == -1 && !groups[i].includes(lowesti)) {
+                        if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
+                            console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
+                            groups[i][n] = lowesti;
+                            studentGraph[lowesti][lowestn][7] = -2;
+                            break;
+                        }
                     }
                 }
-                if (!groups[i].includes(0)) { 
+                if (!groups[i].includes(-1)) { 
                     for (o = 0; o<studentGraph.length; o++) {
                         for (p = 0; p<(o+1); p++) {
                             for (q=0; q<groupSize; q++) {
@@ -269,14 +283,26 @@ function AutoSort(studentClass, groupSize) {
                     }
                 }
             } else { // add both to next free group
+                //console.log("No group contains %d or %d", lowesti, lowestn);
+                //console.log(groups);
+                console.log("NOT IN GROUP");
                 for (n=0; n<groups.length; n++) {
-                    if (groups[i].every(0)) {
-                        groups[i][0] = lowesti;
-                        groups[i][1] = lowesti;
-                        break;
+                    if (groups[n].every(elem => elem == -1)) {
+                        if (lowesti != lowestn && studentGraph[lowesti][lowestn][7] != -2) {
+                            if (studentGraph[lowesti][lowestn][7]) {
+                                groups[n][0] = lowesti;
+                                console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
+                            }
+                            if (studentGraph[lowesti][lowestn][7]) {
+                                groups[n][1] = lowestn;
+                                console.log("Saving student %d to group %d as it is lowest %d", lowesti, i, studentGraph[lowesti][lowestn][7]);
+                            }
+                            studentGraph[lowesti][lowestn][7] = -2;
+                            break;
+                        }
                     }
                 }
-                if (!groups[i].includes(0)) { 
+                if (!groups[i].includes(-1)) { 
                     for (o = 0; o<studentGraph.length; o++) {
                         for (p = 0; p<(o+1); p++) {
                             for (q=0; q<groupSize; q++) {
@@ -289,6 +315,7 @@ function AutoSort(studentClass, groupSize) {
                 }
             }
         }
+        studentGraph[lowesti][lowestn][7] = -2;
         for (i = 0; i<studentGraph.length; i++) { // reset lowest to highest point
             for (n = 0; n<(i+1); n++) {
                 if (studentGraph[i][n][7] > studentGraph[lowesti][lowestn][7]) {
@@ -361,6 +388,9 @@ function AutoSort(studentClass, groupSize) {
             }
         }
         console.log("\n");
+    }
+    for (i=0; i<groups.length; i++) {
+        console.log("Group ", (i+1)+"", " is ", groups[i]);
     }
 
     return 0;
