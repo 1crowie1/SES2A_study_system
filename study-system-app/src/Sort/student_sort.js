@@ -13,6 +13,40 @@ NOTE #2:
 
 var studentClass = [
     ["Harrison Crowe-Maxwell", 
+        false, ["Engineering", "Software"], ["Programming", "Databases", "Electronics"], 
+        [false, true, false, true, false, true, false]],
+    ["Joeseph Test", 
+        false, ["Engineering", "Biomedical"], ["Nanoscience", "Programming", "Electronics"], 
+        [true, false, false, true, false, true, false]],
+    ["Reginald Hargraves", 
+        false, ["Business", "degree"], ["Programming", "Finance", "Economics"], 
+        [true, true, false, true, true, true, false]],
+    ["Tom Peeves", 
+        false, ["Science", "Physics"], ["Maths", "Physics", "Programming"], 
+        [false, false, false, false, false, false, false]],
+    ["Maxwell Harries", 
+        false, ["Engineering", "Electrical"], ["Programming", "Medical Machines", "Electronics"], 
+        [false, true, false, true, false, false, false]],
+    ["Natasha Roblosk", 
+        false, ["Nursing", "degree"], ["Medical Machines", "Hospital Management", "Economics"], 
+        [true, true, false, true, false, false, true]],
+    ["Rachael Ozich", 
+        false, ["Nursing", "degree"], ["Aged Care", "Medical Machines", "Anatomy"], 
+        [true, true, true, true, true, false, false]],
+    ["Sam Holmes", 
+        false, ["Medicine", "degree"], ["Medical Machines", "Databases", "Electronics"], 
+        [false, true, false, true, false, true, false]],
+    ["Anesu Chakaingesu", 
+        false, ["Science", "Computer"], ["Programming", "Databases", "Electronics"], 
+        [false, false, false, true, false, false, true]],
+    ["Alex Jameson", 
+        false, ["Engineering", "Mechatronic"], ["Programming", "Databases", "Electronics"], 
+        [false, false, false, true, false, true, false]]
+];
+
+/*
+var studentClass = [
+    ["Harrison Crowe-Maxwell", 
         false, [1, 2], [2, 13, 15], 
         [false, true, false, true, false, true, false]],
     ["Joeseph Test", 
@@ -43,6 +77,7 @@ var studentClass = [
         false, [1, 4], [2, 13, 15], 
         [false, false, false, true, false, true, false]]
 ];
+*/
 
 autoGroup = AutoSort(studentClass, 3);
 // randGroup = RandSort(studentClass, 2);
