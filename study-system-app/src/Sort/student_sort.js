@@ -12,72 +12,41 @@ NOTE #2:
 */
 
 var studentClass = [
-    ["Harrison Crowe-Maxwell", 
+    ["Harrison Crowe-Maxwell", //0
         false, ["Engineering", "Software"], ["Programming", "Databases", "Electronics"], 
         [false, true, false, true, false, true, false]],
-    ["Joeseph Test", 
+    ["Joeseph Test", //1
         false, ["Engineering", "Biomedical"], ["Nanoscience", "Programming", "Electronics"], 
         [true, false, false, true, false, true, false]],
-    ["Reginald Hargraves", 
+    ["Reginald Hargraves", //2
         false, ["Business", "degree"], ["Programming", "Finance", "Economics"], 
         [true, true, false, true, true, true, false]],
-    ["Tom Peeves", 
+    ["Tom Peeves", //3
         false, ["Science", "Physics"], ["Maths", "Physics", "Programming"], 
-        [false, false, false, false, false, false, false]],
-    ["Maxwell Harries", 
+        [true, true, true, true, true, true, true]],
+    ["Maxwell Harries", //4
         false, ["Engineering", "Electrical"], ["Programming", "Medical Machines", "Electronics"], 
         [false, true, false, true, false, false, false]],
-    ["Natasha Roblosk", 
+    ["Natasha Roblosk", //5
         false, ["Nursing", "degree"], ["Medical Machines", "Hospital Management", "Economics"], 
         [true, true, false, true, false, false, true]],
-    ["Rachael Ozich", 
+    ["Rachael Ozich", //6
         false, ["Nursing", "degree"], ["Aged Care", "Medical Machines", "Anatomy"], 
         [true, true, true, true, true, false, false]],
-    ["Sam Holmes", 
+    ["Sam Holmes", //7
         false, ["Medicine", "degree"], ["Medical Machines", "Databases", "Electronics"], 
         [false, true, false, true, false, true, false]],
-    ["Anesu Chakaingesu", 
+    ["Anesu Chakaingesu", //8
         false, ["Science", "Computer"], ["Programming", "Databases", "Electronics"], 
-        [false, false, false, true, false, false, true]],
-    ["Alex Jameson", 
+        [true, false, false, true, false, false, true]],
+    ["Alex Jameson", //9
         false, ["Engineering", "Mechatronic"], ["Programming", "Databases", "Electronics"], 
-        [false, false, false, true, false, true, false]]
+        [false, false, false, true, false, true, false]],
+    ["Fred Ferkinsure", //10
+        false, ["Medicine", "degree"], ["Medical Machines", "Databases", "Electronics"], 
+        [true, true, false, true, true, true, true]]
 ];
 
-/*
-var studentClass = [
-    ["Harrison Crowe-Maxwell", 
-        false, [1, 2], [2, 13, 15], 
-        [false, true, false, true, false, true, false]],
-    ["Joeseph Test", 
-        false, [1, 6], [11, 2, 15], 
-        [true, false, false, true, false, true, false]],
-    ["Reginald Hargraves", 
-        false, [15, 0], [2, 23, 29], 
-        [true, true, false, true, true, true, false]],
-    ["Tom Peeves", 
-        false, [4, 1], [5, 3, 2], 
-        [false, true, false, false, false, false, false]],
-    ["Maxwell Harries", 
-        false, [1, 26], [2, 43, 15], 
-        [false, true, false, true, false, false, false]],
-    ["Natasha Roblosk", 
-        false, [27, 0], [43, 48, 29], 
-        [true, true, false, true, false, false, true]],
-    ["Rachael Ozich", 
-        false, [27, 0], [75, 43, 51], 
-        [true, true, true, true, true, false, false]],
-    ["Sam Holmes", 
-        false, [31, 0], [43, 13, 15], 
-        [false, true, false, true, false, true, false]],
-    ["Anesu Chakaingesu", 
-        false, [4, 30], [2, 13, 15], 
-        [false, false, false, true, false, false, true]],
-    ["Alex Jameson", 
-        false, [1, 4], [2, 13, 15], 
-        [false, false, false, true, false, true, false]]
-];
-*/
 
 autoGroup = AutoSort(studentClass, 3);
 // randGroup = RandSort(studentClass, 2);
@@ -163,7 +132,10 @@ function AutoSort(studentClass, groupSize) {
                 }
                 // Topic match [i][n][2]
                 for (p = 0; p<3; p++) {
-                    if (studentClass[i][3][p] == studentClass[n][3][p]) {
+                    if (i == 3 || n == 3) {
+                        console.log("For student %d and %d, topics are %s, %s", i, n, studentClass[i][3][p], studentClass[n][3][p]);
+                    }
+                    if (studentClass[i][3].includes(studentClass[n][3][p])) {
                         studentGraph[i][n][2]++;
                     }
                 }
@@ -171,7 +143,7 @@ function AutoSort(studentClass, groupSize) {
                 studentGraph[i][n][3] = studentGraph[i][n][1] + studentGraph[i][n][2]; // to be eliminated
                 studentGraph[i][n][6] = studentGraph[i][n][1] + studentGraph[i][n][2]; // to be stored
                 // Can group [i][n][4]
-                if (studentGraph[i][n][0] && studentGraph[i][n][3]>0) {
+                if (studentGraph[i][n][0] && studentGraph[i][n][6]>0) {
                     studentGraph[i][n][4] = 1;
                 }
             }
