@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import {CardDeck, Card, Button, Form, Col} from "react-bootstrap";
+import {CardDeck, Card, Button, Form, Col, DropdownButton, Dropdown} from "react-bootstrap";
 import "./EditStudentProfile.scss";
 
 // Using history in props for routing to different components
 const EditStudentProfile = (props) => {
 
   const [show, toggleShow] = useState(true);
+
+  const [courseValue,setCourseValue]=useState('Select course');
+  const handleCourseSelect=(e)=>{
+    setCourseValue(e)
+  }
+
+  const [majorValue,setMajorValue]=useState('Select major');
+  const handleMajorSelect=(e)=>{
+    setMajorValue(e)
+  }
 
   return (
     <React.Fragment>
@@ -23,195 +33,30 @@ const EditStudentProfile = (props) => {
            style={{ width: '100%', fontWeight: 'bold' }}>
            Student Profile</Card.Header>
            <Card.Body style={{ width: '100%' }}>
-           <Form className="student-courses">
-             <Form.Row>
-               <Form.Group as={Col} md="6" controlId="validationCustom03">
-                 <Form.Label>Course 1</Form.Label>
-                 <Form.Control className="course-one" placeholder="" disabled/>
-               </Form.Group>
-               <Form.Group as={Col} md="6" controlId="validationCustom03">
-                 <Form.Label>Course 2</Form.Label>
-                 <Form.Control className="course-one" placeholder="" disabled/>
-               </Form.Group>
-             </Form.Row>
+           <Form className="course">
+               <Form.Label style={{ fontWeight: 'bold'}}>Course</Form.Label>
+
+           </Form>
+           <Form className="major">
+               <Form.Label style={{ fontWeight: 'bold'}}>Major</Form.Label>
+
            </Form>
            <fieldset>
              <Form.Label style={{ fontWeight: 'bold' }}>Topic Preferences</Form.Label>
              <Form>
                <div className="topic-preferences">
-                 <Form.Check inline label="Network Systems" id="prefernce-1" />
-                 <Form.Check inline label="Database" id="prefernce-2" />
-                 <Form.Check inline label="Software Architecture" id="preference-3" />
-                 <Form.Check inline label="Blockchain" id="preference-4" />
-                 <Form.Check inline label="Server Management" id="preference-5" />
+
                </div>
              </Form>
            </fieldset>
-           <Form.Label style={{ fontWeight: 'bold', marginTop: '15px' }}>Typical Availability</Form.Label>
-           <Form>
-           <Form.Row className="align-items-center">
-             <Col sm={2} className="weekday-text">
-               <Form.Control as="select" disabled>
-                 <option>Monday</option>
-               </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> from </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> to </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-           </Form.Row>
-           <Form.Row className="align-items-center">
-             <Col sm={2} className="weekday-text">
-               <Form.Control as="select" disabled>
-                 <option>Tuesday</option>
-               </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> from </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> to </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-           </Form.Row>
-           <Form.Row className="align-items-center">
-             <Col sm={2} className="weekday-text">
-               <Form.Control as="select" disabled>
-                 <option>Wednesday</option>
-               </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> from </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> to </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-           </Form.Row>
-           <Form.Row className="align-items-center">
-             <Col sm={2} className="weekday-text">
-               <Form.Control as="select" disabled>
-                 <option>Thursday</option>
-               </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> from </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> to </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-           </Form.Row>
-           <Form.Row className="align-items-center">
-             <Col sm={2} className="weekday-text">
-               <Form.Control as="select" disabled>
-                 <option>Friday</option>
-               </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> from </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> to </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-           </Form.Row>
-           <Form.Row className="align-items-center">
-             <Col sm={2} className="weekday-text">
-               <Form.Control as="select" disabled>
-                 <option>Saturday</option>
-               </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> from </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> to </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-           </Form.Row>
-           <Form.Row className="align-items-center">
-             <Col sm={2} className="weekday-text">
-               <Form.Control as="select" disabled>
-                 <option>Sunday</option>
-               </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> from </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-             <Col xs="auto" className="my-1">
-               <Form.Text> to </Form.Text>
-             </Col>
-             <Col xs="auto" className="my-1">
-             <Form.Control as="select" disabled>
-               <option>6:00</option>
-             </Form.Control>
-             </Col>
-           </Form.Row>
-         </Form>
+           <fieldset>
+            <Form.Label style={{ fontWeight: 'bold'}}>Typical Availability</Form.Label>
+             <Form>
+               <div className="topic-preferences">
 
+               </div>
+             </Form>
+           </fieldset>
            </Card.Body>
          </Card>
         </div>}
@@ -224,19 +69,35 @@ const EditStudentProfile = (props) => {
               Edit Profile</Card.Header>
               <Card.Body style={{ width: '100%' }}>
               <Form className="student-courses">
-                <Form.Row>
-                  <Form.Group as={Col} md="6" controlId="validationCustom03">
-                    <Form.Label>Course 1</Form.Label>
-                    <Form.Control className="course-one" placeholder="" />
-                  </Form.Group>
-                  <Form.Group as={Col} md="6" controlId="validationCustom03">
-                    <Form.Label>Course 2</Form.Label>
-                    <Form.Control className="course-one" placeholder="" />
-                  </Form.Group>
-                </Form.Row>
+                  <Form.Label style={{ fontWeight: 'bold'}}>Course</Form.Label>
+                  <DropdownButton
+                  title={courseValue}
+                  id="course-dropdown"
+                  variant="info"
+                  onSelect={handleCourseSelect}
+                    >
+                          <Dropdown.Item eventKey="Engineering">Engineering</Dropdown.Item>
+                          <Dropdown.Item eventKey="Science">Science</Dropdown.Item>
+                          <Dropdown.Item eventKey="Communications">Communications</Dropdown.Item>
+                          <Dropdown.Item eventKey="Education">Education</Dropdown.Item>
+                  </DropdownButton>
+
+                  <Form.Label style={{ fontWeight: 'bold', marginTop: "1%"}}>Major</Form.Label>
+                  <DropdownButton
+                  title={majorValue}
+                  id="major-dropdown"
+                  variant="info"
+                  onSelect={handleMajorSelect}
+                    >
+                          <Dropdown.Item eventKey="Engineering">Engineering</Dropdown.Item>
+                          <Dropdown.Item eventKey="Science">Science</Dropdown.Item>
+                          <Dropdown.Item eventKey="Communications">Communications</Dropdown.Item>
+                          <Dropdown.Item eventKey="Education">Education</Dropdown.Item>
+                  </DropdownButton>
+
               </Form>
               <fieldset>
-                <Form.Label style={{ fontWeight: 'bold' }}>Topic Preferences</Form.Label>
+                <Form.Label style={{ fontWeight: 'bold', marginTop: "1%" }}>Topic Preferences</Form.Label>
                 <Form>
                   <div className="topic-preferences">
                     <Form.Check inline label="Network Systems" id="prefernce-1" />
@@ -250,367 +111,20 @@ const EditStudentProfile = (props) => {
                 </Form.Text>
                 </Form>
               </fieldset>
-              <Form.Label style={{ fontWeight: 'bold', marginTop: '15px' }}>Typical Availability</Form.Label>
-              <Form>
-              <Form.Row className="align-items-center">
-                <Col sm={2} className="weekday-text">
-                  <Form.Control as="select" disabled>
-                    <option>Monday</option>
-                  </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> from </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> to </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-              </Form.Row>
-              <Form.Row className="align-items-center">
-                <Col sm={2} className="weekday-text">
-                  <Form.Control as="select" disabled>
-                    <option>Tuesday</option>
-                  </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> from </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> to </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-              </Form.Row>
-              <Form.Row className="align-items-center">
-                <Col sm={2} className="weekday-text">
-                  <Form.Control as="select" disabled>
-                    <option>Wednesday</option>
-                  </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> from </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> to </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-              </Form.Row>
-              <Form.Row className="align-items-center">
-                <Col sm={2} className="weekday-text">
-                  <Form.Control as="select" disabled>
-                    <option>Thursday</option>
-                  </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> from </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> to </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-              </Form.Row>
-              <Form.Row className="align-items-center">
-                <Col sm={2} className="weekday-text">
-                  <Form.Control as="select" disabled>
-                    <option>Friday</option>
-                  </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> from </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> to </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>7:00</option>
-                  <option>7:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-              </Form.Row>
-              <Form.Row className="align-items-center">
-                <Col sm={2} className="weekday-text">
-                  <Form.Control as="select" disabled>
-                    <option>Saturday</option>
-                  </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> from </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> to </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-              </Form.Row>
-              <Form.Row className="align-items-center">
-                <Col sm={2} className="weekday-text">
-                  <Form.Control as="select" disabled>
-                    <option>Sunday</option>
-                  </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> from </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-                <Col xs="auto" className="my-1">
-                  <Form.Text> to </Form.Text>
-                </Col>
-                <Col xs="auto" className="my-1">
-                <Form.Control as="select" defaultValue="6:00">
-                  <option>6:00</option>
-                  <option>7:00</option>
-                  <option>8:00</option>
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                  <option>15:00</option>
-                  <option>16:00</option>
-                  <option>17:00</option>
-                  <option>18:00</option>
-                  <option>19:00</option>
-                  <option>20:00</option>
-                </Form.Control>
-                </Col>
-              </Form.Row>
-            </Form>
-
+              <fieldset>
+                <Form.Label style={{ fontWeight: 'bold', marginTop: '15px' }}>Typical Availability</Form.Label>
+                  <Form>
+                    <div className="topic-preferences">
+                      <Form.Check inline label="Monday" id="day-1" />
+                      <Form.Check inline label="Tuesday" id="day-2" />
+                      <Form.Check inline label="Wednesday" id="day-3" />
+                      <Form.Check inline label="Thursday" id="day-4" />
+                      <Form.Check inline label="Friday" id="day-5" />
+                      <Form.Check inline label="Saturday" id="day-6" />
+                      <Form.Check inline label="Sunday" id="day-7" />
+                    </div>
+                  </Form>
+              </fieldset>
               </Card.Body>
               <Card.Footer style={{ width: '100%' }}>
                 <button type="button" className="edit-button"> Save Profile</button>
