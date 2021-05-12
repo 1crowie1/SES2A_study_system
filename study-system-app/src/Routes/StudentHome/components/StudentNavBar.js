@@ -109,7 +109,6 @@ const StudentNavBar = (props) => {
               Logout</Dropdown.Item>
           </DropdownButton>
         </Nav>
-
           <Nav className="nav-avatar">
             <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
             <DropdownButton
@@ -131,7 +130,6 @@ const StudentNavBar = (props) => {
                 </Dropdown.Item>
             </DropdownButton>
           </Nav>
-        </Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>

@@ -21,9 +21,6 @@ ReactDOM.render(
      <Route path="/StudentLogin" component={StudentLogin} />
      <Route path="/AdminLogin" component={AdminLogin} />
      <Route path="/Registration" component={Registration} />
-     <Route path="/AdminHome" component={AdminHome} />
-     <Route path="/CourseManagement" component={CourseManagement} />
-     <Route path="/ClassManagement" component={ClassManagement} />
      <Route path="/StudentHome" component={StudentHome} />
      <Route path="/StudentProfile" component={StudentProfile} />
      <Route path="/GroupHome" component={GroupHome} />
@@ -33,3 +30,9 @@ ReactDOM.render(
  </Router>,
   document.getElementById('root')
 );
+
+/* -- UNDEFINED --
+<Route path="/AdminHome" component={AdminHome} />
+<Route path="/CourseManagement" component={CourseManagement} />
+<Route path="/ClassManagement" component={ClassManagement} />
+*/
