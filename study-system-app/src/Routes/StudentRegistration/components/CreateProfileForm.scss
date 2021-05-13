@@ -1,0 +1,25 @@
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
+
+.edit-button{
+    min-width:  130px;
+    float: right;
+    color: #FFFFFF;
+    background-color: $mainColour;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+  }
+.edit-button:hover{
+      background-color: $mainColour-dark;
+      border: none;
+}
+#course-dropdown, #major-dropdown{
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}

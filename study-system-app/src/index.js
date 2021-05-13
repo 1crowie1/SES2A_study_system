@@ -9,7 +9,8 @@ import {
     StudentProfile,
     GroupHome,
     Groups,
-    Contact
+    Contact,
+    StudentRegistration
 } from "./Routes/Routes";
 import "./index.scss";
 import AdminHome from "./Routes/AdminHome/AdminHome";
@@ -27,6 +28,7 @@ ReactDOM.render(
      <Route path="/GroupHome" component={GroupHome} />
      <Route path="/Groups" component={Groups} />
      <Route path="/Contact" component={Contact} />
+     <Route path="/StudentRegistration" component={StudentRegistration} />
    </Switch>
  </Router>,
   document.getElementById('root')
