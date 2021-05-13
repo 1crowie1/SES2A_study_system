@@ -49,7 +49,7 @@ var studentClass = [
 
 
 autoGroup = AutoSort(studentClass, 3);
-randGroup = RandSort(studentClass, 4);
+randGroup = RandSort(studentClass, 3);
 
 
 /*
