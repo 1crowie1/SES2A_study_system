@@ -16,6 +16,27 @@ return (
       <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
         {/* Link Database to this */}
         {/* Contains courses related to user */}
+        Course 1
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        Course 2
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        Course 3
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        Course 4
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        Course 5
       </Card>
     </div>
   </div>

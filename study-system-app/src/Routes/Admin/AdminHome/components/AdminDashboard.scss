@@ -3,4 +3,27 @@
   h1{
     font-size: 1.5rem;
   }
+  .card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    .square-card {
+      min-width: 325px;
+      width: 100%;
+      height: 250px;
+    }
+  }
+}
+
+@media (min-width: 889px){
+  .student-dashboard {
+    .card-container {
+      .square-card {
+        width: 19%;
+        height: 250px;
+      }
+    }
+  }
 }
