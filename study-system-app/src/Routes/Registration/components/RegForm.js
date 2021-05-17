@@ -18,11 +18,11 @@ const RegForm = (props) => {
     const provider = new firebase.auth.GoogleAuthProvider();
     console.log("CONTINUE WITH GOOGLE");
     firebase.auth().signInWithPopup(provider).then((res) => {
-      firebase.firestore().collection("users").doc(res.user.uid).update({
+      firebase.firestore().collection("users").doc(res.user.uid).set({
         name: res.user.displayName,
         email: res.user.email,
         access: false
-      });
+      }, {merge: true});
       console.log(res.user)
       props.history.push("/StudentLogin");
     }).catch((error) => {
@@ -36,11 +36,11 @@ const RegForm = (props) => {
 
     console.log("CREATE USER");
     firebase.auth().createUserWithEmailAndPassword(email, password).then((userData) => {
-      firebase.firestore().collection("users").doc(userData.user.uid).update({
+      firebase.firestore().collection("users").doc(userData.user.uid).set({
         name: name,
         email: email,
         access: false
-      });
+      }, {merge: true});
       console.log(userData.user.uid)
       userData.user.updateProfile({
         displayName: name,
