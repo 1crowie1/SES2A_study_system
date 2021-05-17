@@ -1,3 +1,6 @@
+//Colour variables
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
 $btnColour-1: #FF6584;
 $btnColour-2: #ff325b;
 
@@ -26,11 +29,20 @@ $btnColour-2: #ff325b;
     }
   }
   .page-links{
+    height: auto;
     margin-left: 40px;
-    gap: 40px;
+    gap: 10px;
     .page-btn{
+      min-width: 125px;
+      height: 80px;
+      padding: 1.6rem 1rem;
       color: black !important;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .page-btn:hover{
+      background-color: $mainColour;
+      color: white !important;
     }
   }
 
