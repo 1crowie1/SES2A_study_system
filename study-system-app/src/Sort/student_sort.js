@@ -344,11 +344,12 @@ function RandSort(studentClass, groupSize) {
         }
         console.log("\n");
     }
-    */
+    
     console.log("RANDOM GROUPS ARE:");
     for (i=0; i<groups.length; i++) {
         console.log("Group ", (i+1)+"", " is ", groups[i]);
     }
+    */
 
     return groups;
 }
@@ -660,12 +661,13 @@ function AutoSort(studentClass, groupSize) {
         }
         console.log("\n");
     }
-    */
+    
 
     console.log("AUTOMATIC GROUPS ARE: ");
     for (i=0; i<groups.length; i++) {
         console.log("Group ", (i+1)+"", " is ", groups[i]);
     }
+    */
 
     return groups;
 }
