@@ -3,6 +3,7 @@ export { default as AdminLogin } from "./AdminLogin/AdminLogin";
 export { default as Registration } from "./Registration/Registration";
 export { default as StudentHome } from "./StudentHome/StudentHome";
 export { default as AdminHome } from "./Admin/AdminHome/AdminHome";
+export { default as RequestsInbox } from "./Admin/RequestsInbox/RequestsInbox";
 export { default as CourseManagement } from "./Admin/AdminCourses/AdminCourses";
 export { default as ClassManagement } from "./Admin/AdminClasses/AdminClasses";
 export { default as LandingPage } from "./LandingPage/LandingPage";
