@@ -10,6 +10,9 @@ $mainColour-dark: #F84574;
     outline: none;
     border: none;
   }
+  button:hover{
+    background-color: $mainColour-dark;
+  }
   .heading{
     width: 100%;
     display: grid;

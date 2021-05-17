@@ -10,6 +10,9 @@ $mainColour-dark: #F84574;
     outline: none;
     border: none;
   }
+  button:hover{
+    background-color: $mainColour-dark;
+  }
   .heading{
     width: 100%;
     display: grid;
@@ -39,6 +42,11 @@ $mainColour-dark: #F84574;
       width: 100%;
       height: 75px;
       font-size: 1.25em;
+    }
+    .wide-card:hover {
+      background-color: $mainColour;
+      color: white;
+      cursor: pointer;
     }
   }
 }

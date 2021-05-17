@@ -17,6 +17,7 @@ $mainColour-dark: #F84574;
       min-width: 325px;
       width: 100%;
       height: 250px;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -49,6 +50,9 @@ $mainColour-dark: #F84574;
           text-align: end;
          }
       }
+    }
+    .square-card:hover{
+      opacity: 0.8;
     }
   }
 }
