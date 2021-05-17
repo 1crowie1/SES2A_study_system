@@ -40,7 +40,8 @@ const StudentLoginForm = (props) => {
       console.log(res.user)
       props.history.push("/StudentHome");
     }).catch((error) => {
-      console.log(error.message)
+      console.log(error.message);
+      alert(error.message);
     });
   }
 
@@ -50,7 +51,8 @@ const StudentLoginForm = (props) => {
       console.log(res.user)
       props.history.push("/StudentHome");
     }).catch((error) => {
-      console.log(error.message)
+      console.log(error.message);
+      alert(error.message);
     });
   }
 
