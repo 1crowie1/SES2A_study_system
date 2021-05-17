@@ -1,31 +1,25 @@
-//Colour variables
 $mainColour: #FF6584;
 $mainColour-dark: #F84574;
 
-.request-subject{
-  width: 15%;
-}
-.request-text{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  .text-input{
-    resize: none;
-  }
-}
-
-.contact-button{
-    min-width: 100px;
+.edit-button{
+    min-width:  130px;
+    float: right;
     color: #FFFFFF;
     background-color: $mainColour;
     outline: none;
     border: none;
     border-radius: 8px;
-    padding: 8px;
+    padding: 5px;
     display: inline-block;
     align-self: center;
     text-align: center;
   }
-.contact-button:hover{
+.edit-button:hover{
       background-color: $mainColour-dark;
       border: none;
+}
+#course-dropdown, #major-dropdown{
+  background-color: white;
+  border: 1px solid black;
+  color: black;
 }
