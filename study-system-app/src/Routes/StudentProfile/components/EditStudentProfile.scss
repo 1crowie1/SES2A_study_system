@@ -27,5 +27,22 @@ $mainColour: #4267B2;
     background-color: white;
     border: 1px solid black;
     color: black;
+    position: absolute;
+  }
+  #profile-values{
+    display: block;
+  }
+
+  #preferences-dropdown {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    float: left;
+    margin-right: 50px;
+    margin-top: 40px;
+  }
+
+  #passwordHelpInline {
+    position: absolute;
   }
 }
