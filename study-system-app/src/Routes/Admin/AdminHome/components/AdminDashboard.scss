@@ -7,7 +7,7 @@ $mainColour-dark: #F84574;
   h1{
     font-size: 1.5rem;
   }
-  .card-container {
+  .dashboard-card-container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -17,36 +17,49 @@ $mainColour-dark: #F84574;
       min-width: 325px;
       width: 100%;
       height: 250px;
-      background-image: url("https://inst-fs-syd-prod.inscloudgate.net/files/f9ada677-57d8-481e-a45c-c206545053d0/19-033_CanvasBanners_v05-01.jpg?download=1&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2MjEwODg4MzEsInVzZXJfaWQiOm51bGwsInJlc291cmNlIjoiL2ZpbGVzL2Y5YWRhNjc3LTU3ZDgtNDgxZS1hNDVjLWMyMDY1NDUwNTNkMC8xOS0wMzNfQ2FudmFzQmFubmVyc192MDUtMDEuanBnIiwianRpIjoiN2Y1ZDhhZDktYzY1NC00OWJkLWE3MjEtY2E3Zjg5NTQ0MTc4IiwiaG9zdCI6bnVsbCwiZXhwIjoxNjIxNjkzNjMxfQ.TCvUxiM5XW-yY4pnSyTbFoPUkvIp2pMyk7YVrCrK1ztgwcubBIo97vseybnwV3GIaRJA1p34yJmXJRETZIJLuQ&geometry=262x146&format=webp");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      filter: grayscale(100%);
-      
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      .card-label{
+      .dashboard-card-image{
         width: 100%;
-        height: 5rem;
+        height: 100%;
+        background-image: url("https://inst-fs-syd-prod.inscloudgate.net/files/f9ada677-57d8-481e-a45c-c206545053d0/19-033_CanvasBanners_v05-01.jpg?download=1&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2MjEwODg4MzEsInVzZXJfaWQiOm51bGwsInJlc291cmNlIjoiL2ZpbGVzL2Y5YWRhNjc3LTU3ZDgtNDgxZS1hNDVjLWMyMDY1NDUwNTNkMC8xOS0wMzNfQ2FudmFzQmFubmVyc192MDUtMDEuanBnIiwianRpIjoiN2Y1ZDhhZDktYzY1NC00OWJkLWE3MjEtY2E3Zjg5NTQ0MTc4IiwiaG9zdCI6bnVsbCwiZXhwIjoxNjIxNjkzNjMxfQ.TCvUxiM5XW-yY4pnSyTbFoPUkvIp2pMyk7YVrCrK1ztgwcubBIo97vseybnwV3GIaRJA1p34yJmXJRETZIJLuQ&geometry=262x146&format=webp");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        .dashboard-card-image-filter{
+          width: 100%;
+          height: 100%;
+          background-color: rgb(80 , 90, 100);
+          opacity: 0.6;
+        }
+        .dashboard-card-label{
+          width: 100%;
+          height: 5rem;
 
-        padding: 25px;
-        margin-top: auto;
+          padding: 25px;
+          margin-top: auto;
+          transform: translateY(-3em);
 
-        background-color: $mainColour;
-        color: white;
-        clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 25%);
+          background-color: $mainColour;
+          color: white;
+          clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 0% 25%);
 
-        font-size: 1.5em;
-        text-align: end;
+          font-size: 1.5em;
+          text-align: end;
+         }
       }
+    }
+    .square-card:hover{
+      opacity: 0.8;
     }
   }
 }
 
 @media (min-width: 889px){
   .admin-dashboard {
-    .card-container {
+    .dashboard-card-container {
       .square-card {
         width: 19%;
         height: 250px;
