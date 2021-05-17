@@ -8,30 +8,23 @@ import "./AdminLoginForm.scss";
 
 const AdminLoginForm = (props) => {
 
-  // Needs backend to implement login
+  const db = firebase.firestore();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const config =
-      {
-        apiKey: "AIzaSyAf02jIhvwfN5LutBBEgFjBIvHPWLEnk0Q",
-        authDomain: "groupformationsystem.firebaseapp.com",
-        databaseURL: "https://groupformationsystem-default-rtdb.firebaseio.com",
-        projectId: "groupformationsystem",
-        storageBucket: "groupformationsystem.appspot.com",
-        messagingSenderId: "912375308149",
-        appId: "1:912375308149:web:6932a8593b14559538bd3c",
-        measurementId: "G-13XJR1BL4W"
-      };
-  if(firebase.apps.length === 0) {
-    const app = firebase.initializeApp(config);
-  }
 
   function emailLogin(){
     console.log("ADMIN LOGIN WITH EMAIL");
     firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
-      console.log(res.user)
-      props.history.push("/AdminCourses");
+      db.collection("users").doc(res.user.uid)
+      .onSnapshot((doc) => {
+        if (doc.data().access == true) {
+          console.log(res.user)
+          props.history.push("/AdminHome");
+        } else {
+          console.log('invalid account access')
+        }
+      });
     }).catch((error) => {
       alert(error.message)
       console.log(error.message)

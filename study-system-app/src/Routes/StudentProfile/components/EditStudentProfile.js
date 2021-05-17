@@ -8,9 +8,8 @@ import firebase from "firebase"
 // Using history in props for routing to different components
 const EditStudentProfile = (props) => {
 
-  const user = firebase.auth().currentUser;
   const db = firebase.firestore();
-  const doc = db.collection("users").doc(user.uid);
+  const user = firebase.auth().currentUser;
 
   //Add data to firestore///////////////////////////////////////////////////
 
@@ -92,7 +91,8 @@ const EditStudentProfile = (props) => {
   const[saturdayRead, setSaturdayRead] = useState([]);
   const[sundayRead, setSundayRead] = useState([]);
 
-
+function readData() {
+  const user = firebase.auth().currentUser;
   db.collection("users").doc(user.uid)
   .onSnapshot((doc) => {
       setCourseRead(doc.data().course)
@@ -129,6 +129,10 @@ const EditStudentProfile = (props) => {
         }
       }
   });
+ }
+ 
+ setTimeout(() => {  readData(); }, 700);
+
   ////////////////////////////////////////////////////////////////////////////
 
 

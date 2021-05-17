@@ -8,9 +8,12 @@ import Hamburger from 'hamburger-react';
 
 import "./AdminNavBar.scss";
 import DropdownItem from "react-bootstrap/DropdownItem";
+import firebase from 'firebase';
 
 // Using history in props for routing to different components
 const AdminNavBar = (props) => {
+  
+  var user = firebase.auth().currentUser;
 
   // setting the initial state to false so when the user clicks on the icon
   // it changes to a cross
@@ -23,6 +26,24 @@ const AdminNavBar = (props) => {
 
   const hideDropdown = e => {
     setShow(false);
+  }
+
+  function signOut(){
+    firebase.auth().signOut().then((res) => {
+      // console.log(res.user);
+      props.history.push('/');
+    }).catch((error) => {
+      console.log(error.message)
+    });
+  }
+
+  var name, email, photoUrl, uid, emailVerified;
+  if (user != null) {
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;
   }
 
   return (
@@ -61,7 +82,7 @@ const AdminNavBar = (props) => {
                     <DropdownItem disabled={true}>
                       <Nav className="nav-mini">
                         <Avatar name="Jane Smith" size="40" round={true} />
-                        <Navbar.Text className="nav-avatar-text"> Jane Smith </Navbar.Text>
+                        <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
                       </Nav>
                     </DropdownItem>
                     <Dropdown.Item>
@@ -81,7 +102,7 @@ const AdminNavBar = (props) => {
                     </Dropdown.Item>
                     <Dropdown.Item>
                       <i> <a href={'/#'} className="dropdown-item">
-                        Logout
+                        Sign Out
                       </a></i>
                     </Dropdown.Item>
                   </DropdownButton>
@@ -123,7 +144,7 @@ const AdminNavBar = (props) => {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                   <Nav className="nav-avatar">
-                    <Navbar.Text className="nav-avatar-text"> Jane Smith </Navbar.Text>
+                    <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
                     <DropdownButton
                         menuAlign="right"
                         id="dropdown-menu-align-right"
@@ -132,7 +153,7 @@ const AdminNavBar = (props) => {
                         onMouseLeave={hideDropdown}
                         title={
                           <div class="Dropdown right">
-                            <Avatar name="Jane Smith" size="40" round={true} /*toggled={isOpen} toggle={setOpen}*/ />
+                            <Avatar name={name} size="40" round={true}/>
                           </div>
                         }
                     >
@@ -141,9 +162,9 @@ const AdminNavBar = (props) => {
                           Profile
                         </a></i>
                       </Dropdown.Item>
-                      <Dropdown.Item>
-                        <i> <a href={'/#'} className="dropdown-item">
-                          Logout
+                      <Dropdown.Item onClick={() => signOut()}>
+                        <i> <a href={'/#'} className="dropdown-item" >
+                          Sign Out
                         </a></i>
                       </Dropdown.Item>
                     </DropdownButton>

@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import {Navbar, NavLink, Nav, DropdownButton, Dropdown} from "react-bootstrap";
-import Avatar from 'react-avatar';
+import {Navbar, Button, DropdownButton, Dropdown, Nav, NavLink} from "react-bootstrap";
 import Logo from "../../../Assets/logo4.png";
-import firebase from 'firebase';
+import Avatar from 'react-avatar';
+import Media from 'react-media';
+import Hamburger from 'hamburger-react';
 
 import "./StudentNavBar.scss";
+import DropdownItem from "react-bootstrap/DropdownItem";
+import firebase from 'firebase';
 
 // Using history in props for routing to different components
 const StudentNavBar = (props) => {
+  
+  var user = firebase.auth().currentUser;
 
-  // On hover the dropdown menu will show
+  // setting the initial state to false so when the user clicks on the icon
+  // it changes to a cross
+  const [isOpen, setOpen] = useState(false);
   const [show, setShow] = useState(false);
 
   const showDropdown = (e)=>{
-      setShow(!show);
+    setShow(!show);
   }
 
   const hideDropdown = e => {
-      setShow(false);
+    setShow(false);
   }
 
   function signOut(){
@@ -29,18 +36,6 @@ const StudentNavBar = (props) => {
       console.log(error.message)
     });
   }
-
-  var user = firebase.auth().currentUser;
-
-  // if (user != null) {
-  //   user.providerData.forEach(function (profile) {
-  //     console.log("Sign-in provider: " + profile.providerId);
-  //     console.log("  Provider-specific UID: " + profile.uid);
-  //     console.log("  Name: " + profile.displayName);
-  //     console.log("  Email: " + profile.email);
-  //     console.log("  Photo URL: " + profile.photoURL);
-  //   });
-  // }
 
   var name, email, photoUrl, uid, emailVerified;
   if (user != null) {
@@ -53,108 +48,145 @@ const StudentNavBar = (props) => {
 
   return (
     <React.Fragment>
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-      <Navbar className="student-nav">
-        <Navbar.Brand alt="StudentHome"
-        href="/StudentHome">
-        <img
-          alt=""
-          src={Logo}
-          width="160px"
-          height="auto"
-          className="d-inline-block align-top"/>{' '}
-        </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
+    <div id="parent">
+      <Media query="(max-width: 699px)">
+        {matches =>
+          matches ? (
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+              {/* Mobile Display */}
+              <Navbar className="admin-nav">
+                {/* Hyperlinked Logo */}
+                <Navbar.Brand alt="StudentHome"
+                href="/StudentHome">
+                <img
+                  alt=""
+                  src={Logo}
+                  width="130px"
+                  height="auto"
+                  className="d-inline-block align-top"/>{' '}
+                </Navbar.Brand>
 
-          {/*Links to different pages for the student*/}
-          <Nav className="page-links">
-            <NavLink className="link-one"
-            onClick={() => props.history.push("/StudentHome")}
-            color="inherit" >
-            Dashboard
-            </NavLink>
+                {/* User's Hamburger Menu */}
+                <Navbar.Toggle />
+                <Navbar.Collapse className="justify-content-end">
+                  <DropdownButton
+                      menuAlign="right"
+                      id="dropdown-menu-align-right"
+                      onMouse
+                      title={
+                          <div class="Dropdown right">
+                            <Hamburger toggled={isOpen} toggle={setOpen} />
+                          </div>
+                      }
+                      >
+                    <DropdownItem disabled={true}>
+                      <Nav className="nav-mini">
+                        <Avatar name={name} size="40" round={true} />
+                        <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
+                      </Nav>
+                    </DropdownItem>
+                    <Dropdown.Item>
+                      <i> <a href={'/#'} className="dropdown-item">
+                        Profile
+                      </a></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <i> <a onClick={() => props.history.push("/StudentHome")} className="dropdown-item">
+                        Dashboard
+                      </a></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <i> <a onClick={() => props.history.push("/GroupHome")} className="dropdown-item">
+                        Groups
+                      </a></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <i> <a onClick={() => props.history.push("/Contact")} className="dropdown-item">
+                        Contact
+                      </a></i>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <i> <a href={'/#'} className="dropdown-item">
+                        Sign Out
+                      </a></i>
+                    </Dropdown.Item>
+                  </DropdownButton>
+                </Navbar.Collapse>
+              </Navbar>
+            </div>
+          ) : (
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+              {/* Desktop Display */}
+              <Navbar className="admin-nav">
+                {/* Hyperlinked Logo */}
+                <Navbar.Brand alt="StudentHome"
+                href="/StudentHome">
+                <img
+                  alt=""
+                  src={Logo}
+                  width="160px"
+                  height="auto"
+                  className="d-inline-block align-top"/>{' '}
+                </Navbar.Brand>
 
-        <NavLink className="link-two"
-        onClick={() => props.history.push("/Groups")}
-        color="inherit" >
-        Groups
-        </NavLink>
+                {/* Page Links */}
+                <Nav className="page-links">
+                  <NavLink className="page-btn"
+                           onClick={() => props.history.push("/StudentHome")}
+                           color="inherit" >
+                    Dashboard
+                  </NavLink>
 
-        {/* <NavLink className="link-two" href="#" color="inherit" >
-        Groups
-        </NavLink> */}
+                  <NavLink className="page-btn"
+                           onClick={() => props.history.push("/GroupHome")}
+                           color="inherit" >
+                    Groups
+                  </NavLink>
 
-        <NavLink className="link-three" href="#" color="inherit" >
-        Contact
-        </NavLink>
+                  <NavLink className="page-btn"
+                           onClick={() => props.history.push("/Contact")}
+                           color="inherit" >
+                    Contact
+                  </NavLink>
 
-          <Nav className="nav-avatar">
-            <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
-            <DropdownButton
-              menuAlign="right"
-              id="dropdown-menu-align-right"
-              show={show}
-              onMouseEnter={showDropdown}
-              onMouseLeave={hideDropdown}
-              title={
-                  <div class="Dropdown right">
-                    <Avatar name={name} size="40" round={true}/>
-                  </div>
-              }>
-                <Dropdown.Item onClick={() => props.history.push("/StudentProfile")}>
-                  Profile
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => signOut()}>
-                  Sign Out
-                </Dropdown.Item>
-            </DropdownButton>
-          </Nav>
-        </Nav>
 
-        <Nav className="nav-avatar">
-        <Navbar.Text className="nav-avatar-text"> John Doe </Navbar.Text>
-          <DropdownButton
-            menuAlign="right"
-            id="dropdown-menu-align-right"
-            show={show}
-            onMouseEnter={showDropdown}
-            onMouseLeave={hideDropdown}
-            title={
-                <div class="Dropdown right">
-                  <Avatar name="John Doe" size="40" round={true}/>
-                </div>
-            }>
-              <Dropdown.Item
-              onClick={() => props.history.push("/StudentProfile")}>
-              Profile</Dropdown.Item>
-              <Dropdown.Item>
-              Logout</Dropdown.Item>
-          </DropdownButton>
-        </Nav>
-          <Nav className="nav-avatar">
-            <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
-            <DropdownButton
-              menuAlign="right"
-              id="dropdown-menu-align-right"
-              show={show}
-              onMouseEnter={showDropdown}
-              onMouseLeave={hideDropdown}
-              title={
-                  <div class="Dropdown right">
-                    <Avatar name={name} size="40" round={true}/>
-                  </div>
-              }>
-                <Dropdown.Item onClick={() => props.history.push("/StudentProfile")}>
-                  Profile
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => signOut()}>
-                  Sign Out
-                </Dropdown.Item>
-            </DropdownButton>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+                </Nav>
+
+                {/* Avatar w/ Dropdown */}
+                <Navbar.Toggle />
+                <Navbar.Collapse className="justify-content-end">
+                  <Nav className="nav-avatar">
+                    <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
+                    <DropdownButton
+                        menuAlign="right"
+                        id="dropdown-menu-align-right"
+                        show={show}
+                        onMouseEnter={showDropdown}
+                        onMouseLeave={hideDropdown}
+                        title={
+                          <div class="Dropdown right">
+                            <Avatar name={name} size="40" round={true}/>
+                          </div>
+                        }
+                    >
+                      <Dropdown.Item onClick={() => props.history.push("/StudentProfile")}>
+                        <i> <a href={'/#'} className="dropdown-item">
+                          Profile
+                        </a></i>
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => signOut()}>
+                        <i> <a href={'/#'} className="dropdown-item" >
+                          Sign Out
+                        </a></i>
+                      </Dropdown.Item>
+                    </DropdownButton>
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
+            </div>
+          )
+        }
+      </Media>
     </div>
     </React.Fragment>
   );
@@ -163,4 +195,3 @@ const StudentNavBar = (props) => {
 // Wrapping Navbar in a withRouter function in order to give it access to
 // this.props.history to redirect the user to the different components
 export default withRouter(StudentNavBar);
-
