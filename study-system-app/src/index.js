@@ -50,3 +50,9 @@ ReactDOM.render(
  </Router>,
   document.getElementById('root')
 );
+
+/* -- UNDEFINED --
+<Route path="/AdminHome" component={AdminHome} />
+<Route path="/CourseManagement" component={CourseManagement} />
+<Route path="/ClassManagement" component={ClassManagement} />
+*/
