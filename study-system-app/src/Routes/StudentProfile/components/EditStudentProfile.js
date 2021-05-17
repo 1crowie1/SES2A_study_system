@@ -8,6 +8,12 @@ import firebase from "firebase"
 // Using history in props for routing to different components
 const EditStudentProfile = (props) => {
 
+  const user = firebase.auth().currentUser;
+  const db = firebase.firestore();
+  const doc = db.collection("users").doc(user.uid);
+
+  //Add data to firestore///////////////////////////////////////////////////
+
   const [show, toggleShow] = useState(true);
 
   const [courseValue,setCourseValue]=useState('Select Course');
@@ -43,9 +49,6 @@ const EditStudentProfile = (props) => {
   const [saturday, setSaturday]=useState(false);
   const [sunday, setSunday]=useState(false);
 
-  const user = firebase.auth().currentUser;
-  const db = firebase.firestore();
-
   function editUserProfile() {
     db.collection("users").doc(user.uid).update({
       course: courseValue,
@@ -61,8 +64,67 @@ const EditStudentProfile = (props) => {
     setFriday(false)
     setSaturday(false)
     setSunday(false)
-  }
 
+    setMondayRead()
+    setTuesdayRead()
+    setWednesdayRead()
+    setThursdayRead()
+    setFridayRead()
+    setSaturdayRead()
+    setSundayRead()
+  }
+  
+  //Read data from firestore/////////////////////////////////////////////////
+
+  const[courseRead, setCourseRead] = useState([]);
+
+  const[majorRead, setMajorRead] = useState([]);
+
+  const[topic1Read, setTopic1Read] = useState([]);
+  const[topic2Read, setTopic2Read] = useState([]);
+  const[topic3Read, setTopic3Read] = useState([]);
+
+  const[mondayRead, setMondayRead] = useState([]);
+  const[tuesdayRead, setTuesdayRead] = useState([]);
+  const[wednesdayRead, setWednesdayRead] = useState([]);
+  const[thursdayRead, setThursdayRead] = useState([]);
+  const[fridayRead, setFridayRead] = useState([]);
+  const[saturdayRead, setSaturdayRead] = useState([]);
+  const[sundayRead, setSundayRead] = useState([]);
+
+
+  db.collection("users").doc(user.uid)
+  .onSnapshot((doc) => {
+      setCourseRead(doc.data().course)
+      setMajorRead(doc.data().major)
+
+      setTopic1Read(doc.data().topics[0])
+      setTopic2Read(doc.data().topics[1])
+      setTopic3Read(doc.data().topics[2])
+
+      if (doc.data().availability[0]) {
+        setMondayRead('Monday\xa0\xa0\xa0')
+      }
+      if (doc.data().availability[1]) {
+        setTuesdayRead('Tuesday\xa0\xa0\xa0')
+      }
+      if (doc.data().availability[2]) {
+        setWednesdayRead('Wednesday\xa0\xa0\xa0')
+      }
+      if (doc.data().availability[3]) {
+        setThursdayRead('Thursday\xa0\xa0\xa0')
+      }
+      if (doc.data().availability[4]) {
+        setFridayRead('Friday\xa0\xa0\xa0')
+      }
+      if (doc.data().availability[5]) {
+        setSaturdayRead('Saturday\xa0\xa0\xa0')
+      }
+      if (doc.data().availability[6]) {
+        setSundayRead('Sunday\xa0\xa0\xa0')
+      }
+  });
+  ////////////////////////////////////////////////////////////////////////////
 
 
   return (
@@ -82,19 +144,21 @@ const EditStudentProfile = (props) => {
            <Card.Body style={{ width: '100%' }}>
            <Form className="course">
                <Form.Label style={{ fontWeight: 'bold' }}>Course</Form.Label>
-               <Form.Label id="profile-values"> student course </Form.Label>
+               <Form.Label id="profile-values"> {courseRead} </Form.Label>
 
            </Form>
            <Form className="major">
                <Form.Label style={{ fontWeight: 'bold'}}>Major</Form.Label>
-               <Form.Label id="profile-values"> student major </Form.Label>
+               <Form.Label id="profile-values"> {majorRead} </Form.Label>
 
            </Form>
            <fieldset>
              <Form.Label style={{ fontWeight: 'bold' }}>Topic Preferences</Form.Label>
              <Form>
                <div className="topic-preferences">
-
+                <Form.Label id="topic-values"> {topic1Read} </Form.Label>
+                <Form.Label id="topic-values"> {topic2Read} </Form.Label>
+                <Form.Label id="topic-values"> {topic3Read} </Form.Label>
                </div>
              </Form>
            </fieldset>
@@ -102,7 +166,13 @@ const EditStudentProfile = (props) => {
             <Form.Label style={{ fontWeight: 'bold'}}>Typical Availability</Form.Label>
              <Form>
                <div className="topic-preferences">
-
+                <Form.Label id="availability-values"> {mondayRead} </Form.Label>
+                <Form.Label id="availability-values"> {tuesdayRead} </Form.Label>
+                <Form.Label id="availability-values"> {wednesdayRead} </Form.Label>
+                <Form.Label id="availability-values"> {thursdayRead} </Form.Label>
+                <Form.Label id="availability-values"> {fridayRead} </Form.Label>
+                <Form.Label id="availability-values"> {saturdayRead} </Form.Label>
+                <Form.Label id="availability-values"> {sundayRead} </Form.Label>
                </div>
              </Form>
            </fieldset>

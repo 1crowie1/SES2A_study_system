@@ -38,11 +38,16 @@ $mainColour: #4267B2;
     border: 1px solid black;
     color: black;
     float: left;
-    margin-right: 50px;
+    margin-right: 10px;
     margin-top: 40px;
   }
 
   #passwordHelpInline {
     position: absolute;
+  }
+
+  #topic-values {
+    position: block;
+    margin-right: 20px;
   }
 }

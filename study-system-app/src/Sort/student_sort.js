@@ -10,6 +10,62 @@ NOTE #1:
 NOTE #2:
     - studentGraph[i][n][6] introduced for elimination rating backup
 */
+import firebase from "firebase"
+
+const user = firebase.auth().currentUser;
+const db = firebase.firestore();
+const doc = db.collection("users").doc(user.uid);
+
+
+const[courseRead, setCourseRead] = useState([]);
+
+const[majorRead, setMajorRead] = useState([]);
+
+const[topic1Read, setTopic1Read] = useState([]);
+const[topic2Read, setTopic2Read] = useState([]);
+const[topic3Read, setTopic3Read] = useState([]);
+
+const[mondayRead, setMondayRead] = useState([]);
+const[tuesdayRead, setTuesdayRead] = useState([]);
+const[wednesdayRead, setWednesdayRead] = useState([]);
+const[thursdayRead, setThursdayRead] = useState([]);
+const[fridayRead, setFridayRead] = useState([]);
+const[saturdayRead, setSaturdayRead] = useState([]);
+const[sundayRead, setSundayRead] = useState([]);
+
+
+db.collection("users").doc(user.uid)
+.onSnapshot((doc) => {
+    setCourseRead(doc.data().course)
+    setMajorRead(doc.data().major)
+
+    setTopic1Read(doc.data().topics[0])
+    setTopic2Read(doc.data().topics[1])
+    setTopic3Read(doc.data().topics[2])
+
+    if (doc.data().availability[0]) {
+      setMondayRead('Monday\xa0\xa0\xa0')
+    }
+    if (doc.data().availability[1]) {
+      setTuesdayRead('Tuesday\xa0\xa0\xa0')
+    }
+    if (doc.data().availability[2]) {
+      setWednesdayRead('Wednesday\xa0\xa0\xa0')
+    }
+    if (doc.data().availability[3]) {
+      setThursdayRead('Thursday\xa0\xa0\xa0')
+    }
+    if (doc.data().availability[4]) {
+      setFridayRead('Friday\xa0\xa0\xa0')
+    }
+    if (doc.data().availability[5]) {
+      setSaturdayRead('Saturday\xa0\xa0\xa0')
+    }
+    if (doc.data().availability[6]) {
+      setSundayRead('Sunday\xa0\xa0\xa0')
+    }
+});
+
 
 var studentClass = [
     ["Harrison Crowe-Maxwell", //0

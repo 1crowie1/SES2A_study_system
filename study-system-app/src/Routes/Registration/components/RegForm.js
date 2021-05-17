@@ -56,7 +56,6 @@ const RegForm = (props) => {
     });
   }
 
-  
 
   return (
     <React.Fragment>
