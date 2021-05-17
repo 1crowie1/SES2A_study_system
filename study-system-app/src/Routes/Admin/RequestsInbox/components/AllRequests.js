@@ -8,34 +8,34 @@ const AllRequests = (props) => {
 
 return (
   <React.Fragment>
-    {/* Displays cards of courses/classes with requests from students (number of request priority) */}
+    {/* Displays cards of all requests from students to this admin (recent request priority) */}
   <div class="request-inbox">
     <h1>Inbox</h1>
     <hr />
     <div className="request-card-container">
       <Card className="wide-card" onClick={() => props.history.push("/RequestsInbox")}>
         {/* Link Database to this */}
-        {/* Contains all courses related to user */}
+        {/* Contains a request from student to admin user */}
         Request 1
       </Card>
       <Card className="wide-card" onClick={() => props.history.push("/RequestsInbox")}>
         {/* Link Database to this */}
-        {/* Contains all courses related to user */}
+        {/* Contains a request from student to admin user */}
         Request 2
       </Card>
       <Card className="wide-card" onClick={() => props.history.push("/RequestsInbox")}>
         {/* Link Database to this */}
-        {/* Contains all courses related to user */}
+        {/* Contains a request from student to admin user */}
         Request 3
       </Card>
       <Card className="wide-card" onClick={() => props.history.push("/RequestsInbox")}>
         {/* Link Database to this */}
-        {/* Contains all courses related to user */}
+        {/* Contains a request from student to admin user */}
         Request 4
       </Card>
       <Card className="wide-card" onClick={() => props.history.push("/RequestsInbox")}>
         {/* Link Database to this */}
-        {/* Contains all courses related to user */}
+        {/* Contains a request from student to admin user */}
         Request 5
       </Card>
     </div>
