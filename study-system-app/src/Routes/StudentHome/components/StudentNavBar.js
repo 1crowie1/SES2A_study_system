@@ -81,12 +81,35 @@ const StudentNavBar = (props) => {
         Groups
         </NavLink>
 
-        <NavLink className="link-three"
-        onClick={() => props.history.push("/Contact")}
-        color="inherit" >
+        {/* <NavLink className="link-two" href="#" color="inherit" >
+        Groups
+        </NavLink> */}
+
+        <NavLink className="link-three" href="#" color="inherit" >
         Contact
         </NavLink>
 
+          <Nav className="nav-avatar">
+            <Navbar.Text className="nav-avatar-text"> {name} </Navbar.Text>
+            <DropdownButton
+              menuAlign="right"
+              id="dropdown-menu-align-right"
+              show={show}
+              onMouseEnter={showDropdown}
+              onMouseLeave={hideDropdown}
+              title={
+                  <div class="Dropdown right">
+                    <Avatar name={name} size="40" round={true}/>
+                  </div>
+              }>
+                <Dropdown.Item onClick={() => props.history.push("/StudentProfile")}>
+                  Profile
+                </Dropdown.Item>
+                <Dropdown.Item onClick={() => signOut()}>
+                  Sign Out
+                </Dropdown.Item>
+            </DropdownButton>
+          </Nav>
         </Nav>
 
         <Nav className="nav-avatar">

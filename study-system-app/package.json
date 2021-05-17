@@ -9,6 +9,7 @@
     "bootstrap": "^4.6.0",
     "file-loader": "^6.1.1",
     "firebase": "^8.4.1",
+    "firestore": "^1.1.6",
     "hamburger-react": "^2.4.0",
     "node-sass": "^4.14.1",
     "package.json": "^2.0.1",

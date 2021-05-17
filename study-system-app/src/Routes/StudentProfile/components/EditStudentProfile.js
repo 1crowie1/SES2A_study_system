@@ -2,21 +2,68 @@ import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import {CardDeck, Card, Button, Form, Col, DropdownButton, Dropdown} from "react-bootstrap";
 import "./EditStudentProfile.scss";
+import firebase from "firebase"
+
 
 // Using history in props for routing to different components
 const EditStudentProfile = (props) => {
 
   const [show, toggleShow] = useState(true);
 
-  const [courseValue,setCourseValue]=useState('Select course');
+  const [courseValue,setCourseValue]=useState('Select Course');
   const handleCourseSelect=(e)=>{
     setCourseValue(e)
   }
 
-  const [majorValue,setMajorValue]=useState('Select major');
+  const [majorValue,setMajorValue]=useState('Select Major');
   const handleMajorSelect=(e)=>{
     setMajorValue(e)
   }
+
+  const [topic1Value,setTopic1Value]=useState('Select First Topic');
+  const handleTopic1Select=(e)=>{
+    setTopic1Value(e)
+  }
+
+  const [topic2Value,setTopic2Value]=useState('Select Second Topic');
+  const handleTopic2Select=(e)=>{
+    setTopic2Value(e)
+  }
+
+  const [topic3Value,setTopic3Value]=useState('Select Third Topic');
+  const handleTopic3Select=(e)=>{
+    setTopic3Value(e)
+  }
+
+  const [monday, setMonday]=useState(false);
+  const [tuesday, setTuesday]=useState(false);
+  const [wednesday, setWednesday]=useState(false);
+  const [thursday, setThursday]=useState(false);
+  const [friday, setFriday]=useState(false);
+  const [saturday, setSaturday]=useState(false);
+  const [sunday, setSunday]=useState(false);
+
+  const user = firebase.auth().currentUser;
+  const db = firebase.firestore();
+
+  function editUserProfile() {
+    db.collection("users").doc(user.uid).update({
+      course: courseValue,
+      major: majorValue,
+      availability: [monday, tuesday, wednesday, thursday, friday, saturday, sunday],
+      topics: [topic1Value, topic2Value, topic3Value]
+    });
+    toggleShow(!show)
+    setMonday(false)
+    setTuesday(false)
+    setWednesday(false)
+    setThursday(false)
+    setFriday(false)
+    setSaturday(false)
+    setSunday(false)
+  }
+
+
 
   return (
     <React.Fragment>
@@ -34,11 +81,13 @@ const EditStudentProfile = (props) => {
            Student Profile</Card.Header>
            <Card.Body style={{ width: '100%' }}>
            <Form className="course">
-               <Form.Label style={{ fontWeight: 'bold'}}>Course</Form.Label>
+               <Form.Label style={{ fontWeight: 'bold' }}>Course</Form.Label>
+               <Form.Label id="profile-values"> student course </Form.Label>
 
            </Form>
            <Form className="major">
                <Form.Label style={{ fontWeight: 'bold'}}>Major</Form.Label>
+               <Form.Label id="profile-values"> student major </Form.Label>
 
            </Form>
            <fieldset>
@@ -82,32 +131,86 @@ const EditStudentProfile = (props) => {
                           <Dropdown.Item eventKey="Education">Education</Dropdown.Item>
                   </DropdownButton>
 
-                  <Form.Label style={{ fontWeight: 'bold', marginTop: "1%"}}>Major</Form.Label>
+                  <Form.Label style={{ fontWeight: 'bold', marginTop: "3%"}}>Major</Form.Label>
                   <DropdownButton
                   title={majorValue}
                   id="major-dropdown"
                   variant="info"
                   onSelect={handleMajorSelect}
                     >
-                          <Dropdown.Item eventKey="Engineering">Engineering</Dropdown.Item>
-                          <Dropdown.Item eventKey="Science">Science</Dropdown.Item>
-                          <Dropdown.Item eventKey="Communications">Communications</Dropdown.Item>
-                          <Dropdown.Item eventKey="Education">Education</Dropdown.Item>
+                          <Dropdown.Item eventKey="Software">Software</Dropdown.Item>
+                          <Dropdown.Item eventKey="Mechanical">Mechanical</Dropdown.Item>
+                          <Dropdown.Item eventKey="Electrical">Electrical</Dropdown.Item>
+                          <Dropdown.Item eventKey="Civil">Civil</Dropdown.Item>
                   </DropdownButton>
 
               </Form>
               <fieldset>
-                <Form.Label style={{ fontWeight: 'bold', marginTop: "1%" }}>Topic Preferences</Form.Label>
+                <Form.Label style={{ fontWeight: 'bold', marginTop: "3%" }}>Topic Preferences</Form.Label>
                 <Form>
                   <div className="topic-preferences">
-                    <Form.Check inline label="Network Systems" id="prefernce-1" />
-                    <Form.Check inline label="Database" id="prefernce-2" />
-                    <Form.Check inline label="Software Architecture" id="preference-3" />
-                    <Form.Check inline label="Blockchain" id="preference-4" />
-                    <Form.Check inline label="Server Management" id="preference-5" />
+                    <DropdownButton
+                    title={topic1Value}
+                    id="preferences-dropdown"
+                    variant="info"
+                    onSelect={handleTopic1Select}
+                    >
+                            <Dropdown.Item eventKey="Programming">Programming</Dropdown.Item>
+                            <Dropdown.Item eventKey="Databases">Databases</Dropdown.Item>
+                            <Dropdown.Item eventKey="Electronics">Electronics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
+                            <Dropdown.Item eventKey="Finance">Finance</Dropdown.Item>
+                            <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Maths">Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Physics">Physics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Medical Machines">Medical Machines</Dropdown.Item>
+                            <Dropdown.Item eventKey="Hospital Management">Hospital Management</Dropdown.Item>
+                            <Dropdown.Item eventKey="Aged Care">Aged Care</Dropdown.Item>
+                            <Dropdown.Item eventKey="Anatomy">Anatomy</Dropdown.Item>
+                    </DropdownButton>
+
+                    <DropdownButton
+                    title={topic2Value}
+                    id="preferences-dropdown"
+                    variant="info"
+                    onSelect={handleTopic2Select}
+                    >
+                            <Dropdown.Item eventKey="Programming">Programming</Dropdown.Item>
+                            <Dropdown.Item eventKey="Databases">Databases</Dropdown.Item>
+                            <Dropdown.Item eventKey="Electronics">Electronics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
+                            <Dropdown.Item eventKey="Finance">Finance</Dropdown.Item>
+                            <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Maths">Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Physics">Physics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Medical Machines">Medical Machines</Dropdown.Item>
+                            <Dropdown.Item eventKey="Hospital Management">Hospital Management</Dropdown.Item>
+                            <Dropdown.Item eventKey="Aged Care">Aged Care</Dropdown.Item>
+                            <Dropdown.Item eventKey="Anatomy">Anatomy</Dropdown.Item>
+                    </DropdownButton>
+
+                    <DropdownButton
+                    title={topic3Value}
+                    id="preferences-dropdown"
+                    variant="info"
+                    onSelect={handleTopic3Select}
+                    >
+                            <Dropdown.Item eventKey="Programming">Programming</Dropdown.Item>
+                            <Dropdown.Item eventKey="Databases">Databases</Dropdown.Item>
+                            <Dropdown.Item eventKey="Electronics">Electronics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
+                            <Dropdown.Item eventKey="Finance">Finance</Dropdown.Item>
+                            <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Maths">Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Physics">Physics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Medical Machines">Medical Machines</Dropdown.Item>
+                            <Dropdown.Item eventKey="Hospital Management">Hospital Management</Dropdown.Item>
+                            <Dropdown.Item eventKey="Aged Care">Aged Care</Dropdown.Item>
+                            <Dropdown.Item eventKey="Anatomy">Anatomy</Dropdown.Item>
+                    </DropdownButton>
                   </div>
                   <Form.Text id="passwordHelpInline" muted>
-                  Please select five preferences.
+                  Please select three topic preferences.
                 </Form.Text>
                 </Form>
               </fieldset>
@@ -115,19 +218,21 @@ const EditStudentProfile = (props) => {
                 <Form.Label style={{ fontWeight: 'bold', marginTop: '15px' }}>Typical Availability</Form.Label>
                   <Form>
                     <div className="topic-preferences">
-                      <Form.Check inline label="Monday" id="day-1" />
-                      <Form.Check inline label="Tuesday" id="day-2" />
-                      <Form.Check inline label="Wednesday" id="day-3" />
-                      <Form.Check inline label="Thursday" id="day-4" />
-                      <Form.Check inline label="Friday" id="day-5" />
-                      <Form.Check inline label="Saturday" id="day-6" />
-                      <Form.Check inline label="Sunday" id="day-7" />
+                      <Form.Check inline label="Monday" id="day-1" onChange={() => setMonday(!monday)}/>
+                      <Form.Check inline label="Tuesday" id="day-2"  onChange={() => setTuesday(!tuesday)}/>
+                      <Form.Check inline label="Wednesday" id="day-3"  onChange={() => setWednesday(!wednesday)}/>
+                      <Form.Check inline label="Thursday" id="day-4"  onChange={() => setThursday(!thursday)}/>
+                      <Form.Check inline label="Friday" id="day-5"  onChange={() => setFriday(!friday)}/>
+                      <Form.Check inline label="Saturday" id="day-6"  onChange={() => setSaturday(!saturday)}/>
+                      <Form.Check inline label="Sunday" id="day-7"  onChange={() => setSunday(!sunday)}/>
                     </div>
                   </Form>
               </fieldset>
               </Card.Body>
               <Card.Footer style={{ width: '100%' }}>
-                <button type="button" className="edit-button"> Save Profile</button>
+                <button type="button" className="edit-button" onClick={() => editUserProfile()}>
+                   Save Profile
+                </button>
               </Card.Footer>
             </Card>
 

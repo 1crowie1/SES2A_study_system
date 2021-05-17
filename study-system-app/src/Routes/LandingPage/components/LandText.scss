@@ -1,0 +1,56 @@
+$btnColour-1: #FF6584;
+$btnColour-2: #ff325b;
+
+// Setting up mixins for different screen sizes
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+.LandText {
+  margin-left: 140px;
+  @include for-phone-only {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+  }
+  .Intro{
+    color: #30373F;
+    font-weight: bold;
+    font-size: 2.3rem;
+    @include for-phone-only {
+      font-size: 1.6rem;
+    }
+  }
+  .Paragraph{
+    color: #30373F;
+    font-weight: normal;
+    font-size: 1.4rem;
+    @include for-phone-only {
+      font-size: 1.2rem;
+    }
+  }
+  .btn-custom{
+    background-color: $btnColour-1;
+    color: #FFFFFF;
+    border: none;
+    font-size: 1.2rem;
+    width: 15%;
+    margin-right: 100px;
+    @include for-phone-only {
+      text-align: center;
+      font-size: 1.0rem;
+      margin: auto;
+      width: 50%;
+    }
+  }
+  .btn-custom:hover, .btn-custom:focus, .btn-custom:active {
+    color: #FFFFFF!important;
+    background-color: $btnColour-2;
+  }
+}
