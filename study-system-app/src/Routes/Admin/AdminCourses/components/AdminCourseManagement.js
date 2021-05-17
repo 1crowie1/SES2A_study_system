@@ -9,7 +9,7 @@ const AdminCourseManagement = (props) => {
 return (
   <React.Fragment>
     {/* Displays courses related to user */}
-  <div class="course-management">
+  <div class="course-classes">
     <h1>Course Management</h1>
     <hr />
     <div className="card-container">

@@ -9,7 +9,7 @@ const AdminDashboard = (props) => {
 return (
   <React.Fragment>
     {/* Displays cards of courses/classes with requests from students (number of request priority) */}
-  <div class="student-dashboard">
+  <div class="admin-dashboard">
     <h1>Dashboard</h1>
     <hr />
     <div className="card-container">

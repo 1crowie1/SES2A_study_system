@@ -11,7 +11,7 @@ return (
   <React.Fragment>
     {/* Contains classes for a course */}
     {/* Directed from a selected course */}
-  <div class="course-classes">
+  <div class="single-class">
     <div className="heading">
       <h1>Class Management</h1>
       <div className="button-container">
