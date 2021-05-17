@@ -127,8 +127,10 @@ const EditStudentProfile = (props) => {
                     >
                           <Dropdown.Item eventKey="Engineering">Engineering</Dropdown.Item>
                           <Dropdown.Item eventKey="Science">Science</Dropdown.Item>
-                          <Dropdown.Item eventKey="Communications">Communications</Dropdown.Item>
                           <Dropdown.Item eventKey="Education">Education</Dropdown.Item>
+                          <Dropdown.Item eventKey="Business">Business</Dropdown.Item>
+                          <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
+                          <Dropdown.Item eventKey="Arts">Arts</Dropdown.Item>
                   </DropdownButton>
 
                   <Form.Label style={{ fontWeight: 'bold', marginTop: "3%"}}>Major</Form.Label>
@@ -138,10 +140,20 @@ const EditStudentProfile = (props) => {
                   variant="info"
                   onSelect={handleMajorSelect}
                     >
+                          <Dropdown.Item eventKey="Degree">Degree</Dropdown.Item>
                           <Dropdown.Item eventKey="Software">Software</Dropdown.Item>
                           <Dropdown.Item eventKey="Mechanical">Mechanical</Dropdown.Item>
+                          <Dropdown.Item eventKey="Mechatronic">Mechatronic</Dropdown.Item>
                           <Dropdown.Item eventKey="Electrical">Electrical</Dropdown.Item>
                           <Dropdown.Item eventKey="Civil">Civil</Dropdown.Item>
+                          <Dropdown.Item eventKey="Environmental">Environmental</Dropdown.Item>
+                          <Dropdown.Item eventKey="Flexible">Flexible</Dropdown.Item>
+                          <Dropdown.Item eventKey="Physics">Physics</Dropdown.Item>
+                          <Dropdown.Item eventKey="Computer">Computer</Dropdown.Item>
+                          <Dropdown.Item eventKey="Chemical">Chemical</Dropdown.Item>
+                          <Dropdown.Item eventKey="Biomedical">Biomedical</Dropdown.Item>
+                          <Dropdown.Item eventKey="Nano">Nano</Dropdown.Item>
+                          <Dropdown.Item eventKey="Political">Political</Dropdown.Item>
                   </DropdownButton>
 
               </Form>
@@ -155,18 +167,63 @@ const EditStudentProfile = (props) => {
                     variant="info"
                     onSelect={handleTopic1Select}
                     >
+                            {/* Engineering Related */}
                             <Dropdown.Item eventKey="Programming">Programming</Dropdown.Item>
                             <Dropdown.Item eventKey="Databases">Databases</Dropdown.Item>
                             <Dropdown.Item eventKey="Electronics">Electronics</Dropdown.Item>
-                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
+                            <Dropdown.Item eventKey="CAD">CAD</Dropdown.Item>
+                            <Dropdown.Item eventKey="Physical Modelling">Physical Modelling</Dropdown.Item>
+                            <Dropdown.Item eventKey="Cybersecurity">Cybersecurity</Dropdown.Item>
+                            <Dropdown.Item eventKey="Networking">Networking</Dropdown.Item>
+                            <Dropdown.Item eventKey="Robotics">Robotics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Aeronautics">Aeronautics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Environmental">Environmental</Dropdown.Item>
+                            <Dropdown.Item eventKey="Mining">Mining</Dropdown.Item>
+                            <Dropdown.Item eventKey="Automotive">Automotive</Dropdown.Item>
+                            <Dropdown.Item eventKey="Renewables">Renewables</Dropdown.Item>
+                            <Dropdown.Item eventKey="Machine Learning">Machine Learning</Dropdown.Item>
+                            {/* Business Related */}
                             <Dropdown.Item eventKey="Finance">Finance</Dropdown.Item>
                             <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Stocks">Stocks</Dropdown.Item>
+                            <Dropdown.Item eventKey="Management">Management</Dropdown.Item>
+                            <Dropdown.Item eventKey="Accounting">Accounting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Marketing">Marketing</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sales">Sales</Dropdown.Item>
+                            <Dropdown.Item eventKey="Entrepreneurship">Entrepreneurship</Dropdown.Item>
+                            <Dropdown.Item eventKey="Commercialisation">Commercialisation</Dropdown.Item>
+                            {/* Science Related */}
+                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
                             <Dropdown.Item eventKey="Maths">Maths</Dropdown.Item>
                             <Dropdown.Item eventKey="Physics">Physics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Chemistry">Chemistry</Dropdown.Item>
+                            <Dropdown.Item eventKey="Biology">Biology</Dropdown.Item>
+                            <Dropdown.Item eventKey="Biomedical">Biomedical</Dropdown.Item>
+                            {/* Medicine Related */}
                             <Dropdown.Item eventKey="Medical Machines">Medical Machines</Dropdown.Item>
                             <Dropdown.Item eventKey="Hospital Management">Hospital Management</Dropdown.Item>
                             <Dropdown.Item eventKey="Aged Care">Aged Care</Dropdown.Item>
                             <Dropdown.Item eventKey="Anatomy">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Surgery">Surgery</Dropdown.Item>
+                            {/* Education Related */}
+                            <Dropdown.Item eventKey="Teaching Ethics">Teaching Ethics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Maths">Secondary Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Science">Secondary Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary History">Secondary History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Geography">Secondary Geography</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary English">Secondary English</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary TAS">Secondary TAS</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Maths">Primary Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Science">Primary Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary History">Primary History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Geography">Primary Geography</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary English">Primary English</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary TAS">Primary TAS</Dropdown.Item>
+                            {/* Arts Related */}
+                            <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
                     </DropdownButton>
 
                     <DropdownButton
@@ -175,18 +232,63 @@ const EditStudentProfile = (props) => {
                     variant="info"
                     onSelect={handleTopic2Select}
                     >
+                            {/* Engineering Related */}
                             <Dropdown.Item eventKey="Programming">Programming</Dropdown.Item>
                             <Dropdown.Item eventKey="Databases">Databases</Dropdown.Item>
                             <Dropdown.Item eventKey="Electronics">Electronics</Dropdown.Item>
-                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
+                            <Dropdown.Item eventKey="CAD">CAD</Dropdown.Item>
+                            <Dropdown.Item eventKey="Physical Modelling">Physical Modelling</Dropdown.Item>
+                            <Dropdown.Item eventKey="Cybersecurity">Cybersecurity</Dropdown.Item>
+                            <Dropdown.Item eventKey="Networking">Networking</Dropdown.Item>
+                            <Dropdown.Item eventKey="Robotics">Robotics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Aeronautics">Aeronautics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Environmental">Environmental</Dropdown.Item>
+                            <Dropdown.Item eventKey="Mining">Mining</Dropdown.Item>
+                            <Dropdown.Item eventKey="Automotive">Automotive</Dropdown.Item>
+                            <Dropdown.Item eventKey="Renewables">Renewables</Dropdown.Item>
+                            <Dropdown.Item eventKey="Machine Learning">Machine Learning</Dropdown.Item>
+                            {/* Business Related */}
                             <Dropdown.Item eventKey="Finance">Finance</Dropdown.Item>
                             <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Stocks">Stocks</Dropdown.Item>
+                            <Dropdown.Item eventKey="Management">Management</Dropdown.Item>
+                            <Dropdown.Item eventKey="Accounting">Accounting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Marketing">Marketing</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sales">Sales</Dropdown.Item>
+                            <Dropdown.Item eventKey="Entrepreneurship">Entrepreneurship</Dropdown.Item>
+                            <Dropdown.Item eventKey="Commercialisation">Commercialisation</Dropdown.Item>
+                            {/* Science Related */}
+                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
                             <Dropdown.Item eventKey="Maths">Maths</Dropdown.Item>
                             <Dropdown.Item eventKey="Physics">Physics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Chemistry">Chemistry</Dropdown.Item>
+                            <Dropdown.Item eventKey="Biology">Biology</Dropdown.Item>
+                            <Dropdown.Item eventKey="Biomedical">Biomedical</Dropdown.Item>
+                            {/* Medicine Related */}
                             <Dropdown.Item eventKey="Medical Machines">Medical Machines</Dropdown.Item>
                             <Dropdown.Item eventKey="Hospital Management">Hospital Management</Dropdown.Item>
                             <Dropdown.Item eventKey="Aged Care">Aged Care</Dropdown.Item>
                             <Dropdown.Item eventKey="Anatomy">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Surgery">Surgery</Dropdown.Item>
+                            {/* Education Related */}
+                            <Dropdown.Item eventKey="Teaching Ethics">Teaching Ethics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Maths">Secondary Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Science">Secondary Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary History">Secondary History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Geography">Secondary Geography</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary English">Secondary English</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary TAS">Secondary TAS</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Maths">Primary Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Science">Primary Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary History">Primary History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Geography">Primary Geography</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary English">Primary English</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary TAS">Primary TAS</Dropdown.Item>
+                            {/* Arts Related */}
+                            <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
                     </DropdownButton>
 
                     <DropdownButton
@@ -195,18 +297,63 @@ const EditStudentProfile = (props) => {
                     variant="info"
                     onSelect={handleTopic3Select}
                     >
+                            {/* Engineering Related */}
                             <Dropdown.Item eventKey="Programming">Programming</Dropdown.Item>
                             <Dropdown.Item eventKey="Databases">Databases</Dropdown.Item>
                             <Dropdown.Item eventKey="Electronics">Electronics</Dropdown.Item>
-                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
+                            <Dropdown.Item eventKey="CAD">CAD</Dropdown.Item>
+                            <Dropdown.Item eventKey="Physical Modelling">Physical Modelling</Dropdown.Item>
+                            <Dropdown.Item eventKey="Cybersecurity">Cybersecurity</Dropdown.Item>
+                            <Dropdown.Item eventKey="Networking">Networking</Dropdown.Item>
+                            <Dropdown.Item eventKey="Robotics">Robotics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Aeronautics">Aeronautics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Environmental">Environmental</Dropdown.Item>
+                            <Dropdown.Item eventKey="Mining">Mining</Dropdown.Item>
+                            <Dropdown.Item eventKey="Automotive">Automotive</Dropdown.Item>
+                            <Dropdown.Item eventKey="Renewables">Renewables</Dropdown.Item>
+                            <Dropdown.Item eventKey="Machine Learning">Machine Learning</Dropdown.Item>
+                            {/* Business Related */}
                             <Dropdown.Item eventKey="Finance">Finance</Dropdown.Item>
                             <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Stocks">Stocks</Dropdown.Item>
+                            <Dropdown.Item eventKey="Management">Management</Dropdown.Item>
+                            <Dropdown.Item eventKey="Accounting">Accounting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Marketing">Marketing</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sales">Sales</Dropdown.Item>
+                            <Dropdown.Item eventKey="Entrepreneurship">Entrepreneurship</Dropdown.Item>
+                            <Dropdown.Item eventKey="Commercialisation">Commercialisation</Dropdown.Item>
+                            {/* Science Related */}
+                            <Dropdown.Item eventKey="Nanoscience">Nanoscience</Dropdown.Item>
                             <Dropdown.Item eventKey="Maths">Maths</Dropdown.Item>
                             <Dropdown.Item eventKey="Physics">Physics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Chemistry">Chemistry</Dropdown.Item>
+                            <Dropdown.Item eventKey="Biology">Biology</Dropdown.Item>
+                            <Dropdown.Item eventKey="Biomedical">Biomedical</Dropdown.Item>
+                            {/* Medicine Related */}
                             <Dropdown.Item eventKey="Medical Machines">Medical Machines</Dropdown.Item>
                             <Dropdown.Item eventKey="Hospital Management">Hospital Management</Dropdown.Item>
                             <Dropdown.Item eventKey="Aged Care">Aged Care</Dropdown.Item>
                             <Dropdown.Item eventKey="Anatomy">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Surgery">Surgery</Dropdown.Item>
+                            {/* Education Related */}
+                            <Dropdown.Item eventKey="Teaching Ethics">Teaching Ethics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Maths">Secondary Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Science">Secondary Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary History">Secondary History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary Geography">Secondary Geography</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary English">Secondary English</Dropdown.Item>
+                            <Dropdown.Item eventKey="Secondary TAS">Secondary TAS</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Maths">Primary Maths</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Science">Primary Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary History">Primary History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary Geography">Primary Geography</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary English">Primary English</Dropdown.Item>
+                            <Dropdown.Item eventKey="Primary TAS">Primary TAS</Dropdown.Item>
+                            {/* Arts Related */}
+                            <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
                     </DropdownButton>
                   </div>
                   <Form.Text id="passwordHelpInline" muted>
