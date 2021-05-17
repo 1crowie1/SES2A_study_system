@@ -9,13 +9,44 @@ const AdminDashboard = (props) => {
 return (
   <React.Fragment>
     {/* Displays cards of courses/classes with requests from students (number of request priority) */}
-  <div class="student-dashboard">
+  <div class="admin-dashboard">
     <h1>Dashboard</h1>
     <hr />
     <div className="card-container">
       <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
         {/* Link Database to this */}
         {/* Contains courses related to user */}
+        <div className="card-label">
+          Course 1
+        </div>
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        <div className="card-label">
+          Course 2
+        </div>
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        <div className="card-label">
+          Course 3
+        </div>
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        <div className="card-label">
+          Course 4
+        </div>
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        <div className="card-label">
+          Course 5
+        </div>
       </Card>
     </div>
   </div>
