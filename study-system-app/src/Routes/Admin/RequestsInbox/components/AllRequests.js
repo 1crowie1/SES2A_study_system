@@ -10,7 +10,7 @@ return (
   <React.Fragment>
     {/* Displays cards of courses/classes with requests from students (number of request priority) */}
   <div class="request-inbox">
-    <h1>Requests</h1>
+    <h1>Inbox</h1>
     <hr />
     <div className="request-card-container">
       <Card className="wide-card" onClick={() => props.history.push("/RequestsInbox")}>

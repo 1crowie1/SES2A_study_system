@@ -9,7 +9,7 @@ function RequestsInbox() {
   return (
       <div className="Classes">
         <Helmet>
-          <title>Requests | GroupMe</title>
+          <title>All Requests | GroupMe</title>
         </Helmet>
         <AdminNavBar/>
         <AllRequests/>
