@@ -98,30 +98,35 @@ const EditStudentProfile = (props) => {
       setCourseRead(doc.data().course)
       setMajorRead(doc.data().major)
 
-      setTopic1Read(doc.data().topics[0])
-      setTopic2Read(doc.data().topics[1])
-      setTopic3Read(doc.data().topics[2])
+      if (doc.data().topics) {
+        setTopic1Read(doc.data().topics[0])
+        setTopic2Read(doc.data().topics[1])
+        setTopic3Read(doc.data().topics[2])
+  
+      }
 
-      if (doc.data().availability[0]) {
-        setMondayRead('Monday\xa0\xa0\xa0')
-      }
-      if (doc.data().availability[1]) {
-        setTuesdayRead('Tuesday\xa0\xa0\xa0')
-      }
-      if (doc.data().availability[2]) {
-        setWednesdayRead('Wednesday\xa0\xa0\xa0')
-      }
-      if (doc.data().availability[3]) {
-        setThursdayRead('Thursday\xa0\xa0\xa0')
-      }
-      if (doc.data().availability[4]) {
-        setFridayRead('Friday\xa0\xa0\xa0')
-      }
-      if (doc.data().availability[5]) {
-        setSaturdayRead('Saturday\xa0\xa0\xa0')
-      }
-      if (doc.data().availability[6]) {
-        setSundayRead('Sunday\xa0\xa0\xa0')
+      if (doc.data().availability) {
+        if (doc.data().availability[0]) {
+          setMondayRead('Monday\xa0\xa0\xa0')
+        }
+        if (doc.data().availability[1]) {
+          setTuesdayRead('Tuesday\xa0\xa0\xa0')
+        }
+        if (doc.data().availability[2]) {
+          setWednesdayRead('Wednesday\xa0\xa0\xa0')
+        }
+        if (doc.data().availability[3]) {
+          setThursdayRead('Thursday\xa0\xa0\xa0')
+        }
+        if (doc.data().availability[4]) {
+          setFridayRead('Friday\xa0\xa0\xa0')
+        }
+        if (doc.data().availability[5]) {
+          setSaturdayRead('Saturday\xa0\xa0\xa0')
+        }
+        if (doc.data().availability[6]) {
+          setSundayRead('Sunday\xa0\xa0\xa0')
+        }
       }
   });
   ////////////////////////////////////////////////////////////////////////////

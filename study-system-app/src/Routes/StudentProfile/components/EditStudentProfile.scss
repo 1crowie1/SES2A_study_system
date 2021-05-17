@@ -18,7 +18,21 @@ $mainColour: #4267B2;
     border: none;
     font-size: 15px;
   }
-  form {
+  .edit-button {
+    min-width: 130px;
+    float: right;
+    color: #FFFFFF;
+    background-color: #FF6584;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+  }
+  form 
+  {
     .form-row {
       width: 100%;
     }
