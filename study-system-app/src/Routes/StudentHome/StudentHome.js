@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 //Import LoginForm component
 import StudentNavBar from "./components/StudentNavBar";
 import StudentDashboard from "./components/StudentDashboard";
+import firebase from 'firebase';
 
 function StudentHome() {
 
