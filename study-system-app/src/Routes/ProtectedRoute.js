@@ -6,15 +6,15 @@ import { AuthContext } from "./Auth";
 const ProtectedRoute = ({ component: RouteComponent, ...rest }) => {
   const {currentUser} = useContext(AuthContext);
 
-  db.collection("users").doc(res.user.uid)
-    .onSnapshot((doc) => {
-        if (doc.data().access == true) {
-            console.log(res.user)
-            props.history.push("/AdminHome");
-        } else {
-            console.log('invalid account access')
-        }
-    });
+//   db.collection("users").doc(res.user.uid)
+//     .onSnapshot((doc) => {
+//         if (doc.data().access == true) {
+//             console.log(res.user)
+//             props.history.push("/AdminHome");
+//         } else {
+//             console.log('invalid account access')
+//         }
+//     });
 
 
   return (
