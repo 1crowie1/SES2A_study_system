@@ -12,7 +12,7 @@ const ProtectedRoute = ({ component: RouteComponent, ...rest }) => {
         !!currentUser ? (
           <RouteComponent {...routeProps} />
         ) : (
-          <Redirect to={"/LandingPage"} />
+          <Redirect to={"/"} />
         )
       }
     />

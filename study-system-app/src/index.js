@@ -10,16 +10,15 @@ import {
     StudentProfile, AdminHome, CourseManagement, ClassManagement, RequestsInbox,
     GroupHome,
     Contact,
-    StudentRegistration
+    StudentRegistration,
+    ProtectedRoute
 } from "./Routes/Routes";
 import "./index.scss";
 import AdminCourseManagement from "./Routes/Admin/AdminHome/AdminHome";
 import firebase from 'firebase';
 import { AuthProvider } from './Routes/Auth';
-import ProtectedRoute from './Routes/ProtectedRoute';
 
-const config =
-{
+const app = firebase.initializeApp({
   apiKey: "AIzaSyAf02jIhvwfN5LutBBEgFjBIvHPWLEnk0Q",
   authDomain: "groupformationsystem.firebaseapp.com",
   databaseURL: "https://groupformationsystem-default-rtdb.firebaseio.com",
@@ -28,29 +27,27 @@ const config =
   messagingSenderId: "912375308149",
   appId: "1:912375308149:web:6932a8593b14559538bd3c",
   measurementId: "G-13XJR1BL4W"
-};
-
-const app = firebase.initializeApp(config);
+});
 
 ReactDOM.render(
   <AuthProvider>
     <Router>
-    <Switch>
-      <Route exact path="/" component={UserSelect} />
-      <Route path="/StudentLogin" component={StudentLogin} />
-      <Route path="/AdminLogin" component={AdminLogin} />
-      <Route path="/Registration" component={Registration} />
-      <ProtectedRoute path="/AdminHome" component={AdminHome} />
-      <ProtectedRoute path="/RequestsInbox" component={RequestsInbox} />
-      <ProtectedRoute path="/CourseManagement" component={CourseManagement} />
-      <ProtectedRoute path="/ClassManagement" component={ClassManagement} />
-      <ProtectedRoute path="/StudentHome" component={StudentHome} />
-      <ProtectedRoute path="/StudentProfile" component={StudentProfile} />
-      <ProtectedRoute path="/GroupHome" component={GroupHome} />
-      <ProtectedRoute path="/Contact" component={Contact} />
-      <ProtectedRoute path="/StudentRegistration" component={StudentRegistration} />
-    </Switch>
-  </Router>
- </AuthProvider>,
+      <Switch>
+        <Route exact path="/" component={UserSelect} />
+        <Route path="/StudentLogin" component={StudentLogin} />
+        <Route path="/AdminLogin" component={AdminLogin} />
+        <Route path="/Registration" component={Registration} />
+        <Route path="/StudentRegistration" component={StudentRegistration} />
+        <ProtectedRoute path="/AdminHome" component={AdminHome} />
+        <ProtectedRoute path="/RequestsInbox" component={RequestsInbox} />
+        <ProtectedRoute path="/CourseManagement" component={CourseManagement} />
+        <ProtectedRoute path="/ClassManagement" component={ClassManagement} />
+        <ProtectedRoute path="/StudentHome" component={StudentHome} />
+        <ProtectedRoute path="/StudentProfile" component={StudentProfile} />
+        <ProtectedRoute path="/GroupHome" component={GroupHome} />
+        <ProtectedRoute path="/Contact" component={Contact} />
+      </Switch>
+    </Router>
+  </AuthProvider>,
   document.getElementById('root')
 );
