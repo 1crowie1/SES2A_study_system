@@ -45,14 +45,13 @@ NOTE #2:
     ["Fred Ferkinsure", //10
         false, ["Medicine", "degree"], ["Medical Machines", "Databases", "Electronics"], 
         [true, true, false, true, true, true, true]]
-];*/
+];
 
 
 
 //autoGroup = AutoSort(studentClass, 3);
 //randGroup = RandSort(studentClass, 3);
 
-var i, n, o, p, q, k, studentGraph, unranked, rank, groups, lowesti, lowestn, highest, found, ungrouped, ingroup, outputStatement;
 
 /*
 Random Sorting Function
@@ -60,6 +59,9 @@ Random Sorting Function
 Consist of ~day availablity~ data point.
 This is then used to randomly arrange students into groups of ~groupSize~ 
 */
+
+var i, n, o, p, q, k, studentGraph, unranked, rank, groups, lowesti, lowestn, highest, found, ungrouped, ingroup, outputStatement;
+
 function RandSort(studentClass, groupSize) {
     outputStatement = "";
     studentGraph = new Array(studentClass.length);

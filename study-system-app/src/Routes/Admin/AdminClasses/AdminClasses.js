@@ -10,7 +10,7 @@ function AdminCourses() {
   return (
       <div className="Classes">
         <Helmet>
-          <title>Class Management | GroupMe</title>
+          <title>Course Management | GroupMe</title>
         </Helmet>
         <AdminNavBar/>
         <AdminClassManagement/>
