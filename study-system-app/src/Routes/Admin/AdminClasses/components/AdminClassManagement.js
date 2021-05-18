@@ -69,7 +69,26 @@ const AdminClassManagement = (props) => {
     }
   }
 
+  async function listStudents() {
+    studentClass = await createStudentArray();
+    var i;
+    for (i = 0; i<studentClass.length; i++) {
+      var li = document.createElement("li");
+      var inputValue = studentClass[i][0] + " - " + studentClass[i][2][0];
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      document.getElementById("studentUL").appendChild(li);
+    }
+  }
+
+  async function listgroups() {
+    studentClass = await createStudentArray();
+    
+  }
+
+  listStudents();
   runAutoSort();
+
 
 return (
   <React.Fragment>
@@ -97,6 +116,7 @@ return (
           <hr/>
           <div className="listview">
             {/* Lists student users related to the class */}
+            <ul id="studentUL"></ul>
           </div>
         </div>
       </div>
@@ -112,6 +132,8 @@ return (
         <hr/>
         <div className="listview">
           {/* Lists groups created by admin users for this class */}
+          <ul id="unallocatedStudentUL"></ul>
+          <ul id="groupUL"></ul>
         </div>
       </div>
     </div>
