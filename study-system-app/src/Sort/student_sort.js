@@ -48,9 +48,11 @@ NOTE #2:
 ];*/
 
 
-autoGroup = AutoSort(studentClass, 3);
-randGroup = RandSort(studentClass, 3);
 
+//autoGroup = AutoSort(studentClass, 3);
+//randGroup = RandSort(studentClass, 3);
+
+var i, n, o, p, q, k, studentGraph, unranked, rank, groups, lowesti, lowestn, highest, found, ungrouped, ingroup, outputStatement;
 
 /*
 Random Sorting Function
@@ -136,7 +138,7 @@ function RandSort(studentClass, groupSize) {
                     }
                 }
             }
-            found == false;
+            found = false;
         }
         unranked = true;
         rank = 1;
@@ -453,7 +455,7 @@ function AutoSort(studentClass, groupSize) {
                     }
                 }
             }
-            found == false;
+            found = false;
         }
         unranked = true;
         rank = 1;

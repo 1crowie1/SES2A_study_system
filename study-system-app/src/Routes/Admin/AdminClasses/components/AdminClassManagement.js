@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import "./AdminClassManagement.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import firebase from "firebase";
+import "../../../../Sort/student_sort.js";
 
 // Using history in props for routing to different components
 const AdminClassManagement = (props) => {
+  
+  const db = firebase.firestore();
+  
+  var studentClass = [];
+  
+  db.collection("users").get().then((funct) => {
+    funct.forEach((doc) => {
+      studentClass.push([doc.data().name, 
+      doc.data().access, 
+      [doc.data().course, doc.data().major], 
+      [doc.data().topics[0], doc.data().topics[1], doc.data().topics[2]], 
+      [doc.data().availability[0], doc.data().availability[1], doc.data().availability[2], doc.data().availability[3], doc.data().availability[4], doc.data().availability[5], doc.data().availability[6]]]);
+    });
+  });
+
 
 return (
   <React.Fragment>
