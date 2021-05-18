@@ -196,27 +196,6 @@ function readData() {
               Edit Profile</Card.Header>
               <Card.Body style={{ width: '100%' }}>
               <Form className="student-courses">
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                  <Form.Label style={{ fontWeight: 'bold'}}>Course</Form.Label>
-                  <DropdownButton
-                  title={courseValue}
-                  id="course-dropdown"
-                  variant="info"
-                  onSelect={handleCourseSelect}
-                    >
-                          <Dropdown.Item eventKey="Engineering">Engineering</Dropdown.Item>
-                          <Dropdown.Item eventKey="Science">Science</Dropdown.Item>
-                          <Dropdown.Item eventKey="Education">Education</Dropdown.Item>
-                          <Dropdown.Item eventKey="Business">Business</Dropdown.Item>
-                          <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
-                          <Dropdown.Item eventKey="Arts">Arts</Dropdown.Item>
-                          <Dropdown.Item eventKey="Nursing">Nursing</Dropdown.Item>
-                          <Dropdown.Item eventKey="Medicine">Medicine</Dropdown.Item>
-                  </DropdownButton>
-=======
-=======
->>>>>>> Stashed changes
                   <Form.Label style={{ fontWeight: 'bold', minWidth: '100%'}}>Course</Form.Label>
                   <Dropdown>
                     <DropdownButton
@@ -231,12 +210,10 @@ function readData() {
                             <Dropdown.Item eventKey="Business">Business</Dropdown.Item>
                             <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
                             <Dropdown.Item eventKey="Arts">Arts</Dropdown.Item>
+                            <Dropdown.Item eventKey="Nursing">Nursing</Dropdown.Item>
+                            <Dropdown.Item eventKey="Medicine">Medicine</Dropdown.Item>
                     </DropdownButton>
                   </Dropdown>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
                   <Form.Label style={{ fontWeight: 'bold', marginTop: "2%", minWidth: '100%'}}>Major</Form.Label>
                   <DropdownButton
