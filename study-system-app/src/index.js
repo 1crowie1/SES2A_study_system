@@ -15,6 +15,8 @@ import {
 import "./index.scss";
 import AdminCourseManagement from "./Routes/Admin/AdminHome/AdminHome";
 import firebase from 'firebase';
+import { AuthProvider } from './Routes/Auth';
+import ProtectedRoute from './Routes/ProtectedRoute';
 
 const config =
 {
@@ -28,27 +30,27 @@ const config =
   measurementId: "G-13XJR1BL4W"
 };
 
-
 const app = firebase.initializeApp(config);
 
-
 ReactDOM.render(
-  <Router>
-   <Switch>
-     <Route exact path="/" component={UserSelect} />
-     <Route path="/StudentLogin" component={StudentLogin} />
-     <Route path="/AdminLogin" component={AdminLogin} />
-     <Route path="/Registration" component={Registration} />
-     <Route path="/AdminHome" component={AdminHome} />
-     <Route path="/RequestsInbox" component={RequestsInbox} />
-     <Route path="/CourseManagement" component={CourseManagement} />
-     <Route path="/ClassManagement" component={ClassManagement} />
-     <Route path="/StudentHome" component={StudentHome} />
-     <Route path="/StudentProfile" component={StudentProfile} />
-     <Route path="/GroupHome" component={GroupHome} />
-     <Route path="/Contact" component={Contact} />
-     <Route path="/StudentRegistration" component={StudentRegistration} />
-   </Switch>
- </Router>,
+  <AuthProvider>
+    <Router>
+    <Switch>
+      <Route exact path="/" component={UserSelect} />
+      <Route path="/StudentLogin" component={StudentLogin} />
+      <Route path="/AdminLogin" component={AdminLogin} />
+      <Route path="/Registration" component={Registration} />
+      <ProtectedRoute path="/AdminHome" component={AdminHome} />
+      <ProtectedRoute path="/RequestsInbox" component={RequestsInbox} />
+      <ProtectedRoute path="/CourseManagement" component={CourseManagement} />
+      <ProtectedRoute path="/ClassManagement" component={ClassManagement} />
+      <ProtectedRoute path="/StudentHome" component={StudentHome} />
+      <ProtectedRoute path="/StudentProfile" component={StudentProfile} />
+      <ProtectedRoute path="/GroupHome" component={GroupHome} />
+      <ProtectedRoute path="/Contact" component={Contact} />
+      <ProtectedRoute path="/StudentRegistration" component={StudentRegistration} />
+    </Switch>
+  </Router>
+ </AuthProvider>,
   document.getElementById('root')
 );
