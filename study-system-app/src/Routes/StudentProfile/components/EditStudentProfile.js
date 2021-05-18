@@ -210,6 +210,8 @@ function readData() {
                           <Dropdown.Item eventKey="Business">Business</Dropdown.Item>
                           <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
                           <Dropdown.Item eventKey="Arts">Arts</Dropdown.Item>
+                          <Dropdown.Item eventKey="Nursing">Nursing</Dropdown.Item>
+                          <Dropdown.Item eventKey="Medicine">Medicine</Dropdown.Item>
                   </DropdownButton>
 
                   <Form.Label style={{ fontWeight: 'bold', marginTop: "3%"}}>Major</Form.Label>
@@ -301,8 +303,8 @@ function readData() {
                             {/* Arts Related */}
                             <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
                             <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
-                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
-                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Sculpting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Music</Dropdown.Item>
                     </DropdownButton>
 
                     <DropdownButton
@@ -366,8 +368,8 @@ function readData() {
                             {/* Arts Related */}
                             <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
                             <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
-                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
-                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Sculpting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Music</Dropdown.Item>
                     </DropdownButton>
 
                     <DropdownButton
@@ -431,8 +433,8 @@ function readData() {
                             {/* Arts Related */}
                             <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
                             <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
-                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
-                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Sculpting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Music</Dropdown.Item>
                     </DropdownButton>
                   </div>
                   <Form.Text id="passwordHelpInline" muted>
