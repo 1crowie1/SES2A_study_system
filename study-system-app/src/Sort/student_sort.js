@@ -1,3 +1,5 @@
+import firebase from 'firebase';
+
 /* Using Test Data:
 
 class which consists of a 3D array of students
@@ -10,6 +12,7 @@ NOTE #1:
 NOTE #2:
     - studentGraph[i][n][6] introduced for elimination rating backup
 */
+const db = firebase.firestore();
 
 const[nameRead, setNameRead] = useState([]);
 const[accessRead, setAccessRead] = useState([]);
