@@ -1,5 +1,3 @@
-import firebase from 'firebase';
-
 /* Using Test Data:
 
 class which consists of a 3D array of students
@@ -12,59 +10,6 @@ NOTE #1:
 NOTE #2:
     - studentGraph[i][n][6] introduced for elimination rating backup
 */
-const db = firebase.firestore();
-
-const[nameRead, setNameRead] = useState([]);
-const[accessRead, setAccessRead] = useState([]);
-
-const[courseRead, setCourseRead] = useState([]);
-
-const[majorRead, setMajorRead] = useState([]);
-
-const[topic1Read, setTopic1Read] = useState([]);
-const[topic2Read, setTopic2Read] = useState([]);
-const[topic3Read, setTopic3Read] = useState([]);
-
-const[mondayRead, setMondayRead] = useState([]);
-const[tuesdayRead, setTuesdayRead] = useState([]);
-const[wednesdayRead, setWednesdayRead] = useState([]);
-const[thursdayRead, setThursdayRead] = useState([]);
-const[fridayRead, setFridayRead] = useState([]);
-const[saturdayRead, setSaturdayRead] = useState([]);
-const[sundayRead, setSundayRead] = useState([]);
-
-var studentClass = [];
-
-async function test() {
-    const dataRef = db.collection('users');
-    const snapshot = await dataRef.get();
-    snapshot.forEach(doc => {
-        setNameRead(doc.data().name)
-        setAccessRead(doc.data().access)
-
-        setCourseRead(doc.data().course)
-        setMajorRead(doc.data().major)
-
-        setTopic1Read(doc.data().topics[0])
-        setTopic2Read(doc.data().topics[1])
-        setTopic3Read(doc.data().topics[2])
-
-        setMondayRead(doc.data().availability[0])
-        setTuesdayRead(doc.data().availability[1])
-        setWednesdayRead(doc.data().availability[2])
-        setThursdayRead(doc.data().availability[3])
-        setFridayRead(doc.data().availability[4])
-        setSaturdayRead(doc.data().availability[5])
-        setSundayRead(doc.data().availability[6])
-
-        studentClass.push([nameRead, 
-                    access, 
-                    [courseRead, majorRead], 
-                    [topic1Read, topic2Read, topic3Read], 
-                    [mondayRead, tuesdayRead, wednesdayRead, thursdayRead, fridayRead, saturdayRead, sundayRead]]);
-    }); 
-}
-
 
 /*var studentClass = [
     ["Harrison Crowe-Maxwell", //0
@@ -100,12 +45,12 @@ async function test() {
     ["Fred Ferkinsure", //10
         false, ["Medicine", "degree"], ["Medical Machines", "Databases", "Electronics"], 
         [true, true, false, true, true, true, true]]
-];*/
+];
 
 
 autoGroup = AutoSort(studentClass, 3);
 randGroup = RandSort(studentClass, 3);
-
+*/
 
 /*
 Random Sorting Function
