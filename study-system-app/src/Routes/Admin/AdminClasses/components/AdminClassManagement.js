@@ -22,7 +22,7 @@ return (
     <div className="class-view-container">
       <div className="participants-container">
         <div className="admin-container">
-          <h2>Tutors</h2>
+          <h2>Subject Coordinator</h2>
           <hr/>
           <div className="listview">
             {/* Lists admin users related to the class */}
