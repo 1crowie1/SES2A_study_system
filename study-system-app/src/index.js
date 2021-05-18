@@ -4,16 +4,16 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
     AdminLogin,
+    LandingPage,
     Registration,
     StudentHome, StudentLogin, UserSelect,
-    StudentProfile,
+    StudentProfile, AdminHome, CourseManagement, ClassManagement, RequestsInbox,
     GroupHome,
-    Groups,
     Contact,
     StudentRegistration
 } from "./Routes/Routes";
 import "./index.scss";
-import AdminHome from "./Routes/AdminHome/AdminHome";
+import AdminCourseManagement from "./Routes/Admin/AdminHome/AdminHome";
 import firebase from 'firebase';
 
 const config =
@@ -28,9 +28,9 @@ const config =
   measurementId: "G-13XJR1BL4W"
 };
 
-if(firebase.apps.length === 0) {
-  const app = firebase.initializeApp(config);
-}
+
+const app = firebase.initializeApp(config);
+
 
 ReactDOM.render(
   <Router>
@@ -40,19 +40,15 @@ ReactDOM.render(
      <Route path="/AdminLogin" component={AdminLogin} />
      <Route path="/Registration" component={Registration} />
      <Route path="/AdminHome" component={AdminHome} />
+     <Route path="/RequestsInbox" component={RequestsInbox} />
+     <Route path="/CourseManagement" component={CourseManagement} />
+     <Route path="/ClassManagement" component={ClassManagement} />
      <Route path="/StudentHome" component={StudentHome} />
      <Route path="/StudentProfile" component={StudentProfile} />
      <Route path="/GroupHome" component={GroupHome} />
-     <Route path="/Groups" component={Groups} />
      <Route path="/Contact" component={Contact} />
      <Route path="/StudentRegistration" component={StudentRegistration} />
    </Switch>
  </Router>,
   document.getElementById('root')
 );
-
-/* -- UNDEFINED --
-<Route path="/AdminHome" component={AdminHome} />
-<Route path="/CourseManagement" component={CourseManagement} />
-<Route path="/ClassManagement" component={ClassManagement} />
-*/

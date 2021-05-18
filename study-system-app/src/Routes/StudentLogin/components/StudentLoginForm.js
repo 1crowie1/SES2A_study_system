@@ -9,9 +9,12 @@ import firebase from "firebase";
 
 const StudentLoginForm = (props) => {
 
+  const db = firebase.firestore();
+
   // Needs backend to implement login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
 
   const config =
       {
@@ -32,11 +35,11 @@ const StudentLoginForm = (props) => {
     const provider = new firebase.auth.GoogleAuthProvider();
     console.log("LOGIN WITH GOOGLE");
     firebase.auth().signInWithPopup(provider).then((res) => {
-      firebase.firestore().collection("users").doc(res.user.uid).update({
+      firebase.firestore().collection("users").doc(res.user.uid).set({
         name: res.user.displayName,
         email: res.user.email,
         access: false
-      });
+      }, {merge: true});
       console.log(res.user)
       props.history.push("/StudentHome");
     }).catch((error) => {
@@ -48,8 +51,15 @@ const StudentLoginForm = (props) => {
   function emailLogin(){
     console.log("LOGIN WITH EMAIL");
     firebase.auth().signInWithEmailAndPassword(email, password).then((res) => {
-      console.log(res.user)
-      props.history.push("/StudentHome");
+      db.collection("users").doc(res.user.uid)
+      .onSnapshot((doc) => {
+        if (!doc.data().access) {
+          console.log(res.user)
+          props.history.push("/StudentHome");
+        } else {
+          console.log('invalid account access')
+        }
+      });
     }).catch((error) => {
       console.log(error.message);
       alert(error.message);

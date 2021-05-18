@@ -12,40 +12,46 @@ return (
   <div class="admin-dashboard">
     <h1>Dashboard</h1>
     <hr />
-    <div className="card-container">
-      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+    <div className="dashboard-card-container">
+      <Card className="square-card" onClick={() => props.history.push("/ClassManagement")}>
         {/* Link Database to this */}
         {/* Contains courses related to user */}
-        <div className="card-label">
-          Course 1
+        <div className="dashboard-card-image">
+          <div className="dashboard-card-image-filter"/>
+          <div className="dashboard-card-label">Course 1</div>
+        </div>
+
+      </Card>
+      <Card className="square-card" onClick={() => props.history.push("/ClassManagement")}>
+        {/* Link Database to this */}
+        {/* Contains courses related to user */}
+        <div className="dashboard-card-image">
+          <div className="dashboard-card-image-filter"/>
+          <div className="dashboard-card-label">Course 2</div>
         </div>
       </Card>
-      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+      <Card className="square-card" onClick={() => props.history.push("/ClassManagement")}>
         {/* Link Database to this */}
         {/* Contains courses related to user */}
-        <div className="card-label">
-          Course 2
+        <div className="dashboard-card-image">
+          <div className="dashboard-card-image-filter"/>
+          <div className="dashboard-card-label">Course 3</div>
         </div>
       </Card>
-      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+      <Card className="square-card" onClick={() => props.history.push("/ClassManagement")}>
         {/* Link Database to this */}
         {/* Contains courses related to user */}
-        <div className="card-label">
-          Course 3
+        <div className="dashboard-card-image">
+          <div className="dashboard-card-image-filter"/>
+          <div className="dashboard-card-label">Course 4</div>
         </div>
       </Card>
-      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
+      <Card className="square-card" onClick={() => props.history.push("/ClassManagement")}>
         {/* Link Database to this */}
         {/* Contains courses related to user */}
-        <div className="card-label">
-          Course 4
-        </div>
-      </Card>
-      <Card className="square-card" onClick={() => props.history.push("/CourseManagement")}>
-        {/* Link Database to this */}
-        {/* Contains courses related to user */}
-        <div className="card-label">
-          Course 5
+        <div className="dashboard-card-image">
+          <div className="dashboard-card-image-filter"/>
+          <div className="dashboard-card-label">Course 5</div>
         </div>
       </Card>
     </div>

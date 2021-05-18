@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import "./AdminCourseManagement.scss";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 // Using history in props for routing to different components
 const AdminCourseManagement = (props) => {
@@ -10,7 +11,12 @@ return (
   <React.Fragment>
     {/* Displays courses related to user */}
   <div class="course-classes">
-    <h1>Course Management</h1>
+    <div className="heading">
+      <h1>Course Management</h1>
+      <div className="button-container">
+        <Button>+ Create Class</Button>
+      </div>
+    </div>
     <hr />
     <div className="card-container">
       <Card className="wide-card" onClick={() => props.history.push("/ClassManagement")}>

@@ -48,6 +48,7 @@ build/Release
 node_modules/
 my_env/
 venv/
+build/ 
 
 # Optional npm cache directory
 .npm

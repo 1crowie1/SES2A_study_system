@@ -1,42 +1,72 @@
 //Colour variables
-$mainColour: #4267B2;
-$secondColour: #1c5ad8;
+$mainColour: #FF6584;
+$mainColour-dark: #F84574;
+$btnColour-1: #FF6584;
+$btnColour-2: #ff325b;
 
-.student-nav {
-  height: 50px;
+// Setting up mixins for different screen sizes
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+.admin-nav {
+  height: 48px;
 
   .navbar-brand{
-    margin-left: 100px;
+    margin-left: 5%;
     position: relative;
     background-size: contain;
+    img{
+      @include for-phone-only {
+        margin-left: 0%;
+      }
+    }
   }
   .page-links{
-    margin-right: 530px;
-    padding-top: 25px;
-  }
-  .link-one{
-    margin-right: 40px;
-    color: black !important;
-    font-size: 1rem;
-  }
-  .link-two{
-      margin-right: 40px;
+    height: auto;
+    margin-left: 40px;
+    gap: 10px;
+    .page-btn{
+      min-width: 125px;
+      height: 80px;
+      padding: 1.6rem 1rem;
       color: black !important;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .page-btn:hover{
+      background-color: $mainColour;
+      color: white !important;
+    }
   }
-  .link-three{
-      color: black !important;
-      font-size: 1rem;
+
+  #dropdown-menu-align-right{
+    all: unset;
+    cursor: pointer;
   }
-  .link-one:hover, .link-two:hover, .link-three:hover{
-    color: $secondColour !important;
+  #dropdown-menu-align-right::after{
+    display: none;
+  }
+  .dropdown-item {
+    color: black;
+    font-style: normal;
+    font-size: 1.2rem;
+  }
+  .dropdown-menu{
+    height: auto;
+    overflow: auto;
   }
   .nav-avatar{
-    margin-right: 105px;
+    margin-right: 5%;
     .nav-avatar-text{
       font-size: 1rem;
       margin-right: 15px;
-      margin-left: 450px;
       cursor: default;
     }
     #dropdown-menu-align-right{
@@ -47,5 +77,13 @@ $secondColour: #1c5ad8;
       display: none;
     }
   }
-
+  .nav-mini{
+    flex-wrap: wrap;
+    justify-content: center;
+    .nav-avatar-text{
+      padding: 10px;
+      font-size: 1rem;
+      cursor: default;
+    }
+  }
 }

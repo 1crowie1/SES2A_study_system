@@ -1,8 +1,8 @@
 $mainColour: #4267B2;
 
 .show-profile {
-  margin-left: 140px;
-  margin-right: 140px;
+  margin-left: 9%;
+  margin-right: 9%;
   padding-bottom: 20px;
   h1{
     font-size: 1.5rem;
@@ -18,17 +18,39 @@ $mainColour: #4267B2;
     border: none;
     font-size: 15px;
   }
-  form {
+  .edit-button {
+    min-width: 130px;
+    float: right;
+    color: #FFFFFF;
+    background-color: #FF6584;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    display: inline-block;
+    align-self: center;
+    text-align: center;
+  }
+  form
+  {
     .form-row {
       width: 100%;
     }
   }
+
   #course-dropdown, #major-dropdown{
     background-color: white;
     border: 1px solid black;
     color: black;
-    position: absolute;
+    float: left;
+    width: auto;
   }
+
+  .dropdown-menu {
+    height: 200px;
+    overflow-y: auto;
+  }
+
   #profile-values{
     display: block;
   }
@@ -38,11 +60,13 @@ $mainColour: #4267B2;
     border: 1px solid black;
     color: black;
     float: left;
-    margin-right: 50px;
-    margin-top: 40px;
+    width: auto;
+    margin-right: 2%;
+    margin-top: 1% ;
   }
 
-  #passwordHelpInline {
-    position: absolute;
+  #topic-values {
+    position: block;
+    margin-right: 20px;
   }
 }
