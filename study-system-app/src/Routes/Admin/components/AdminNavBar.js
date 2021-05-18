@@ -57,7 +57,7 @@ const AdminNavBar = (props) => {
               <Navbar className="admin-nav">
                 {/* Hyperlinked Logo */}
                 <Navbar.Brand alt="AdminHome"
-                href="/AdminHome">
+                href="/ClassManagement">
                 <img
                   alt=""
                   src={Logo}
@@ -91,7 +91,7 @@ const AdminNavBar = (props) => {
                       </a></i>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                      <i> <a onClick={() => props.history.push("/AdminHome")} className="dropdown-item">
+                      <i> <a onClick={() => props.history.push("/ClassManagement")} className="dropdown-item">
                         Dashboard
                       </a></i>
                     </Dropdown.Item>
@@ -115,7 +115,7 @@ const AdminNavBar = (props) => {
               <Navbar className="admin-nav">
                 {/* Hyperlinked Logo */}
                 <Navbar.Brand alt="AdminHome"
-                href="/AdminHome">
+                href="/ClassManagement">
                 <img
                   alt=""
                   src={Logo}
@@ -127,7 +127,7 @@ const AdminNavBar = (props) => {
                 {/* Page Links */}
                 <Nav className="page-links">
                   <NavLink className="page-btn"
-                           onClick={() => props.history.push("/AdminHome")}
+                           onClick={() => props.history.push("/ClassManagement")}
                            color="inherit" >
                     Dashboard
                   </NavLink>

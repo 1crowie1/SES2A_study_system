@@ -77,7 +77,7 @@ return (
     {/* Directed from a selected course */}
   <div class="single-class">
     <div className="heading">
-      <h1>Course Management</h1>
+      <h1>Dashboard</h1>
       <div className="button-container">
         <Button>Requests</Button>
       </div>
@@ -86,7 +86,7 @@ return (
     <div className="class-view-container">
       <div className="participants-container">
         <div className="admin-container">
-          <h2>Subject Coordinator</h2>
+          <h2>Session: 2021</h2>
           <hr/>
           <div className="listview">
             {/* Lists admin users related to the class */}

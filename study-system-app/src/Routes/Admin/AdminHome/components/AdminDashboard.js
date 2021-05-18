@@ -18,7 +18,7 @@ return (
         {/* Contains courses related to user */}
         <div className="dashboard-card-image">
           <div className="dashboard-card-image-filter"/>
-          <div className="dashboard-card-label">Course 1</div>
+          <div className="dashboard-card-label">Programming Fundamentals</div>
         </div>
 
       </Card>
@@ -27,7 +27,7 @@ return (
         {/* Contains courses related to user */}
         <div className="dashboard-card-image">
           <div className="dashboard-card-image-filter"/>
-          <div className="dashboard-card-label">Course 2</div>
+          <div className="dashboard-card-label">Economics</div>
         </div>
       </Card>
       <Card className="square-card" onClick={() => props.history.push("/ClassManagement")}>
