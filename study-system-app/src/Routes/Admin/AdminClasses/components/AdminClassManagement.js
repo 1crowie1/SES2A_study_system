@@ -4,7 +4,7 @@ import "./AdminClassManagement.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import firebase from "firebase";
-import { AutoSort, RandSort } from "../../../../Sort/student_sort.js";
+import {AutoSort, RandSort} from "../../../../Sort/student_sort.js";
 
 // Using history in props for routing to different components
 const AdminClassManagement = (props) => {
@@ -12,17 +12,34 @@ const AdminClassManagement = (props) => {
   const db = firebase.firestore();
   
   var studentClass = [];
-  
-  db.collection("users").get().then((funct) => {
-    funct.forEach((doc) => {
-      studentClass.push([doc.data().name, 
-      doc.data().access, 
-      [doc.data().course, doc.data().major], 
-      [doc.data().topics[0], doc.data().topics[1], doc.data().topics[2]], 
-      [doc.data().availability[0], doc.data().availability[1], doc.data().availability[2], doc.data().availability[3], doc.data().availability[4], doc.data().availability[5], doc.data().availability[6]]]);
-    });
-  });
 
+  async function createStudentArray() {
+    return new Promise((resolve, reject) => {
+    var studentArray = [];
+      db.collection("users").get().then((funct) => {
+        funct.forEach((doc) => {
+          studentArray.push([doc.data().name, 
+          doc.data().access, 
+          [doc.data().course, doc.data().major], 
+          [doc.data().topics[0], doc.data().topics[1], doc.data().topics[2]], 
+          [doc.data().availability[0], doc.data().availability[1], doc.data().availability[2], doc.data().availability[3], doc.data().availability[4], doc.data().availability[5], doc.data().availability[6]]]);
+        });
+      });
+      setTimeout(() => {resolve(studentArray)}, 1000);
+    })
+  }
+
+  async function runAutoSort() {
+    studentClass = await createStudentArray();
+    AutoSort(studentClass, 3);
+  }
+
+  async function runRandomSort() {
+    studentClass = await createStudentArray();
+    RandSort(studentClass, 3);
+  }
+
+  runAutoSort();
 
 return (
   <React.Fragment>

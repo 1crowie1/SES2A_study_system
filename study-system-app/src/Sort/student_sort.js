@@ -62,7 +62,9 @@ This is then used to randomly arrange students into groups of ~groupSize~
 
 var i, n, o, p, q, k, studentGraph, unranked, rank, groups, lowesti, lowestn, highest, found, ungrouped, ingroup, outputStatement;
 
-function RandSort(studentClass, groupSize) {
+
+
+export function RandSort(studentClass, groupSize) {
     outputStatement = "";
     studentGraph = new Array(studentClass.length);
     for (i = 0; i<studentClass.length; i++) {
@@ -365,7 +367,7 @@ Consists of ~day availability~, ~degree similarity~, ~topic match~, ~cumulative 
 This is then used to arrange students into groups of ~groupSize~ based off the highest rated cumulative scored
 students. This eliminates remaining students until all students are in a group.
 */
-function AutoSort(studentClass, groupSize) {
+export function AutoSort(studentClass, groupSize) {
     outputStatement = "";
     studentGraph = new Array(studentClass.length);
     for (i = 0; i<studentClass.length; i++) {
