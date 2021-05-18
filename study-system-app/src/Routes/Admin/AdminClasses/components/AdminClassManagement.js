@@ -29,6 +29,8 @@ const AdminClassManagement = (props) => {
     })
   }
 
+  // once below is done... add reading groups from the database to reading all the students above ^^
+
   async function runAutoSort() {
     studentClass = await createStudentArray();
     var groups = AutoSort(studentClass, 3);
@@ -47,6 +49,9 @@ const AdminClassManagement = (props) => {
       }
       inGroup = false;
     }
+
+    // delete all groups currently in the database
+    // add all generated groups to the database
   }
 
   async function runRandomSort() {
@@ -66,7 +71,11 @@ const AdminClassManagement = (props) => {
         notInGroup.push(i);
       }
       inGroup = false;
+
+      // delete all groups currently in the database
+      // add all generated groups to the database
     }
+
   }
 
   async function listStudents() {
