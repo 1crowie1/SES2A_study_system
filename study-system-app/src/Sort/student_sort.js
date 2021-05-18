@@ -48,9 +48,10 @@ NOTE #2:
 ];
 
 
-autoGroup = AutoSort(studentClass, 3);
-randGroup = RandSort(studentClass, 3);
-*/
+
+//autoGroup = AutoSort(studentClass, 3);
+//randGroup = RandSort(studentClass, 3);
+
 
 /*
 Random Sorting Function
@@ -58,6 +59,9 @@ Random Sorting Function
 Consist of ~day availablity~ data point.
 This is then used to randomly arrange students into groups of ~groupSize~ 
 */
+
+var i, n, o, p, q, k, studentGraph, unranked, rank, groups, lowesti, lowestn, highest, found, ungrouped, ingroup, outputStatement;
+
 function RandSort(studentClass, groupSize) {
     outputStatement = "";
     studentGraph = new Array(studentClass.length);
@@ -136,7 +140,7 @@ function RandSort(studentClass, groupSize) {
                     }
                 }
             }
-            found == false;
+            found = false;
         }
         unranked = true;
         rank = 1;
@@ -452,7 +456,7 @@ function AutoSort(studentClass, groupSize) {
                     }
                 }
             }
-            found == false;
+            found = false;
         }
         unranked = true;
         rank = 1;
