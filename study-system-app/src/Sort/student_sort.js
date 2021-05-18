@@ -11,7 +11,8 @@ NOTE #2:
     - studentGraph[i][n][6] introduced for elimination rating backup
 */
 
-/*var studentClass = [
+/*
+var studentClass = [
     ["Harrison Crowe-Maxwell", //0
         false, ["Engineering", "Software"], ["Programming", "Databases", "Electronics"], 
         [false, true, false, true, false, true, false]],
@@ -48,10 +49,9 @@ NOTE #2:
 ];
 
 
-
-//autoGroup = AutoSort(studentClass, 3);
+var autoGroup = AutoSort(studentClass, 3);
 //randGroup = RandSort(studentClass, 3);
-
+*/
 
 /*
 Random Sorting Function
@@ -348,12 +348,12 @@ function RandSort(studentClass, groupSize) {
         }
         console.log("\n");
     }
-    
+    */
     console.log("RANDOM GROUPS ARE:");
     for (i=0; i<groups.length; i++) {
         console.log("Group ", (i+1)+"", " is ", groups[i]);
     }
-    */
+
     return groups;
 }
 
@@ -665,12 +665,14 @@ function AutoSort(studentClass, groupSize) {
         console.log("\n");
     }
     
-
+    */
     console.log("AUTOMATIC GROUPS ARE: ");
     for (i=0; i<groups.length; i++) {
         console.log("Group ", (i+1)+"", " is ", groups[i]);
     }
-    */
+
 
     return groups;
 }
+
+export { AutoSort, RandSort};

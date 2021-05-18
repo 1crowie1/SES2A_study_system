@@ -4,7 +4,7 @@ import "./AdminClassManagement.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import firebase from "firebase";
-import "../../../../Sort/student_sort.js";
+import { AutoSort, RandSort } from "../../../../Sort/student_sort.js";
 
 // Using history in props for routing to different components
 const AdminClassManagement = (props) => {
