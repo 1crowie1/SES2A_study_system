@@ -18,8 +18,26 @@ $mainColour-dark: #F84574;
       background-color: $mainColour-dark;
       border: none;
 }
+.dropdown-menu {
+  height: 200px;
+  overflow-y: scroll;
+}
 #course-dropdown, #major-dropdown{
   background-color: white;
   border: 1px solid black;
   color: black;
+  float: left;
+  width: auto;
+}
+#preferences-dropdown {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    float: left;
+    width: auto;
+    margin-right: 2%;
+    margin-top: 1% ;
+}
+.typical-availability{
+  margin-top: -3%;
 }

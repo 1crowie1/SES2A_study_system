@@ -444,7 +444,7 @@ function readData() {
 
                 <Form.Label style={{ fontWeight: 'bold', marginTop: '2%', minWidth: '100%' }}>Typical Availability</Form.Label>
                   <Form>
-                    <div className="topic-preferences">
+                    <div className="typical-availablity">
                       <Form.Check inline label="Monday" id="day-1" onChange={() => setMonday(!monday)}/>
                       <Form.Check inline label="Tuesday" id="day-2"  onChange={() => setTuesday(!tuesday)}/>
                       <Form.Check inline label="Wednesday" id="day-3"  onChange={() => setWednesday(!wednesday)}/>

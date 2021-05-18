@@ -58,7 +58,10 @@ $btnColour-2: #ff325b;
     font-style: normal;
     font-size: 1.2rem;
   }
-
+  .dropdown-menu{
+    height: auto;
+    overflow: auto;
+  }
   .nav-avatar{
     margin-right: 5%;
     .nav-avatar-text{

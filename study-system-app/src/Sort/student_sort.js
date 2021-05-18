@@ -350,7 +350,6 @@ function RandSort(studentClass, groupSize) {
         console.log("Group ", (i+1)+"", " is ", groups[i]);
     }
     */
-    export { groups };
     return groups;
 }
 
@@ -669,6 +668,5 @@ function AutoSort(studentClass, groupSize) {
     }
     */
 
-    export { groups };
     return groups;
 }
