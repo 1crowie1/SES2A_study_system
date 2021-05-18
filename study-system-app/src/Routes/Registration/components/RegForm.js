@@ -21,7 +21,11 @@ const RegForm = (props) => {
       firebase.firestore().collection("users").doc(res.user.uid).set({
         name: res.user.displayName,
         email: res.user.email,
-        access: false
+        access: false,
+        availability: [],
+        course: "unallocated",
+        major: "unallocated",
+        topics: []
       }, {merge: true});
       console.log(res.user)
       props.history.push("/StudentLogin");
@@ -39,7 +43,11 @@ const RegForm = (props) => {
       firebase.firestore().collection("users").doc(userData.user.uid).set({
         name: name,
         email: email,
-        access: false
+        access: false,
+        availability: [false, false, false, false, false, false, false],
+        course: "unallocated",
+        major: "unallocated",
+        topics: ["", "", ""]
       }, {merge: true});
       console.log(userData.user.uid)
       userData.user.updateProfile({

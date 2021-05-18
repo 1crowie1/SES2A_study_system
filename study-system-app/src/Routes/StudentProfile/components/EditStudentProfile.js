@@ -301,8 +301,8 @@ function readData() {
                             {/* Arts Related */}
                             <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
                             <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
-                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
-                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Sculpting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Music</Dropdown.Item>
                     </DropdownButton>
 
                     <DropdownButton
@@ -366,8 +366,8 @@ function readData() {
                             {/* Arts Related */}
                             <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
                             <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
-                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
-                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Sculpting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Music</Dropdown.Item>
                     </DropdownButton>
 
                     <DropdownButton
@@ -431,8 +431,8 @@ function readData() {
                             {/* Arts Related */}
                             <Dropdown.Item eventKey="Painting">Painting</Dropdown.Item>
                             <Dropdown.Item eventKey="Art History">Art History</Dropdown.Item>
-                            <Dropdown.Item eventKey="Sculpting">Anatomy</Dropdown.Item>
-                            <Dropdown.Item eventKey="Music">Anatomy</Dropdown.Item>
+                            <Dropdown.Item eventKey="Sculpting">Sculpting</Dropdown.Item>
+                            <Dropdown.Item eventKey="Music">Music</Dropdown.Item>
                     </DropdownButton>
                   </div>
                   <Form.Text id="passwordHelpInline" muted>
