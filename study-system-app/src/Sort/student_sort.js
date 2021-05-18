@@ -676,5 +676,3 @@ export function AutoSort(studentClass, groupSize) {
 
     return groups;
 }
-
-export { AutoSort, RandSort};

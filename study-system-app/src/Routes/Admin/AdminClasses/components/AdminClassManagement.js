@@ -31,12 +31,42 @@ const AdminClassManagement = (props) => {
 
   async function runAutoSort() {
     studentClass = await createStudentArray();
-    AutoSort(studentClass, 3);
+    var groups = AutoSort(studentClass, 3);
+
+    var inGroup = false;
+    var i, n;
+    var notInGroup = [];
+    for (i = 0; i<studentClass.length; i++) {
+      for (n = 0; n<groups.length; n++) {
+        if (groups[n].includes(i)) {
+          inGroup = true;
+        }
+      }
+      if (inGroup == false) {
+        notInGroup.push(i);
+      }
+      inGroup = false;
+    }
   }
 
   async function runRandomSort() {
     studentClass = await createStudentArray();
-    RandSort(studentClass, 3);
+    var groups = RandSort(studentClass, 3);
+
+    var inGroup = false;
+    var i, n;
+    var notInGroup = [];
+    for (i = 0; i<studentClass.length; i++) {
+      for (n = 0; n<groups.length; n++) {
+        if (groups[n].includes(i)) {
+          inGroup = true;
+        }
+      }
+      if (inGroup == false) {
+        notInGroup.push(i);
+      }
+      inGroup = false;
+    }
   }
 
   runAutoSort();
