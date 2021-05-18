@@ -72,7 +72,7 @@ const EditStudentProfile = (props) => {
     setSaturdayRead()
     setSundayRead()
   }
-  
+
   //Read data from firestore/////////////////////////////////////////////////
 
   const[courseRead, setCourseRead] = useState([]);
@@ -102,7 +102,7 @@ function readData() {
         setTopic1Read(doc.data().topics[0])
         setTopic2Read(doc.data().topics[1])
         setTopic3Read(doc.data().topics[2])
-  
+
       }
 
       if (doc.data().availability) {
@@ -130,11 +130,10 @@ function readData() {
       }
   });
  }
- 
+
  setTimeout(() => {  readData(); }, 700);
 
   ////////////////////////////////////////////////////////////////////////////
-
 
   return (
     <React.Fragment>
@@ -161,7 +160,7 @@ function readData() {
                <Form.Label id="profile-values"> {majorRead} </Form.Label>
 
            </Form>
-           <fieldset>
+
              <Form.Label style={{ fontWeight: 'bold' }}>Topic Preferences</Form.Label>
              <Form>
                <div className="topic-preferences">
@@ -170,8 +169,8 @@ function readData() {
                 <Form.Label id="topic-values"> {topic3Read} </Form.Label>
                </div>
              </Form>
-           </fieldset>
-           <fieldset>
+
+
             <Form.Label style={{ fontWeight: 'bold'}}>Typical Availability</Form.Label>
              <Form>
                <div className="topic-preferences">
@@ -184,12 +183,12 @@ function readData() {
                 <Form.Label id="availability-values"> {sundayRead} </Form.Label>
                </div>
              </Form>
-           </fieldset>
+
            </Card.Body>
          </Card>
         </div>}
         {!show &&
-          <div >
+          <div>
            <hr />
             <Card style={{ width: '100%' }}>
               <Card.Header
@@ -197,6 +196,8 @@ function readData() {
               Edit Profile</Card.Header>
               <Card.Body style={{ width: '100%' }}>
               <Form className="student-courses">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                   <Form.Label style={{ fontWeight: 'bold'}}>Course</Form.Label>
                   <DropdownButton
                   title={courseValue}
@@ -213,8 +214,31 @@ function readData() {
                           <Dropdown.Item eventKey="Nursing">Nursing</Dropdown.Item>
                           <Dropdown.Item eventKey="Medicine">Medicine</Dropdown.Item>
                   </DropdownButton>
+=======
+=======
+>>>>>>> Stashed changes
+                  <Form.Label style={{ fontWeight: 'bold', minWidth: '100%'}}>Course</Form.Label>
+                  <Dropdown>
+                    <DropdownButton
+                    title={courseValue}
+                    id="course-dropdown"
+                    variant="info"
+                    onSelect={handleCourseSelect}
+                      >
+                            <Dropdown.Item eventKey="Engineering">Engineering</Dropdown.Item>
+                            <Dropdown.Item eventKey="Science">Science</Dropdown.Item>
+                            <Dropdown.Item eventKey="Education">Education</Dropdown.Item>
+                            <Dropdown.Item eventKey="Business">Business</Dropdown.Item>
+                            <Dropdown.Item eventKey="Economics">Economics</Dropdown.Item>
+                            <Dropdown.Item eventKey="Arts">Arts</Dropdown.Item>
+                    </DropdownButton>
+                  </Dropdown>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
-                  <Form.Label style={{ fontWeight: 'bold', marginTop: "3%"}}>Major</Form.Label>
+                  <Form.Label style={{ fontWeight: 'bold', marginTop: "2%", minWidth: '100%'}}>Major</Form.Label>
                   <DropdownButton
                   title={majorValue}
                   id="major-dropdown"
@@ -238,10 +262,12 @@ function readData() {
                   </DropdownButton>
 
               </Form>
-              <fieldset>
-                <Form.Label style={{ fontWeight: 'bold', marginTop: "3%" }}>Topic Preferences</Form.Label>
-                <Form>
-                  <div className="topic-preferences">
+
+                <Form className="topic-preferences">
+                <Form.Label style={{ fontWeight: 'bold', marginTop: "2%", minWidth: '100%' }}>Topic Preferences</Form.Label>
+                    <Form.Text id="passwordHelpInline" muted>
+                      Please select three topic preferences.
+                    </Form.Text>
                     <DropdownButton
                     title={topic1Value}
                     id="preferences-dropdown"
@@ -436,14 +462,10 @@ function readData() {
                             <Dropdown.Item eventKey="Sculpting">Sculpting</Dropdown.Item>
                             <Dropdown.Item eventKey="Music">Music</Dropdown.Item>
                     </DropdownButton>
-                  </div>
-                  <Form.Text id="passwordHelpInline" muted>
-                  Please select three topic preferences.
-                </Form.Text>
                 </Form>
-              </fieldset>
-              <fieldset>
-                <Form.Label style={{ fontWeight: 'bold', marginTop: '15px' }}>Typical Availability</Form.Label>
+
+
+                <Form.Label style={{ fontWeight: 'bold', marginTop: '2%', minWidth: '100%' }}>Typical Availability</Form.Label>
                   <Form>
                     <div className="topic-preferences">
                       <Form.Check inline label="Monday" id="day-1" onChange={() => setMonday(!monday)}/>
@@ -455,7 +477,7 @@ function readData() {
                       <Form.Check inline label="Sunday" id="day-7"  onChange={() => setSunday(!sunday)}/>
                     </div>
                   </Form>
-              </fieldset>
+
               </Card.Body>
               <Card.Footer style={{ width: '100%' }}>
                 <button type="button" className="edit-button" onClick={() => editUserProfile()}>

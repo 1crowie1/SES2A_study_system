@@ -9,7 +9,8 @@ import {
     StudentHome, StudentLogin, UserSelect,
     StudentProfile, AdminHome, CourseManagement, ClassManagement, RequestsInbox,
     GroupHome,
-    Contact
+    Contact,
+    StudentRegistration
 } from "./Routes/Routes";
 import "./index.scss";
 import AdminCourseManagement from "./Routes/Admin/AdminHome/AdminHome";
@@ -46,6 +47,7 @@ ReactDOM.render(
      <Route path="/StudentProfile" component={StudentProfile} />
      <Route path="/GroupHome" component={GroupHome} />
      <Route path="/Contact" component={Contact} />
+     <Route path="/StudentRegistration" component={StudentRegistration} />
    </Switch>
  </Router>,
   document.getElementById('root')

@@ -12,7 +12,7 @@ import firebase from 'firebase';
 
 // Using history in props for routing to different components
 const StudentNavBar = (props) => {
-  
+
   var user = firebase.auth().currentUser;
 
   // setting the initial state to false so when the user clicks on the icon
@@ -126,6 +126,7 @@ const StudentNavBar = (props) => {
                   src={Logo}
                   width="160px"
                   height="auto"
+                  marginLeft="100px"
                   className="d-inline-block align-top"/>{' '}
                 </Navbar.Brand>
 

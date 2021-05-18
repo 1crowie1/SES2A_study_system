@@ -1,8 +1,8 @@
 $mainColour: #4267B2;
 
 .show-profile {
-  margin-left: 140px;
-  margin-right: 140px;
+  margin-left: 9%;
+  margin-right: 9%;
   padding-bottom: 20px;
   h1{
     font-size: 1.5rem;
@@ -31,18 +31,26 @@ $mainColour: #4267B2;
     align-self: center;
     text-align: center;
   }
-  form 
+  form
   {
     .form-row {
       width: 100%;
     }
   }
+
   #course-dropdown, #major-dropdown{
     background-color: white;
     border: 1px solid black;
     color: black;
-    position: absolute;
+    float: left;
+    width: auto;
   }
+
+  .dropdown-menu {
+    height: 200px;
+    overflow-y: scroll;
+  }
+
   #profile-values{
     display: block;
   }
@@ -52,12 +60,9 @@ $mainColour: #4267B2;
     border: 1px solid black;
     color: black;
     float: left;
-    margin-right: 10px;
-    margin-top: 40px;
-  }
-
-  #passwordHelpInline {
-    position: absolute;
+    width: auto;
+    margin-right: 2%;
+    margin-top: 1% ;
   }
 
   #topic-values {

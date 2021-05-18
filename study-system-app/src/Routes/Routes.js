@@ -11,3 +11,4 @@ export { default as UserSelect} from "./LandingPage/UserSelectScreen";
 export { default as StudentProfile } from "./StudentProfile/StudentProfile";
 export { default as GroupHome } from "./GroupHome/GroupHome";
 export { default as Contact } from "./Contact/Contact";
+export { default as StudentRegistration } from "./StudentRegistration/StudentRegistration";
