@@ -13,7 +13,7 @@ return (
     {/* Directed from a selected course */}
   <div class="single-class">
     <div className="heading">
-      <h1>Class Management</h1>
+      <h1>Course Management</h1>
       <div className="button-container">
         <Button>Requests</Button>
       </div>
