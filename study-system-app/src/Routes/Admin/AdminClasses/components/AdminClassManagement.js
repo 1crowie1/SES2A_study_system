@@ -76,7 +76,7 @@ const AdminClassManagement = (props) => {
 
   async function runRandomSort() {
     studentClass = await createStudentArray();
-    var groups = RandSort(studentClass, 3);
+    var groups = RandSort(studentClass, 5);
 
     var inGroup = false;
     var i, n;
@@ -174,8 +174,8 @@ return (
         <div className="heading">
           <h2>Groups</h2>
           <div className="button-container">
-            <Button className="edit-btn">Edit</Button>
-            <Button className="add-btn">+</Button>
+            <Button className="edit-btn" onClick={runAutoSort()}>Automatic</Button>
+            <Button className="add-btn " onClick={runRandomSort()}>Random</Button>
           </div>
         </div>
         <hr/>
