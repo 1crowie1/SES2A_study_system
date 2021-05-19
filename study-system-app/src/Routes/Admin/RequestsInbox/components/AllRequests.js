@@ -11,7 +11,7 @@ const AllRequests = (props) => {
 
   const db = firebase.firestore();
 
-  var requests = [{id: '3g6djdpebUHHfB5XVK8s', name: 'justin carlino', email: 'justin.carlino0309@gmail.com', text: 'Hi, my group is missing a member, could we please get someone added.'}];
+  var requests = [{id: '3g6djdpebUHHfB5XVK8s', name: 'Justin Carlino', email: 'justin.carlino@mail.com', text: 'Hi i need help!'}];
   
 function test () {
   db.collection("requests")
