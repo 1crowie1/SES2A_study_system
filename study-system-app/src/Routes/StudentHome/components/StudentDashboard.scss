@@ -1,13 +1,33 @@
 .student-dashboard {
   margin-left: 140px;
   margin-right: 140px;
-  h1{
-    font-size: 1.5rem;
-  }
+  // h1{
+  //   font-size: 1.5rem;
+  // }
   .subject{
     cursor: pointer;
   }
   .class-card-img{
     object-fit: cover;
+  }
+  .heading{
+    width: 100%;
+    display: grid;
+    h1{
+      grid-column: 1;
+      font-size: 1.5rem;
+      justify-self: left;
+      display: inline-grid;
+    }
+    .button-container{
+      grid-column: 2;
+      display: inline-grid;
+      justify-self: right;
+      button{
+        font-size: 17px;
+        padding: 0.5em 1em;
+        margin-top: -0.5em;
+      }
+    }
   }
 }

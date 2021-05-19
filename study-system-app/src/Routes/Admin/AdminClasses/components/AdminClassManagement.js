@@ -105,9 +105,9 @@ return (
     {/* Directed from a selected course */}
   <div class="single-class">
     <div className="heading">
-      <h1>Dashboard</h1>
+      <h1>Admin Dashboard</h1>
       <div className="button-container">
-        <Button>Requests</Button>
+        {/* <Button>Requests</Button> */}
       </div>
     </div>
     <hr />

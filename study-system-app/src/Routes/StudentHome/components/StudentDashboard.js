@@ -41,7 +41,12 @@ const StudentDashboard = (props) => {
   return (
     <React.Fragment>
     <div class="student-dashboard">
-      <h1>{name}'s Dashboard</h1>
+      <div className="heading">
+        <h1>{name}'s Dashboard</h1>
+        <div className="button-container>">
+            <Button>PDF Download</Button>
+        </div>
+      </div>
       <hr />
       {/* <Card style={{ width: '18rem' }}
             className="subject"

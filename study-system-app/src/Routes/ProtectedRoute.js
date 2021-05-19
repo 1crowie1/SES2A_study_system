@@ -1,7 +1,8 @@
   
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "./Auth";
+import firebase from 'firebase';
 
 const ProtectedRoute = ({ component: RouteComponent, ...rest }) => {
   const {currentUser} = useContext(AuthContext);
@@ -16,8 +17,24 @@ const ProtectedRoute = ({ component: RouteComponent, ...rest }) => {
 //         }
 //     });
 
+const [accessRead, setAccessRead] = useState();
+function readData(){
+    const user = firebase.auth().currentUser;
+    const db = firebase.firestore();
+    db.collection("users").doc(user.uid)
+    .onSnapshot((doc) => {
+      setAccessRead(doc.data().access)});
+  }
+
+
+
+  setTimeout(() => {  readData(); }, 700);
+
 
   return (
+    //   if (accessRead == false ){
+
+    
     <Route
       {...rest}
       render={routeProps =>
@@ -29,6 +46,7 @@ const ProtectedRoute = ({ component: RouteComponent, ...rest }) => {
       }
     />
   );
+    // }
 };
 
 
