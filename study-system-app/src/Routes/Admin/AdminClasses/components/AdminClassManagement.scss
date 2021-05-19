@@ -48,9 +48,10 @@ $mainColour-dark: #F84574;
       grid-column: 1;
       grid-row: 1;
       display: grid;
-      row-gap: 20%;
+      row-gap: 8%;
       .listview-container{
         max-height: 300px;
+        column-span: 2;
         width: 85%;
         margin: 8% 0;
 

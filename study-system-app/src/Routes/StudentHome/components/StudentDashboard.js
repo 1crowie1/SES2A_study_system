@@ -41,13 +41,11 @@ const StudentDashboard = (props) => {
   return (
     <React.Fragment>
     <div class="student-dashboard">
-      <div className="heading">
-        <h1>{name}'s Dashboard</h1>
-        <div className="button-container>">
-            <Button>PDF Download</Button>
-        </div>
-      </div>
-      <hr />
+          <h1>{name}'s Dashboard</h1>
+          <button type="button" className="pdf-button">
+             PDF Download
+          </button>
+      <hr/>
       {/* <Card style={{ width: '18rem' }}
             className="subject"
             onClick={() => props.history.push("/GroupHome")}
@@ -64,7 +62,7 @@ const StudentDashboard = (props) => {
             </Card.Text>
         </Card.Body>
       </Card> */}
-      <Card>
+      <Card className="subject">
         Studying: {courseRead}
       </Card>
     </div>
