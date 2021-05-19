@@ -1,32 +1,38 @@
+$mainColour: #4267B2;
+
+@mixin for-desktop-up {
+  @media (min-width: 1100px) { @content; }
+}
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
 .student-dashboard {
   margin: 0 9%;
-   // h1{
-  //   font-size: 1.5rem;
-  // }
   .subject{
     cursor: pointer;
   }
-  .class-card-img{
-    object-fit: cover;
-  }
-  .heading{
-    width: 100%;
-    display: grid;
     h1{
-      grid-column: 1;
       font-size: 1.5rem;
-      justify-self: left;
-      display: inline-grid;
+      display: inline;
     }
-    .button-container{
-      grid-column: 2;
-      display: inline-grid;
-      justify-self: right;
-      button{
-        font-size: 17px;
-        padding: 0.5em 1em;
-        margin-top: -0.5em;
+      .pdf-button{
+        min-width: 130px;
+        color: #FFFFFF;
+        background-color: #FF6584;
+        outline: none;
+        float: right;
+        border: none;
+        border-radius: 8px;
+        padding: 5px;
+        display: inline-block;
+        align-self: center;
+        text-align: center;
+        @include for-phone-only {
+          float: none;
+          margin-top: 2%;
+        }
       }
     }
-  }
+.subject{
+     margin-top: 1%;
 }
