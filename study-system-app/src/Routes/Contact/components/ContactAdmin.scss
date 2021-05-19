@@ -2,6 +2,11 @@
 $mainColour: #FF6584;
 $mainColour-dark: #F84574;
 
+.student-dashboard{
+  h1{
+    font-size: 1.5rem;
+  }
+}
 .request-subject{
   width: 15%;
 }
@@ -12,7 +17,6 @@ $mainColour-dark: #F84574;
     resize: none;
   }
 }
-
 .contact-button{
     min-width: 100px;
     color: #FFFFFF;

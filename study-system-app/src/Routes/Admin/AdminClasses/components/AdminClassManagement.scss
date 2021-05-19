@@ -3,7 +3,7 @@ $mainColour: #FF6584;
 $mainColour-dark: #F84574;
 
 .single-class {
-  margin: 0 10%;
+  margin: 0 9%;
   button {
     background-color: $mainColour;
     color: white;
@@ -43,7 +43,7 @@ $mainColour-dark: #F84574;
     hr{
       width: 100%;
     }
-    
+
     .participants-container{
       grid-column: 1;
       grid-row: 1;
@@ -117,4 +117,3 @@ $mainColour-dark: #F84574;
     }
   }
 }
-
