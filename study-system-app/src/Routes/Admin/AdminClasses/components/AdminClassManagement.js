@@ -8,9 +8,9 @@ import {AutoSort, RandSort} from "../../../../Sort/student_sort.js";
 
 // Using history in props for routing to different components
 const AdminClassManagement = (props) => {
-  
+
   const db = firebase.firestore();
-  
+
   var studentClass = [];
   var groupsArray = [];
 
@@ -19,10 +19,10 @@ const AdminClassManagement = (props) => {
     var studentArray = [];
       db.collection("users").get().then((funct) => {
         funct.forEach((doc) => {
-          studentArray.push([doc.data().name, 
-          doc.data().access, 
-          [doc.data().course, doc.data().major], 
-          [doc.data().topics[0], doc.data().topics[1], doc.data().topics[2]], 
+          studentArray.push([doc.data().name,
+          doc.data().access,
+          [doc.data().course, doc.data().major],
+          [doc.data().topics[0], doc.data().topics[1], doc.data().topics[2]],
           [doc.data().availability[0], doc.data().availability[1], doc.data().availability[2], doc.data().availability[3], doc.data().availability[4], doc.data().availability[5], doc.data().availability[6]]]);
         });
       });
@@ -90,7 +90,7 @@ const AdminClassManagement = (props) => {
 
   async function runRandomSort() {
     studentClass = await createStudentArray();
-    var groups = RandSort(studentClass, 3);
+    var groups = RandSort(studentClass, 5);
 
     var inGroup = false;
     var i, n;
@@ -146,19 +146,33 @@ const AdminClassManagement = (props) => {
   async function listgroups() {
     groupsArray = await readGroups();
     studentClass = await createStudentArray();
-    var i;
+    var i, n;
     for (i = 0; i<groupsArray.length; i++) {
       var li = document.createElement("li");
-      var inputValue = groupsArray[i];
+      var inputValue = "GROUP: " + i;
       var t = document.createTextNode(inputValue);
       li.appendChild(t);
-      document.getElementById("studentUL").appendChild(li);
+      document.getElementById("groupUL").appendChild(li);
+      for (n = 0; n<groupsArray[i].length; n++) {
+        if (groupsArray[i][n] != undefined) {
+          var li = document.createElement("li");
+          var inputValue = groupsArray[i][n];
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          document.getElementById("groupUL").appendChild(li);
+        } else {
+          var li = document.createElement("li");
+          var inputValue = "Free Space";
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          document.getElementById("groupUL").appendChild(li);
+        }
+      }
     }
   }
 
   listStudents();
   listgroups()
-  runAutoSort();
 
 
 return (
@@ -198,8 +212,8 @@ return (
         <div className="heading">
           <h2>Groups</h2>
           <div className="button-container">
-            <Button className="edit-btn">Edit</Button>
-            <Button className="add-btn">+</Button>
+            <Button className="edit-btn" onClick={() => runAutoSort()}>Automatic</Button>
+            <Button className="add-btn " onClick={() => runRandomSort()}>Random</Button>
           </div>
         </div>
         <hr/>
