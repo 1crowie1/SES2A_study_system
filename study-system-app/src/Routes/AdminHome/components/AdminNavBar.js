@@ -134,11 +134,11 @@ const AdminNavBar = (props) => {
                           </div>
                         }
                     >
-                      <Dropdown.Item>
+                      {/* <Dropdown.Item>
                         <i> <a href={'/#'} className="dropdown-item">
                           Profile
                         </a></i>
-                      </Dropdown.Item>
+                      </Dropdown.Item> */}
                       <Dropdown.Item>
                         <i> <a href={'/#'} className="dropdown-item">
                           Logout
