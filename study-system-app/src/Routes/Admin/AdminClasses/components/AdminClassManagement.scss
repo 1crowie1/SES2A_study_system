@@ -50,11 +50,21 @@ $mainColour-dark: #F84574;
       display: grid;
       row-gap: 20%;
       .listview-container{
-        max-height: 500px;
+        max-height: 300px;
+        width: 85%;
+        margin: 8% 0;
+
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        border: 2px solid $mainColour;
         .listview{
           width: 100%;
-          margin-top: 8%;
         }
+      }
+      .listview-container::-webkit-scrollbar{
+        display: none;
       }
     }
     .groups-container{
