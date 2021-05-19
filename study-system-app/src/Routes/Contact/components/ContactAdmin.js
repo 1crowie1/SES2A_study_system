@@ -21,8 +21,7 @@ const ContactAdmin = (props) => {
       db.collection("requests").doc().set({
         studentName: doc.data().name,
         studentEmail: doc.data().email,
-        requestText: inputVal,
-        createdAt : firebase.firestore.FieldValue.serverTimestamp()
+        requestText: inputVal
       }, {merge: true});
 
     });

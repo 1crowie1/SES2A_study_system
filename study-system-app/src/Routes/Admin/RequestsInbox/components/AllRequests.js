@@ -8,26 +8,28 @@ import { render } from "react-dom";
 
 // Using history in props for routing to different components
 const AllRequests = (props) => {
+
   const db = firebase.firestore();
 
   var requests = [{id: 42423, name: 'justin carlino', email: 'justin.carlino0309@gmail.com', text: 'hello'}];
-
-
+  
+function test () {
   db.collection("requests")
-    .get()
-    .then((funct) => {
-      funct.forEach((doc) => {
-        requests.push({
-          id: doc.id,
-          name: doc.data().studentName,
-          email: doc.data().studentEmail,
-          text: doc.data().requestText,
-        });
-        console.log(doc.data().studentName);
+  .get()
+  .then((funct) => {
+    funct.forEach((doc) => {
+      requests.push({
+        id: doc.id,
+        name: doc.data().studentName,
+        email: doc.data().studentEmail,
+        text: doc.data().requestText,
       });
     });
-  
-  console.log("end");
+  });
+};
+
+test();
+
 
   const renderCard = (card, index) => {
     return (
@@ -41,7 +43,6 @@ const AllRequests = (props) => {
       </Card>
     );
   };
-
 
   return (
     <React.Fragment>
