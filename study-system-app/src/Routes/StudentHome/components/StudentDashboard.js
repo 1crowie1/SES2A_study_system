@@ -4,6 +4,7 @@ import {Card, Button} from "react-bootstrap";
 import CardBackground from "../../../Assets/class-background.jpg";
 import "./StudentDashboard.scss";
 import firebase from 'firebase';
+// import pdfDownload from '../../PDFDownload'
 
 // Using history in props for routing to different components
 const StudentDashboard = (props) => {
@@ -38,13 +39,17 @@ const StudentDashboard = (props) => {
 
   setTimeout(() => {  readData(); }, 700);
 
+  function pdfDownload(){
+    props.history.push('/PDFDownload')
+  }
+
   return (
     <React.Fragment>
     <div class="student-dashboard">
       <div className="heading">
         <h1>{name}'s Dashboard</h1>
         <div className="button-container>">
-            <Button onClick={}>PDF Download</Button>
+            <Button onClick={ () => pdfDownload() }>PDF Download</Button>
         </div>
       </div>
       <hr />
