@@ -174,8 +174,8 @@ return (
         <div className="heading">
           <h2>Groups</h2>
           <div className="button-container">
-            <Button className="edit-btn" onClick={runAutoSort()}>Automatic</Button>
-            <Button className="add-btn " onClick={runRandomSort()}>Random</Button>
+            <Button className="edit-btn" onClick={() => runAutoSort()}>Automatic</Button>
+            <Button className="add-btn " onClick={() => runRandomSort()}>Random</Button>
           </div>
         </div>
         <hr/>
