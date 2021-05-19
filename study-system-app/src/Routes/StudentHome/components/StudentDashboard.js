@@ -44,7 +44,7 @@ const StudentDashboard = (props) => {
       <div className="heading">
         <h1>{name}'s Dashboard</h1>
         <div className="button-container>">
-            <Button>PDF Download</Button>
+            <Button onClick={}>PDF Download</Button>
         </div>
       </div>
       <hr />
