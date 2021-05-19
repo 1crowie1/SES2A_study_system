@@ -20,7 +20,7 @@ const AdminLoginForm = (props) => {
       .onSnapshot((doc) => {
         if (doc.data().access == true) {
           console.log(res.user)
-          props.history.push("/AdminHome");
+          props.history.push("/ClassManagement");
         } else {
           console.log('invalid account access')
         }
