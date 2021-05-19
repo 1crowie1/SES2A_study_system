@@ -79,7 +79,7 @@ const StudentDashboard = (props) => {
   }
 
   listgroups();
- 
+
   return (
     <React.Fragment>
     <div class="student-dashboard">
@@ -108,8 +108,8 @@ const StudentDashboard = (props) => {
         Studying: {courseRead}
       </Card>
     </div>
-    <div>
-      <Card>
+    <div className="group-container">
+      <Card className="group">
         <ul id="groupUL"></ul>
       </Card>
     </div>

@@ -36,3 +36,14 @@ $mainColour: #4267B2;
 .subject{
      margin-top: 1%;
 }
+.group-container{
+//  width: 100%;
+  margin: 1% 9% 10%;
+
+  .group{
+    ul{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
