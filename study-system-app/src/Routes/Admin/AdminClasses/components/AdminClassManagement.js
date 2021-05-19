@@ -50,9 +50,29 @@ const AdminClassManagement = (props) => {
       inGroup = false;
     }
 
-    // delete all groups currently in the database
-    // add all generated groups to the database
+    for (n = 0; n<groups.length; n++) {
+      var name = [];
+      db.collection("groups").doc(n + '').set({studentName: 'hi'}, {merge: true});
+      for (i = 0; i<groups[n].length; i++) {
+        if (groups[n][i] > -1) {
+          name.push(-1);
+        }
+      }
+      db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
+    }
+
+    for (n = 0; n<groups.length; n++) {
+      var name = [];
+      db.collection("groups").doc(n + '').set({studentName: 'hi'}, {merge: true});
+      for (i = 0; i<groups[n].length; i++) {
+        if (groups[n][i] > -1) {
+          name.push(studentClass[groups[n][i]][0]);
+        }
+      }
+      db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
+    }
   }
+
 
   async function runRandomSort() {
     studentClass = await createStudentArray();
@@ -72,10 +92,28 @@ const AdminClassManagement = (props) => {
       }
       inGroup = false;
 
-      // delete all groups currently in the database
-      // add all generated groups to the database
+      for (n = 0; n<groups.length; n++) {
+        var name = [];
+        db.collection("groups").doc(n + '').set({studentName: 'hi'}, {merge: true});
+        for (i = 0; i<groups[n].length; i++) {
+          if (groups[n][i] > -1) {
+            name.push(-1);
+          }
+        }
+        db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
+      }
+  
+      for (n = 0; n<groups.length; n++) {
+        var name = [];
+        db.collection("groups").doc(n + '').set({studentName: 'hi'}, {merge: true});
+        for (i = 0; i<groups[n].length; i++) {
+          if (groups[n][i] > -1) {
+            name.push(studentClass[groups[n][i]][0]);
+          }
+        }
+        db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
+      }
     }
-
   }
 
   async function listStudents() {
