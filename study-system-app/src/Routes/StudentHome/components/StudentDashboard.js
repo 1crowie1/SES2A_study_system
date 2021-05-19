@@ -38,6 +38,48 @@ const StudentDashboard = (props) => {
 
   setTimeout(() => {  readData(); }, 700);
 
+  async function readGroups() {
+    return new Promise((resolve, reject) => {
+      var groups = [];
+        db.collection("groups").get().then((funct) => {
+          funct.forEach((doc) => {
+            groups.push([doc.data().studentName[0], doc.data().studentName[1], doc.data().studentName[2]]);
+          });
+        });
+        setTimeout(() => {resolve(groups)}, 1000);
+      })
+  }
+
+
+  async function listgroups() {
+    var groupsArray = await readGroups();
+    var i, n;
+    for (i = 0; i<groupsArray.length; i++) {
+      var li = document.createElement("li");
+      var inputValue = "GROUP: " + i;
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      document.getElementById("groupUL").appendChild(li);
+      for (n = 0; n<groupsArray[i].length; n++) {
+        if (groupsArray[i][n] != undefined) {
+          var li = document.createElement("li");
+          var inputValue = groupsArray[i][n];
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          document.getElementById("groupUL").appendChild(li);
+        } else {
+          var li = document.createElement("li");
+          var inputValue = "Free Space";
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          document.getElementById("groupUL").appendChild(li);
+        }
+      }
+    }
+  }
+
+  listgroups();
+ 
   return (
     <React.Fragment>
     <div class="student-dashboard">
@@ -64,6 +106,11 @@ const StudentDashboard = (props) => {
       </Card> */}
       <Card className="subject">
         Studying: {courseRead}
+      </Card>
+    </div>
+    <div>
+      <Card>
+        <ul id="groupUL"></ul>
       </Card>
     </div>
     </React.Fragment>
