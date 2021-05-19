@@ -12,6 +12,7 @@ const AdminClassManagement = (props) => {
   const db = firebase.firestore();
   
   var studentClass = [];
+  var groupsArray = [];
 
   async function createStudentArray() {
     return new Promise((resolve, reject) => {
@@ -29,10 +30,23 @@ const AdminClassManagement = (props) => {
     })
   }
 
+  async function readGroups() {
+    return new Promise((resolve, reject) => {
+      var groups = [];
+        db.collection("groups").get().then((funct) => {
+          funct.forEach((doc) => {
+            groups.push([doc.data().studentName[0], doc.data().studentName[1], doc.data().studentName[2]]);
+          });
+        });
+        setTimeout(() => {resolve(groups)}, 1000);
+      })
+  }
+
   // once below is done... add reading groups from the database to reading all the students above ^^
 
   async function runAutoSort() {
     studentClass = await createStudentArray();
+    groupsArray = await readGroups();
     var groups = AutoSort(studentClass, 3);
 
     var inGroup = false;
@@ -118,6 +132,7 @@ const AdminClassManagement = (props) => {
 
   async function listStudents() {
     studentClass = await createStudentArray();
+    groupsArray = await readGroups();
     var i;
     for (i = 0; i<studentClass.length; i++) {
       var li = document.createElement("li");
@@ -129,11 +144,20 @@ const AdminClassManagement = (props) => {
   }
 
   async function listgroups() {
+    groupsArray = await readGroups();
     studentClass = await createStudentArray();
-    
+    var i;
+    for (i = 0; i<groupsArray.length; i++) {
+      var li = document.createElement("li");
+      var inputValue = groupsArray[i];
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      document.getElementById("studentUL").appendChild(li);
+    }
   }
 
   listStudents();
+  listgroups()
   runAutoSort();
 
 
