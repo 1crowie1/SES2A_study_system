@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import {Card, Button} from "react-bootstrap";
 import CardBackground from "../../../Assets/class-background.jpg";
@@ -8,54 +8,63 @@ import firebase from 'firebase';
 // Using history in props for routing to different components
 const StudentDashboard = (props) => {
 
-var user = firebase.auth().currentUser;
+  var user = firebase.auth().currentUser;
+  const db = firebase.firestore();
 
-// if (user != null) {
-//   user.providerData.forEach(function (profile) {
-//     console.log("Sign-in provider: " + profile.providerId);
-//     console.log("  Provider-specific UID: " + profile.uid);
-//     console.log("  Name: " + profile.displayName);
-//     console.log("  Email: " + profile.email);
-//     console.log("  Photo URL: " + profile.photoURL);
-//   });
-// }
+  var name, email, photoUrl, uid, emailVerified;
+  if (user != null) {
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                    // this value to authenticate with your backend server, if
+                    // you have one. Use User.getToken() instead.
+  }
 
-// var name, email, photoUrl, uid, emailVerified;
+  const [courseValue, setCourseValue]=useState('Select Course');
+  const handleCourseSelect=(e)=>{
+    setCourseValue(e)
+  }
 
-// if (user != null) {
-//   name = user.displayName;
-//   email = user.email;
-//   photoUrl = user.photoURL;
-//   emailVerified = user.emailVerified;
-//   uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-//                    // this value to authenticate with your backend server, if
-//                    // you have one. Use User.getToken() instead.
-// }
+  const[courseRead, setCourseRead] = useState([]);
 
-return (
-  <React.Fragment>
-  <div class="student-dashboard">
-    <h1>Dashboard</h1>
-    <hr />
-    <Card style={{ width: '18rem' }}
-          className="subject"
-          onClick={() => props.history.push("/GroupHome")}
-          >
-      <Card.Img
-      className="class-card-img"
-        variant="top"
-        alt=""
-        height="180px"
-        src={CardBackground} />
-        <Card.Body>
-            <Card.Text>
-              48023 Programming Fundamentals
-          </Card.Text>
-      </Card.Body>
-    </Card>
-  </div>
-  </React.Fragment>
-);
+  function readData(){
+    const user = firebase.auth().currentUser;
+    db.collection("users").doc(user.uid)
+    .onSnapshot((doc) => {
+      setCourseRead(doc.data().course)});
+  }
+
+  setTimeout(() => {  readData(); }, 700);
+
+  return (
+    <React.Fragment>
+    <div class="student-dashboard">
+      <h1>{name}'s Dashboard</h1>
+      <hr />
+      {/* <Card style={{ width: '18rem' }}
+            className="subject"
+            onClick={() => props.history.push("/GroupHome")}
+            >
+        <Card.Img
+        className="class-card-img"
+          variant="top"
+          alt=""
+          height="180px"
+          src={CardBackground} />
+          <Card.Body>
+              <Card.Text>
+                48023 Programming Fundamentals
+            </Card.Text>
+        </Card.Body>
+      </Card> */}
+      <Card>
+        Studying: {courseRead}
+      </Card>
+    </div>
+    </React.Fragment>
+  );
 };
 
 // Wrapping Navbar in a withRouter function in order to give it access to

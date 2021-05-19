@@ -95,11 +95,11 @@ const StudentNavBar = (props) => {
                         Dashboard
                       </a></i>
                     </Dropdown.Item>
-                    <Dropdown.Item>
+                    {/* <Dropdown.Item>
                       <i> <a onClick={() => props.history.push("/GroupHome")} className="dropdown-item">
                         Groups
                       </a></i>
-                    </Dropdown.Item>
+                    </Dropdown.Item> */}
                     <Dropdown.Item>
                       <i> <a onClick={() => props.history.push("/Contact")} className="dropdown-item">
                         Contact
@@ -138,11 +138,11 @@ const StudentNavBar = (props) => {
                     Dashboard
                   </NavLink>
 
-                  <NavLink className="page-btn"
+                  {/* <NavLink className="page-btn"
                            onClick={() => props.history.push("/GroupHome")}
                            color="inherit" >
                     Groups
-                  </NavLink>
+                  </NavLink> */}
 
                   <NavLink className="page-btn"
                            onClick={() => props.history.push("/Contact")}
