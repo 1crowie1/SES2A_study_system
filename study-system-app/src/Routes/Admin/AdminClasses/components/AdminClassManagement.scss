@@ -59,7 +59,7 @@ $mainColour-dark: #F84574;
         -ms-overflow-style: none;
         scrollbar-width: none;
 
-        border: 2px solid $mainColour;
+        border: 2px solid rgba(255, 101, 132, .15);
         .listview{
           width: 100%;
         }
