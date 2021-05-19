@@ -146,19 +146,33 @@ const AdminClassManagement = (props) => {
   async function listgroups() {
     groupsArray = await readGroups();
     studentClass = await createStudentArray();
-    var i;
+    var i, n;
     for (i = 0; i<groupsArray.length; i++) {
       var li = document.createElement("li");
-      var inputValue = groupsArray[i];
+      var inputValue = "GROUP: " + i;
       var t = document.createTextNode(inputValue);
       li.appendChild(t);
-      document.getElementById("studentUL").appendChild(li);
+      document.getElementById("groupUL").appendChild(li);
+      for (n = 0; n<groupsArray[i].length; n++) {
+        if (groupsArray[i][n] != -1) {
+          var li = document.createElement("li");
+          var inputValue = groupsArray[i][n];
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          document.getElementById("groupUL").appendChild(li);
+        } else {
+          var li = document.createElement("li");
+          var inputValue = "Free Space";
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          document.getElementById("groupUL").appendChild(li);
+        }
+      }
     }
   }
 
   listStudents();
   listgroups()
-  runAutoSort();
 
 
 return (
