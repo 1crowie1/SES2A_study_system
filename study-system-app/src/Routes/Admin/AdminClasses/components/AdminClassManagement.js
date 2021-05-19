@@ -217,10 +217,12 @@ return (
           </div>
         </div>
         <hr/>
-        <div className="listview">
-          {/* Lists groups created by admin users for this class */}
-          <ul id="unallocatedStudentUL"></ul>
-          <ul id="groupUL"></ul>
+        <div className="listview-container">
+          <div className="listview">
+            {/* Lists groups created by admin users for this class */}
+            <ul id="unallocatedStudentUL"></ul>
+            <ul id="groupUL"></ul>
+          </div>
         </div>
       </div>
     </div>

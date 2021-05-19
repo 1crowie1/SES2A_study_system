@@ -43,34 +43,37 @@ $mainColour-dark: #F84574;
     hr{
       width: 100%;
     }
+    .listview-container{
+      width: 85%;
+      height: 100%;
+      margin: 8% 0;
 
+      overflow-y: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      border: 2px solid rgba(255, 101, 132, .15);
+      .listview{
+        width: 100%;
+      }
+    }
+    .listview-container::-webkit-scrollbar{
+      display: none;
+    }
     .participants-container{
       grid-column: 1;
       grid-row: 1;
       display: grid;
       row-gap: 5%;
-      .listview-container{
+      .student-container{
         max-height: 300px;
-        column-span: 2;
-        width: 85%;
-        margin: 8% 0;
-
-        overflow-y: scroll;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-
-        border: 2px solid rgba(255, 101, 132, .15);
-        .listview{
-          width: 100%;
-        }
-      }
-      .listview-container::-webkit-scrollbar{
-        display: none;
       }
     }
     .groups-container{
+      max-height: 400px;
       grid-column: 1;
       grid-row: 2;
+      margin-bottom: 5%;
       .heading{
         display: grid;
         h1{
@@ -82,9 +85,9 @@ $mainColour-dark: #F84574;
           display: flex;
           button{
             display: inline-block;
-            font-size: 17px;
+            font-size: 14px;
             padding: 0em 1em;
-            margin: -0.5em 10% 0 10%;
+            margin: -0.5em 5% 0 5%;
           }
         }
       }
