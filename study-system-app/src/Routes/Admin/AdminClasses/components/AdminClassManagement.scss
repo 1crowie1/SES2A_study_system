@@ -43,14 +43,19 @@ $mainColour-dark: #F84574;
     hr{
       width: 100%;
     }
-    .listview{
-      width: 100%;
-    }
+    
     .participants-container{
       grid-column: 1;
       grid-row: 1;
       display: grid;
       row-gap: 20%;
+      .listview-container{
+        max-height: 500px;
+        .listview{
+          width: 100%;
+          margin-top: 8%;
+        }
+      }
     }
     .groups-container{
       grid-column: 1;

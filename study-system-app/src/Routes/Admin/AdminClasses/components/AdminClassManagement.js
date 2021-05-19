@@ -123,9 +123,11 @@ return (
         <div className="student-container">
           <h2>Students</h2>
           <hr/>
-          <div className="listview">
-            {/* Lists student users related to the class */}
-            <ul id="studentUL"></ul>
+          <div className="listview-container">
+            <div className="listview">
+              {/* Lists student users related to the class */}
+              <ul id="studentUL"></ul>
+            </div>
           </div>
         </div>
       </div>
