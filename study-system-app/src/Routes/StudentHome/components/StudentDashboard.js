@@ -49,8 +49,7 @@ const StudentDashboard = (props) => {
         setTimeout(() => {resolve(groups)}, 1000);
       })
   }
-
-
+  
   async function listgroups() {
     var groupsArray = await readGroups();
     var i, n;

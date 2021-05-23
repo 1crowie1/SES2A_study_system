@@ -156,11 +156,12 @@ const AdminClassManagement = (props) => {
     var i, n;
     for (i = 0; i<groupsArray.length; i++) {
       var li = document.createElement("li");
-      var inputValue = "GROUP: " + (i+1);
+      var inputValue = "GROUP " + (i+1) + ":";
       var t = document.createTextNode(inputValue);
       li.appendChild(t);
       document.getElementById("groupUL").appendChild(li);
       inputValue = "";
+      
       for (n = 0; n<groupsArray[i].length; n++) {
         if (groupsArray[i][n] != undefined) {
           inputValue = inputValue + groupsArray[i][n];
