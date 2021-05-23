@@ -4,7 +4,8 @@ import "./AdminClassManagement.scss";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import firebase from "firebase";
-import {AutoSort, RandSort} from "../../../../Sort/student_sort.js";
+import {AutoSort} from "../../../../Sort/student_sort.js";
+import {RandSort} from "../../../../Sort/student_sort.js";
 
 // Using history in props for routing to different components
 const AdminClassManagement = (props) => {
@@ -46,7 +47,7 @@ const AdminClassManagement = (props) => {
 
   async function runAutoSort() {
     studentClass = await createStudentArray();
-    groupsArray = await readGroups();
+    console.log("RUNNING AUTOMATIC SORT");
     var groups = AutoSort(studentClass, 3);
 
     var inGroup = false;
@@ -85,12 +86,15 @@ const AdminClassManagement = (props) => {
       }
       db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
     }
+
+    setTimeout(() => {  window.location.reload(); }, 2000);
   }
 
 
   async function runRandomSort() {
     studentClass = await createStudentArray();
-    var groups = RandSort(studentClass, 5);
+    console.log("RUNNING RANDOM SORT");
+    var groups = RandSort(studentClass, 3);
 
     var inGroup = false;
     var i, n;
@@ -105,29 +109,31 @@ const AdminClassManagement = (props) => {
         notInGroup.push(i);
       }
       inGroup = false;
-
-      for (n = 0; n<groups.length; n++) {
-        var name = [];
-        db.collection("groups").doc(n + '').set({studentName: 'hi'}, {merge: true});
-        for (i = 0; i<groups[n].length; i++) {
-          if (groups[n][i] > -1) {
-            name.push(-1);
-          }
-        }
-        db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
-      }
-  
-      for (n = 0; n<groups.length; n++) {
-        var name = [];
-        db.collection("groups").doc(n + '').set({studentName: 'hi'}, {merge: true});
-        for (i = 0; i<groups[n].length; i++) {
-          if (groups[n][i] > -1) {
-            name.push(studentClass[groups[n][i]][0]);
-          }
-        }
-        db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
-      }
     }
+
+    for (n = 0; n<groups.length; n++) {
+      var name = [];
+      db.collection("groups").doc(n + '').set({studentName: 'hi'}, {merge: true});
+      for (i = 0; i<groups[n].length; i++) {
+        if (groups[n][i] > -1) {
+          name.push(-1);
+        }
+      }
+      db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
+    }
+  
+    for (n = 0; n<groups.length; n++) {
+      var name = [];
+      db.collection("groups").doc(n + '').set({studentName: 'hi'}, {merge: true});
+      for (i = 0; i<groups[n].length; i++) {
+        if (groups[n][i] > -1) {
+          name.push(studentClass[groups[n][i]][0]);
+        }
+      }
+      db.collection("groups").doc(n + '').set({ studentName: name}, {merge: true});
+    }
+
+    setTimeout(() => {  window.location.reload(); }, 2000);
   }
 
   async function listStudents() {
@@ -143,39 +149,41 @@ const AdminClassManagement = (props) => {
     }
   }
 
+  var inputValue;
   async function listgroups() {
     groupsArray = await readGroups();
     studentClass = await createStudentArray();
     var i, n;
     for (i = 0; i<groupsArray.length; i++) {
       var li = document.createElement("li");
-      var inputValue = "GROUP: " + i;
+      var inputValue = "GROUP: " + (i+1);
       var t = document.createTextNode(inputValue);
       li.appendChild(t);
       document.getElementById("groupUL").appendChild(li);
+      inputValue = "";
       for (n = 0; n<groupsArray[i].length; n++) {
         if (groupsArray[i][n] != undefined) {
-          var li = document.createElement("li");
-          var inputValue = groupsArray[i][n];
-          var t = document.createTextNode(inputValue);
-          li.appendChild(t);
-          document.getElementById("groupUL").appendChild(li);
+          inputValue = inputValue + groupsArray[i][n];
         } else {
-          var li = document.createElement("li");
-          var inputValue = "Free Space";
-          var t = document.createTextNode(inputValue);
-          li.appendChild(t);
-          document.getElementById("groupUL").appendChild(li);
+          inputValue = inputValue + "FREE SPACE";
+        }
+        if (n != groupsArray[i].length-1) {
+          inputValue = inputValue + " - ";
         }
       }
+      var li = document.createElement("li");
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      document.getElementById("groupUL").appendChild(li);
+      
     }
   }
 
+  //runAutoSort();
   listStudents();
   listgroups();
-  //runAutoSort();
   //runRandomSort();
-
+  //runAutoSort();
 
 return (
   <React.Fragment>
@@ -214,8 +222,8 @@ return (
         <div className="heading">
           <h2>Groups</h2>
           <div className="button-container">
-            <Button className="edit-btn" >Automatic</Button>
-            <Button className="add-btn " >Random</Button>
+            <Button className="edit-btn" onClick={() => runAutoSort()}>Automatic</Button>
+            <Button className="add-btn " onClick={() => runRandomSort()}>Random</Button>
           </div>
         </div>
         <hr/>

@@ -2,6 +2,13 @@
 $mainColour: #FF6584;
 $mainColour-dark: #F84574;
 
+ul {
+  list-style-type: none;
+  justify-self: center;
+  float: center;
+  row-gap: 1000%;
+}
+
 .single-class {
   margin: 0 9%;
   button {

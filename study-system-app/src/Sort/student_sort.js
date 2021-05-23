@@ -63,7 +63,6 @@ This is then used to randomly arrange students into groups of ~groupSize~
 var i, n, o, p, q, k, studentGraph, unranked, rank, groups, lowesti, lowestn, highest, found, ungrouped, ingroup, outputStatement;
 
 
-
 export function RandSort(studentClass, groupSize) {
     outputStatement = "";
     studentGraph = new Array(studentClass.length);
@@ -672,7 +671,6 @@ export function AutoSort(studentClass, groupSize) {
     for (i=0; i<groups.length; i++) {
         console.log("Group ", (i+1)+"", " is ", groups[i]);
     }
-
 
     return groups;
 }
