@@ -6,6 +6,8 @@ $mainColour: #4267B2;
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
 }
+
+
 .student-dashboard {
   margin: 0 9%;
   .subject{
@@ -42,8 +44,10 @@ $mainColour: #4267B2;
 
   .group{
     ul{
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      list-style-type: none;
+      justify-self: center;
+      float: center;
+      row-gap: 1000%;
     }
   }
 }

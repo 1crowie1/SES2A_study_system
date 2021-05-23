@@ -49,31 +49,33 @@ const StudentDashboard = (props) => {
         setTimeout(() => {resolve(groups)}, 1000);
       })
   }
-  
+
   async function listgroups() {
     var groupsArray = await readGroups();
     var i, n;
     for (i = 0; i<groupsArray.length; i++) {
       var li = document.createElement("li");
-      var inputValue = "GROUP: " + i;
+      var inputValue = "GROUP " + (i+1) + ":";
       var t = document.createTextNode(inputValue);
       li.appendChild(t);
       document.getElementById("groupUL").appendChild(li);
+      inputValue = "";
+      
       for (n = 0; n<groupsArray[i].length; n++) {
         if (groupsArray[i][n] != undefined) {
-          var li = document.createElement("li");
-          var inputValue = groupsArray[i][n];
-          var t = document.createTextNode(inputValue);
-          li.appendChild(t);
-          document.getElementById("groupUL").appendChild(li);
+          inputValue = inputValue + groupsArray[i][n];
         } else {
-          var li = document.createElement("li");
-          var inputValue = "Free Space";
-          var t = document.createTextNode(inputValue);
-          li.appendChild(t);
-          document.getElementById("groupUL").appendChild(li);
+          inputValue = inputValue + "FREE SPACE";
+        }
+        if (n != groupsArray[i].length-1) {
+          inputValue = inputValue + " - ";
         }
       }
+      var li = document.createElement("li");
+      var t = document.createTextNode(inputValue);
+      li.appendChild(t);
+      document.getElementById("groupUL").appendChild(li);
+      
     }
   }
 
@@ -108,9 +110,11 @@ const StudentDashboard = (props) => {
       </Card>
     </div>
     <div className="group-container">
-      <Card className="group">
-        <ul id="groupUL"></ul>
-      </Card>
+        <div>
+          <Card className="group">
+          `<ul id="groupUL"></ul>
+          </Card>
+        </div>
     </div>
     </React.Fragment>
   );
